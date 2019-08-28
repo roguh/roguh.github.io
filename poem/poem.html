@@ -1,0 +1,175 @@
+<html lang="en">
+<head>
+<title>love poem</title>
+<!-- inspired by https://secretgeek.github.io/html_wysiwyg/html.html -->
+<!--
+colors https://paletton.com/#uid=55y0u0knMtZ7TrOfKu6AqzBP8uC
+
+*** Primary color:
+
+   shade 0 = #E33A52 = rgb(227, 58, 82) = rgba(227, 58, 82,1) = rgb0(0.89,0.227,0.322)
+   shade 1 = #D39FA6 = rgb(211,159,166) = rgba(211,159,166,1) = rgb0(0.827,0.624,0.651)
+   shade 2 = #E47483 = rgb(228,116,131) = rgba(228,116,131,1) = rgb0(0.894,0.455,0.514)
+   shade 3 = #F40022 = rgb(244,  0, 34) = rgba(244,  0, 34,1) = rgb0(0.957,0,0.133)
+   shade 4 = #E80020 = rgb(232,  0, 32) = rgba(232,  0, 32,1) = rgb0(0.91,0,0.125)
+
+*** Secondary color (1):
+
+   shade 0 = #EF833D = rgb(239,131, 61) = rgba(239,131, 61,1) = rgb0(0.937,0.514,0.239)
+   shade 1 = #DEBCA7 = rgb(222,188,167) = rgba(222,188,167,1) = rgb0(0.871,0.737,0.655)
+   shade 2 = #F0A87A = rgb(240,168,122) = rgba(240,168,122,1) = rgb0(0.941,0.659,0.478)
+   shade 3 = #FF6400 = rgb(255,100,  0) = rgba(255,100,  0,1) = rgb0(1,0.392,0)
+   shade 4 = #F46000 = rgb(244, 96,  0) = rgba(244, 96,  0,1) = rgb0(0.957,0.376,0)
+
+*** Secondary color (2):
+
+   shade 0 = #B52E8C = rgb(181, 46,140) = rgba(181, 46,140,1) = rgb0(0.71,0.18,0.549)
+   shade 1 = #A77E9B = rgb(167,126,155) = rgba(167,126,155,1) = rgb0(0.655,0.494,0.608)
+   shade 2 = #B55C9A = rgb(181, 92,154) = rgba(181, 92,154,1) = rgb0(0.71,0.361,0.604)
+   shade 3 = #C8008B = rgb(200,  0,139) = rgba(200,  0,139,1) = rgb0(0.784,0,0.545)
+   shade 4 = #B80081 = rgb(184,  0,129) = rgba(184,  0,129,1) = rgb0(0.722,0,0.506)
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  padding: 1em;
+}
+
+a, a:visited {
+  color: #B80081;
+}
+
+a::before, a::after {
+  color: rgba(184, 0, 129, 0.25);
+}
+
+.heartbeat {
+  background: #E40010;
+  border-radius: 3px;
+  border: 2px #E80020 solid;
+  color: white;
+}
+
+html::before {content:'<html>'}
+html::after {content:'</html>'}
+head::before {content:'<head>'}
+head::after {content:'</head>'}
+title::before {content:'<title>'}
+title::after {content:'</title>'}
+body::before {content:'<body>'}
+body::after {content:'</body>'}
+h1::before {content:'<h1>'}
+h1::after {content:'</h1>'}
+h2::before {content:'<h2>'}
+h2::after {content:'</h2>'}
+p::before {content:'<p>'}
+p::after {content:'</p>'}
+pre::before {content:'<pre>'}
+pre::after {content:'</pre>'}
+code::before {content:'<code>'}
+code::after {content:'</code>'}
+a::before {content:'<a>'}
+a::after {content:'</a>'}
+aside::before {content:'<aside>'}
+aside::after {content:'</aside>'}
+blockquote::before {content:'<blockquote>'}
+blockquote::after {content:'</blockquote>'}
+em::before {content:'<em>'}
+em::after {content:'</em>'}
+strong::before {content:'<strong>'}
+strong::after {content:'</strong>'}
+script::before {content:'<script>'}
+script::after {content:'</script>'}
+
+
+body * {
+  display: block;
+}
+
+script {
+  font-family: monospace;
+  color: #B55C9A;
+}
+
+a, span, code, em, strong {
+  display: inline
+}
+
+*::before, *::after {
+  color: rgba(228, 116, 131, 0.25);
+  font-weight: 100;
+}
+
+.heartbeat {
+	transition: background-color 0.5s ease
+}
+
+#xochitl {
+  margin-left: 2em;
+	width: 72px;
+}
+
+</style>
+</head>
+
+<body>
+<h2>Hey Loris,</h2>
+
+<p>I picked a flower for you:</p>
+
+<img id='xochitl' width=96 alt='xochitl' src="xochitl.svg" />
+
+<p>
+Mí <a href='https://aulex.org/nah-es/?busca=corazon'>KOSKAYOLOTL</a>,
+eras
+<span class='heartbeat heartbeat-0'>mío</span>
+<span class='heartbeat heartbeat-1'>mío</span>
+<span class='heartbeat heartbeat-2'>mío</span>.
+</p>
+
+<p>For now, just in my dreams <strong class='swap'>I hunt you</strong>, <strong class='swap'>you hunt me</strong>.</p>
+
+<script type='text/javascript' src='anime.min.js'></script>
+
+<script>
+  var n = 3;
+  var d = 1000;
+  (new Array(n)).fill(0).map(function(_, i) {
+    anime({
+      targets: '.heartbeat-' + i,
+      backgroundColor: '#FF0000',
+      duration: d,
+      delay: (d / n) * (i + 1),
+      loop: true
+    })
+  });
+</script>
+
+</body>
+</html>
