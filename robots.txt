@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: https://roguh.github.iositemap.xml
+Sitemap: https://roguh.comsitemap.xml
