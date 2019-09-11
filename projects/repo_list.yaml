@@ -1,0 +1,80 @@
+git-quick-stats:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'anxiety inducing']
+
+cuda-fft:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'math', 'FFT']
+cv-composer:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'math', 'machine learning', 'computer vision']
+email-classifier:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'math', 'machine learning']
+hopfield_tests:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'math', 'machine learning']
+
+html5seo:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'web', 'standards compliant']
+hugo-hugo-coder:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'web', 'SCSS', 'Hugo', 'Hugo theme', 'aesthetic']
+lithe:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'web', 'Hugo', 'Hugo theme', 'aesthetic']
+
+nodejs-api-starter:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'web', 'data processing', 'boilerplate']
+  date: 2019-09-10T06:08:21Z
+
+i3empty:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Linux', 'i3']
+polybar-themer:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Linux', 'i3', 'aesthetic']
+passwordstore-noise-generator:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Linux', 'cybersecurity']
+  date: 2019-09-10T08:17:05Z
+pympw:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Linux', 'cybersecurity']
+
+ansible-fwknop:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'cybersecurity', 'sysadmin', 'advanced port knocking']
+
+pandoc-resume:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'markdown', 'pandoc', 'boilerplate']
+cheatsheets:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'markdown', 'pandoc', 'boilerplate']
+  date: 2019-09-10T20:07:41Z
+
+tetris-for-two:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'aesthetics', 'fun', 'videogame']
+
+PhotoFest:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'unfinished']
+
+coolnoise:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Haskell', 'COOL lang', 'programming languages']
+  addLanguages: false
+CORE:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'Haskell', 'Core lang', 'programming languages', 'unfinished', 'standards compliant', 'interpreter', 'compiler']
+  addLanguages: false
+ocaml-lox:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'programming languages', 'standards compliant', 'interpreter']
+ocaml-parsing:
+  categories: ['programming projects']
+  tags: ['Git', 'GitHub', 'project', 'boilerplate', 'programming languages']
