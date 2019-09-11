@@ -4,14 +4,13 @@ coolnoise
 CORE
 cuda-fft
 cv-composer
-emails
+email-classifier
 git-quick-stats
 hopfield_tests
 html5seo
 hugo-hugo-coder
 i3empty
 lithe
-node-repl
 nodejs-api-starter
 ocaml-lox
 ocaml-parsing

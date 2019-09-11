@@ -12,7 +12,7 @@ summary: {summary}
 {body}
 """
 
-GITHUB_LINK_TEMPLATE = '[github.com/{0}/{0}](https://github.com/{0}/{1})'
+GITHUB_LINK_TEMPLATE = '[github.com/{0}/{1}](https://github.com/{0}/{1})'
 
 
 def markdown_link(link):
@@ -29,10 +29,10 @@ def github(route):
 def md_contents(username, project, repo=None):
     if repo is None:
         repo = github('repos/{}/{}'.format(username, project))
-        print('fetched', username, project, repo)
     date = repo['pushed_at']
     homepage = repo['homepage']
     body_contents = GITHUB_LINK_TEMPLATE.format(username, project)
+    print(username, project, date, homepage)
     if homepage is not None and len(homepage) > 0:
         body_contents += '\n\n' + markdown_link(homepage)
     content = MARKDOWN_TEMPLATE.format(
@@ -47,19 +47,21 @@ def md_contents(username, project, repo=None):
 def md_content_for_all_repos(username, *desired_repos):
     repos = github('users/{}/repos'.format(username))
     done = set()
-    print('found {} repos for user {}'.format(len(repos), username))
+    desired_repos = set(desired_repos)
     for repo in repos:
-        if repo in desired_repos:
-            project_name = repo['name']
-            print(md_contents(username, project_name, repo))
-            done.add(repo)
-    return set(desired_repos) - done
+        project_name = repo['name']
+        if project_name in desired_repos:
+            with open(project_name + '.md', 'w') as f:
+                f.write(md_contents(username, project_name, repo))
+                done.add(project_name)
+    missing = set(desired_repos) - done
+    if len(missing):
+        print('failed to process', *list(missing))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3:
-        print('generating markdown for', *sys.argv[1:])
-        print(md_contents(*sys.argv[1:]))
-    elif len(sys.argv) > 3:
+    if len(sys.argv) > 2:
         print('generating markdown for', *sys.argv[1:])
         print(md_content_for_all_repos(*sys.argv[1:]))
+    else:
+        print('USAGE: {} username [repo_name [repo_name...]]')
