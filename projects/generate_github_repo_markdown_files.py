@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import pprint
 import sys
 
 import requests
@@ -18,6 +19,7 @@ categories: {categories}
 
 GITHUB_LINK_TEMPLATE = '[github.com/{0}/{1}](https://github.com/{0}/{1})'
 
+# parse YAML dates as strings
 NoDatesSafeLoader = yaml.SafeLoader
 NoDatesSafeLoader.yaml_implicit_resolvers = {
     k: [r for r in v if r[0] != 'tag:yaml.org,2002:timestamp'] for
@@ -26,11 +28,12 @@ NoDatesSafeLoader.yaml_implicit_resolvers = {
 
 
 def markdown_link(link):
+    """Format a URL as a markdown URL."""
     return '[{}]({})'.format(link, link)
 
 
-# get a list of given user's projects
 def github(route=None, url=None):
+    """Make a request to the GitHub API."""
     r = requests.get('https://api.github.com/' + route if url is None else url,
                      headers={'Accept': 'application/vnd.github.v3+json'})
     if r.status_code > 299:
@@ -41,12 +44,12 @@ def github(route=None, url=None):
     return j
 
 
-def get_languages(url):
-    langues = github(url=url)
-    return list(langues.keys())
-
-
 def md_contents(username, project, repo=None, metadata=None):
+    """Convert a given GitHub users' project into a markdown string.
+
+    Makes requests to the GitHub API.
+    """
+
     if repo is None:
         repo = github('repos/{}/{}'.format(username, project))
     if metadata is None:
@@ -54,6 +57,11 @@ def md_contents(username, project, repo=None, metadata=None):
     date = metadata.get('date', repo['pushed_at'])
     tags = metadata.get('tags', [])
     programming_languages = metadata.get('programming_languages', None)
+
+    def get_languages(url):
+        langues = github(url=url)
+        return list(langues.keys())
+
     if metadata.get('useGithubLanguages', True) and programming_languages is None:
         programming_languages = get_languages(repo['languages_url'])
     else:
@@ -77,14 +85,18 @@ def md_contents(username, project, repo=None, metadata=None):
     return content
 
 
-def md_content_for_all_repos(username, desired_repos):
+def md_content_for_all_repos(username, desired_repos, path=''):
+    """Fetch a user's GitHub repos, convert to markdown, and write markdown
+    files to given path.
+    """
+
     repos = github('users/{}/repos'.format(username))
     done = set()
     for repo in repos:
         project_name = repo['name']
         if project_name in desired_repos:
             metadata = desired_repos[project_name] if type(desired_repos) is dict else None
-            with open(project_name + '.md', 'w') as f:
+            with open(path + project_name + '.md', 'w') as f:
                 f.write(md_contents(username, project_name, repo,
                                     metadata=metadata))
                 done.add(project_name)
@@ -94,6 +106,7 @@ def md_content_for_all_repos(username, desired_repos):
 
 
 def parse_config(filename):
+    """Parse a YAML config file."""
     try:
         with open(filename) as f:
             return yaml.load(f.read(), Loader=NoDatesSafeLoader)
@@ -111,4 +124,5 @@ if __name__ == '__main__':
         md_content_for_all_repos(sys.argv[1], parse_config('repo_list.yaml'))
     else:
         print('USAGE: {} username [repo_name [repo_name...]]')
-        print('config:', parse_config('repo_list.yaml'))
+        print('Using config:')
+        pprint.pprint(parse_config('repo_list.yaml')
