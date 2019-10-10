@@ -1,0 +1,8 @@
+a.timeline-date {
+  font-weight: bold;
+}
+
+a.timeline-date:hover {
+  transition: all;
+  font-size: 115%;
+}
