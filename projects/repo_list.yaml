@@ -2,6 +2,10 @@ git-quick-stats:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'anxiety inducing']
 
+animated-periodic-table-d3:
+  categories: ['programming', 'projects', 'science']
+  tags: ['Git', 'GitHub', 'project', 'web', 'chemistry', 'SCSS', 'Hugo', 'Hugo theme', 'aesthetic']
+
 cuda-fft:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'math', 'FFT']

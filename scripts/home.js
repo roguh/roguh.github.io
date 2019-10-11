@@ -1,1 +1,1 @@
-console.log('hai')
+console.log('howdy, internet visitor')

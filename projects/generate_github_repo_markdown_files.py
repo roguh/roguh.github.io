@@ -125,4 +125,4 @@ if __name__ == '__main__':
     else:
         print('USAGE: {} username [repo_name [repo_name...]]')
         print('Using config:')
-        pprint.pprint(parse_config('repo_list.yaml')
+        pprint.pprint(parse_config('repo_list.yaml'))
