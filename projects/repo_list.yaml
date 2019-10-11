@@ -2,9 +2,13 @@ git-quick-stats:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'anxiety inducing']
 
-animated-periodic-table-d3:
+# MANUALLY EDITED
+# animated-periodic-table-d3:
+#   categories: ['programming', 'projects', 'science']
+#   tags: ['Git', 'GitHub', 'project', 'web', 'frontend', 'chemistry', 'SCSS', 'aesthetic']
+does-it-live:
   categories: ['programming', 'projects', 'science']
-  tags: ['Git', 'GitHub', 'project', 'web', 'chemistry', 'SCSS', 'Hugo', 'Hugo theme', 'aesthetic']
+  tags: ['Git', 'GitHub', 'project', 'web', 'nodejs', 'frontend', 'backend', 'fullstack']
 
 cuda-fft:
   categories: ['programming', 'projects']
@@ -31,7 +35,7 @@ lithe:
 
 nodejs-api-starter:
   categories: ['programming', 'projects']
-  tags: ['Git', 'GitHub', 'project', 'web', 'data processing', 'boilerplate']
+  tags: ['Git', 'GitHub', 'project', 'web', 'nodejs', 'data processing', 'boilerplate']
   date: 2019-09-10T06:08:21Z
 
 i3empty:
