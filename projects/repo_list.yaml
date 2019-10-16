@@ -6,7 +6,7 @@ git-quick-stats:
 # confs:
 # animated-periodic-table-d3:
 #   categories: ['programming', 'projects', 'science']
-#   tags: ['Git', 'GitHub', 'project', 'web', 'frontend', 'chemistry', 'SCSS', 'aesthetic']
+#   tags: ['Git', 'GitHub', 'project', 'web', 'frontend', 'chemistry', 'visualization', 'SCSS', 'aesthetic']
 does-it-live:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'web', 'nodejs', 'frontend', 'backend', 'fullstack']
@@ -26,10 +26,10 @@ cv-composer:
   tags: ['Git', 'GitHub', 'project', 'math', 'machine learning', 'computer vision']
 email-classifier:
   categories: ['programming', 'projects']
-  tags: ['Git', 'GitHub', 'project', 'math', 'machine learning']
+  tags: ['Git', 'GitHub', 'project', 'math', 'visualization', 'machine learning']
 hopfield_tests:
   categories: ['programming', 'projects']
-  tags: ['Git', 'GitHub', 'project', 'math', 'machine learning']
+  tags: ['Git', 'GitHub', 'project', 'math', 'visualization', 'machine learning']
 
 html5seo:
   categories: ['programming', 'projects']
