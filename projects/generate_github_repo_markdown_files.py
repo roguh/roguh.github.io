@@ -70,7 +70,7 @@ def md_contents(username, project, repo=None, metadata=None):
     categories = metadata.get('categories', [])
     homepage = repo['homepage']
     body_contents = 'See ' + GITHUB_LINK_TEMPLATE.format(username, project)
-    print(username, project, date, homepage, tags)
+    print('processed', project, date, homepage, tags)
     if homepage is not None and len(homepage) > 0:
         body_contents += '\n\n' + markdown_link(homepage)
     content = MARKDOWN_TEMPLATE.format(
@@ -85,13 +85,14 @@ def md_contents(username, project, repo=None, metadata=None):
     return content
 
 
-def md_content_for_all_repos(username, desired_repos, path=''):
+def md_content_for_all_repos(username, desired_repos, path='', project_count=200):
     """Fetch a user's GitHub repos, convert to markdown, and write markdown
     files to given path.
     """
 
-    repos = github('users/{}/repos'.format(username))
+    repos = github('users/{}/repos?per_page={}'.format(username, project_count))
     done = set()
+
     for repo in repos:
         project_name = repo['name']
         if project_name in desired_repos:
@@ -100,6 +101,8 @@ def md_content_for_all_repos(username, desired_repos, path=''):
                 f.write(md_contents(username, project_name, repo,
                                     metadata=metadata))
                 done.add(project_name)
+        else:
+            print('skipping', project_name)
     missing = set(desired_repos) - done
     if len(missing):
         print('failed to process', *list(missing))
