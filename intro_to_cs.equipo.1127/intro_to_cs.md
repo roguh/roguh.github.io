@@ -32,6 +32,11 @@ why they'd like to learn computer science
 
 (you can use a smartphone if you don't have a laptop)
 
+# What to Expect
+
+- You'll think about 9 programs
+- You'll do a few Python exercises on your laptop
+
 # What is programming?
 
 > [Programming is the art and science of translating a set of ideas into a program - **a list of [exact] instructions a computer can follow**. The person writing a program is known as a programmer (also a coder).](https://en.wikiversity.org/wiki/What_is_%22programming%22)
@@ -69,7 +74,7 @@ youtu.be/Ct-lOOUqmyY
 # What's Python used for?
 
 - Tensorflow is one of the most popular deep learning libraries on earth.
-  It's used to create neural networks, a type of **AI**.
+  It's used to create neural networks, a type of AI.
 - The SciPy ecosystem is used by scientists, mathematicians, and analysts every day to process all kinds of data.
 - Flask and Django are used to power some of your favorite websites.
 - Teaching, learning. It's a friendly programming language :)
