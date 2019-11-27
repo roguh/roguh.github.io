@@ -18,7 +18,7 @@ why they'd like to learn computer science
 
 # Intros
 
-- Mexican-American dreamer raised in Santa Fe, NM (thank you, DACA)
+- Mexican-American dreamer (DACA) raised in Santa Fe, NM
 - graduated with computer science and math degrees from New Mexico Tech
 - aced Triplebyte recruitment agency's assessment
 - started working in a healthcare startup, now do consulting in that space
