@@ -416,3 +416,9 @@ Try JavaScript! Or C if you want more control over the machine, or Haskell if yo
 Learning resources are bountiful. Ask me if you want advice.
 
 # I can help you make a GitHub repo so we can work on stuff together
+
+Route 0: install Arch Linux and use the vim and git command line tools
+
+Route 1: use visual studio code and nice collaboration plugins (GitHub)
+
+Route 2: use websites like CodingBat and other online coding platforms
