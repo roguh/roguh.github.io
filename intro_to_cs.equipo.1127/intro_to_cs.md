@@ -369,7 +369,7 @@ See full source code at [roguh.com/intro_to_cs.equipo.1127/python.py](https://ro
 
 See [aosabook.org/en/500L/a-python-interpreter-written-in-python.html](https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html) for my inspiration.
 
-It supports relatively advanced code for 117 lines.
+It supports relatively advanced code for 117 lines of Python. The fun is when you go and make it more powerful.
 
 `run_code(parse_string("a = 1\na = a + a\nb='birds'\nprint(a, ' ' + b)"))`
 
