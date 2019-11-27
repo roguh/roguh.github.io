@@ -27,6 +27,8 @@ why they'd like to learn computer science
 
 # Intros
 
+(feel free to follow along at [roguh.com/intro_to_cs.equipo.1127](https://roguh.com/intro_to_cs.equipo.1127/)
+
 # What is programming?
 
 > [Programming is the art and science of translating a set of ideas into a program - **a list of [exact] instructions a computer can follow**. The person writing a program is known as a programmer (also a coder).](https://en.wikiversity.org/wiki/What_is_%22programming%22)
