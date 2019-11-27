@@ -301,8 +301,8 @@ questions:
 
 ```
 def run_code(instructions):
-    names = {}
-    stack = []
+    names = dict()
+    stack = list()
 
     for each_step in instructions:
         instruction, associated_data = each_step
@@ -312,32 +312,47 @@ def run_code(instructions):
             stack.append(result)
         elif instruction == "PRINT":
             value = stack.pop()
-            print(value)
-        elif instruction == "STORE_NAME":
-            name, value = associated_data
+            print(value, end='')
+        elif instruction == "STORE_TO_VAR":
+            value = stack.pop()
+            name = associated_data
             names[name] = value
-        elif instruction == "LOAD_NAME":
+        elif instruction == "LOAD_VAR":
+            name = associated_data
             stack.append(names[name])
         elif instruction == "LOAD_LITERAL":
             stack.append(associated_data)
         else:
-            print("WARNING: unknown instruction", instruction)
+            print("ERROR: unknown instruction", instruction)
+
+            break
 
 run_code([
-    ["STORE_NAME", ["name", "Alice"]],
-    ["LOAD_NAME", "name"],
+    ["LOAD_LITERAL", "Alice"],
+    ["STORE_TO_VAR", "name"],
+    ["LOAD_VAR", "name"],
     ["LOAD_LITERAL", "Hello "],
     ["ADD_LAST_TWO", []],
     ["PRINT", []]
 ])
+
+# CHALLENGE: MAKE THIS INTERPRETER INTERPRET ITSELF!!!!
 ```
 
 hints:
 
 - `names` is an empty dictionary, `stack` is an empty list
-- read the bottom part first
+- read the last lines first
 
-[aosabook.org/en/500L/a-python-interpreter-written-in-python.html](https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html)
+# More about python.py
+
+See full source code at [roguh.com/intro_to_cs.equipo.1127/python.py](https://roguh.com/intro_to_cs.equipo.1127/python.py).
+
+See [aosabook.org/en/500L/a-python-interpreter-written-in-python.html](https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html) for my inspiration.
+
+It supports relatively advanced code for 117 lines.
+
+`run_code(parse_string("a = 1\na = a + a\nb='birds'\nprint(a, ' ' + b)"))`
 
 # Learning resources
 
