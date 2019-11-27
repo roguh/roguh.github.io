@@ -393,6 +393,7 @@ All you need is a computer and some time.
   - make a video game
   - make an AI
   - make an app
+  - make a Python interpreter
   - make *it* run fast, handle lots of users, or lots of different scenarios
 - find a group to learn with
 - university degree
