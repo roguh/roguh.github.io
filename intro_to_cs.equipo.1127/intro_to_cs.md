@@ -325,21 +325,19 @@ def run_code(instructions):
     for each_step in instructions:
         instruction, associated_data = each_step
 
-        if instruction == "ADD_LAST_TWO":
-            result = stack.pop() + stack.pop()
-            stack.append(result)
-        elif instruction == "PRINT":
+        if instruction == "PRINT":
             value = stack.pop()
-            print(value, end='')
+            print(value)
         elif instruction == "STORE_TO_VAR":
             value = stack.pop()
-            name = associated_data
-            names[name] = value
+            names[associated_data] = value
         elif instruction == "LOAD_VAR":
-            name = associated_data
-            stack.append(names[name])
+            stack.append(names[associated_data])
         elif instruction == "LOAD_LITERAL":
             stack.append(associated_data)
+        elif instruction == "ADD_LAST_TWO":
+            result = stack.pop() + stack.pop()
+            stack.append(result)
         else:
             print("ERROR: unknown instruction", instruction)
 
@@ -409,3 +407,5 @@ Python is friendly and has many real-world uses.
 Try JavaScript! Or C if you want more control over the machine, or Haskell if you want to peek into the future of programming.
 
 Learning resources are bountiful. Ask me if you want advice.
+
+# I can help you make a GitHub repo so we can work on stuff together
