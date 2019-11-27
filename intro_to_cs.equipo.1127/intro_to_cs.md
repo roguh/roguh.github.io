@@ -422,3 +422,9 @@ Route 0: install Arch Linux and use the vim and git command line tools
 Route 1: use visual studio code and nice collaboration plugins (GitHub)
 
 Route 2: use websites like CodingBat and other online coding platforms
+
+# JavaScript
+
+magically somehow friendlier than Python, but [I don't like the language](https://www.destroyallsoftware.com/talks/wat)
+
+Learn from Mike Bostock, https://observablehq.com/
