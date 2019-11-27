@@ -25,10 +25,12 @@ why they'd like to learn computer science
 - currently at a large company making the world a greener place
 - [roguh.com](https://roguh.com)
 
-# Intros
+# Useful Websites
 
 - feel free to follow along at [roguh.com/intro_to_cs.equipo.1127](https://roguh.com/intro_to_cs.equipo.1127/)
 - run Python code at repl.it [https://repl.it/languages/python3](https://repl.it/languages/python3)
+
+(you can use a smartphone if you don't have a laptop)
 
 # What is programming?
 
