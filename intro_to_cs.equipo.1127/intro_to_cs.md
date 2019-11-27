@@ -325,17 +325,12 @@ def run_code(instructions):
         else:
             print("ERROR: unknown instruction", instruction)
 
-            break
-
-run_code([
-    ["LOAD_LITERAL", "Alice"],
-    ["STORE_TO_VAR", "name"],
-    ["LOAD_VAR", "name"],
-    ["LOAD_LITERAL", "Hello "],
-    ["ADD_LAST_TWO", []],
-    ["PRINT", []]
-])
-
+run_code([ ["LOAD_LITERAL", "Alice"],
+           ["STORE_TO_VAR", "name"],
+           ["LOAD_VAR", "name"],
+           ["LOAD_LITERAL", "Hello,"],
+           ["ADD_LAST_TWO", []],
+           ["PRINT", []]               ])
 # CHALLENGE: MAKE THIS INTERPRETER INTERPRET ITSELF!!!!
 ```
 
@@ -343,6 +338,12 @@ hints:
 
 - `names` is an empty dictionary, `stack` is an empty list
 - read the last lines first
+
+# Program 8 output
+
+```
+Hello,Alice
+```
 
 # More about python.py
 

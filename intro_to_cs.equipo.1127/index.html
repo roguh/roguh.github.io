@@ -375,23 +375,22 @@ print(dictionary[&quot;1&quot;])</code></pre>
         else:
             print(&quot;ERROR: unknown instruction&quot;, instruction)
 
-            break
-
-run_code([
-    [&quot;LOAD_LITERAL&quot;, &quot;Alice&quot;],
-    [&quot;STORE_TO_VAR&quot;, &quot;name&quot;],
-    [&quot;LOAD_VAR&quot;, &quot;name&quot;],
-    [&quot;LOAD_LITERAL&quot;, &quot;Hello &quot;],
-    [&quot;ADD_LAST_TWO&quot;, []],
-    [&quot;PRINT&quot;, []]
-])
-
+run_code([ [&quot;LOAD_LITERAL&quot;, &quot;Alice&quot;],
+           [&quot;STORE_TO_VAR&quot;, &quot;name&quot;],
+           [&quot;LOAD_VAR&quot;, &quot;name&quot;],
+           [&quot;LOAD_LITERAL&quot;, &quot;Hello,&quot;],
+           [&quot;ADD_LAST_TWO&quot;, []],
+           [&quot;PRINT&quot;, []]               ])
 # CHALLENGE: MAKE THIS INTERPRETER INTERPRET ITSELF!!!!</code></pre>
 <p>hints:</p>
 <ul>
 <li><code>names</code> is an empty dictionary, <code>stack</code> is an empty list</li>
 <li>read the last lines first</li>
 </ul>
+</div>
+<div id="program-8-output" class="slide section level1">
+<h1>Program 8 output</h1>
+<pre><code>Hello,Alice</code></pre>
 </div>
 <div id="more-about-python.py" class="slide section level1">
 <h1>More about python.py</h1>
