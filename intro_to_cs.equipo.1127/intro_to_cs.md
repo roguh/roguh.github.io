@@ -161,10 +161,10 @@ how to read each element in a list? how to add or remove elements to a list? 2D 
 
 Python supports slices.
 
-|     |      |
-|=====|======|
-| index: | `favorite_foods[0]` |
-| slice: | `favorite_foods[0:3]` |
+definitions:
+
+- index: `favorite_foods[0]`
+- slice: `favorite_foods[0:3]`
 
 ```
 most_states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado"]
