@@ -119,6 +119,7 @@ why they'd like to learn computer science
 </div>
 <div id="intros-2" class="slide section level1">
 <h1>Intros</h1>
+<p>(feel free to follow along at <a href="https://roguh.com/intro_to_cs.equipo.1127/">roguh.com/intro_to_cs.equipo.1127</a></p>
 </div>
 <div id="what-is-programming" class="slide section level1">
 <h1>What is programming?</h1>
@@ -148,11 +149,11 @@ why they'd like to learn computer science
 <div id="whats-computer-science-used-for" class="slide section level1">
 <h1>What’s computer science used for?</h1>
 <ul>
+<li><strong>controlling technology</strong> (which technology?)</li>
 <li>automating tasks</li>
 <li>analyzing data and discovering new insights</li>
 <li>out-competing existing businesses</li>
 <li>improving existing industries (healthcare, electric vehicle charging, …)</li>
-<li>controlling technology</li>
 <li>all forms of science</li>
 </ul>
 <!-- programmers! -->
@@ -160,7 +161,7 @@ why they'd like to learn computer science
 <div id="whats-python-used-for" class="slide section level1">
 <h1>What’s Python used for?</h1>
 <ul>
-<li>Tensorflow is one of the most popular deep learning libraries on earth. It’s used to create neural nets, a type of AI.</li>
+<li>Tensorflow is one of the most popular deep learning libraries on earth. It’s used to create neural networks, a type of <strong>AI</strong>.</li>
 <li>The SciPy ecosystem is used by scientists, mathematicians, and analysts every day to process all kinds of data.</li>
 <li>Flask and Django are used to power some of your favorite websites.</li>
 <li>Teaching, learning. It’s a friendly programming language :)</li>
@@ -238,8 +239,11 @@ print(&quot;of my &quot;,
 <div id="program-3-slices-vs.-indices" class="slide section level1">
 <h1>Program 3: Slices vs. indices</h1>
 <p>Python supports slices.</p>
-<div class="line-block">    | |</div>
-<p>|=====|======| | index: | <code>favorite_foods[0]</code> | | slice: | <code>favorite_foods[0:3]</code> |</p>
+<p>definitions:</p>
+<ul>
+<li>index: <code>favorite_foods[0]</code></li>
+<li>slice: <code>favorite_foods[0:3]</code></li>
+</ul>
 <pre><code>most_states = [&quot;Alabama&quot;, &quot;Alaska&quot;, &quot;Arizona&quot;, &quot;Arkansas&quot;, &quot;California&quot;, &quot;Colorado&quot;]
 top_states = most_states[0:3]
 print(top_states)</code></pre>
@@ -291,8 +295,8 @@ numbers.append(10)
 print(total)
 print(numbers)</code></pre>
 </div>
-<div id="program-3-dictionaries_for_polyglots.py" class="slide section level1">
-<h1>Program 3: dictionaries_for_polyglots.py</h1>
+<div id="program-6-dictionaries_for_polyglots.py" class="slide section level1">
+<h1>Program 6: dictionaries_for_polyglots.py</h1>
 <pre><code>greetings = {
   &quot;english&quot;: &quot;Hello, &quot;,
   &quot;español&quot;: &quot;hola, &quot;
@@ -305,8 +309,8 @@ greetings[&quot;en&quot;] = greetings[&quot;english&quot;]
 print(greetings[&quot;en&quot;] + name)</code></pre>
 <p>Dictionaries assign <strong>keys</strong> to <strong>values</strong>.</p>
 </div>
-<div id="program-3-dictionaries_for_polyglots.py-output" class="slide section level1">
-<h1>Program 3: dictionaries_for_polyglots.py output</h1>
+<div id="program-6-dictionaries_for_polyglots.py-output" class="slide section level1">
+<h1>Program 6: dictionaries_for_polyglots.py output</h1>
 <pre><code>Traceback (most recent call last):
   File, line 8, in &lt;module&gt;
 NameError: name &#39;name&#39; is not defined</code></pre>
@@ -327,14 +331,14 @@ print(dictionary[&quot;1&quot;])</code></pre>
 <h1>Questions about dictionaries:</h1>
 <p>what else might you use</p>
 </div>
-<div id="program-4-functions.py" class="slide section level1">
-<h1>Program 4: functions.py</h1>
+<div id="program-7-functions.py" class="slide section level1">
+<h1>Program 7: functions.py</h1>
 <pre><code>def greet(person)
   message = &quot;Hello &quot; + person
   print(message)</code></pre>
 </div>
-<div id="program-4-functions.py-output" class="slide section level1">
-<h1>Program 4: functions.py output</h1>
+<div id="program-7-functions.py-output" class="slide section level1">
+<h1>Program 7: functions.py output</h1>
 <pre><code></code></pre>
 <p>you defined the function “<code>greet</code>” but didn’t do anything with it! (that’s ok)</p>
 <p>questions:</p>
@@ -344,11 +348,11 @@ print(dictionary[&quot;1&quot;])</code></pre>
 <li>can a function call itself?</li>
 </ul>
 </div>
-<div id="program-5-python.py" class="slide section level1">
-<h1>Program 5: python.py</h1>
+<div id="program-8-python.py" class="slide section level1">
+<h1>Program 8: python.py</h1>
 <pre><code>def run_code(instructions):
-    names = {}
-    stack = []
+    names = dict()
+    stack = list()
 
     for each_step in instructions:
         instruction, associated_data = each_step
@@ -358,30 +362,43 @@ print(dictionary[&quot;1&quot;])</code></pre>
             stack.append(result)
         elif instruction == &quot;PRINT&quot;:
             value = stack.pop()
-            print(value)
-        elif instruction == &quot;STORE_NAME&quot;:
-            name, value = associated_data
+            print(value, end=&#39;&#39;)
+        elif instruction == &quot;STORE_TO_VAR&quot;:
+            value = stack.pop()
+            name = associated_data
             names[name] = value
-        elif instruction == &quot;LOAD_NAME&quot;:
+        elif instruction == &quot;LOAD_VAR&quot;:
+            name = associated_data
             stack.append(names[name])
         elif instruction == &quot;LOAD_LITERAL&quot;:
             stack.append(associated_data)
         else:
-            print(&quot;WARNING: unknown instruction&quot;, instruction)
+            print(&quot;ERROR: unknown instruction&quot;, instruction)
+
+            break
 
 run_code([
-    [&quot;STORE_NAME&quot;, [&quot;name&quot;, &quot;Alice&quot;]],
-    [&quot;LOAD_NAME&quot;, &quot;name&quot;],
+    [&quot;LOAD_LITERAL&quot;, &quot;Alice&quot;],
+    [&quot;STORE_TO_VAR&quot;, &quot;name&quot;],
+    [&quot;LOAD_VAR&quot;, &quot;name&quot;],
     [&quot;LOAD_LITERAL&quot;, &quot;Hello &quot;],
     [&quot;ADD_LAST_TWO&quot;, []],
     [&quot;PRINT&quot;, []]
-])</code></pre>
+])
+
+# CHALLENGE: MAKE THIS INTERPRETER INTERPRET ITSELF!!!!</code></pre>
 <p>hints:</p>
 <ul>
 <li><code>names</code> is an empty dictionary, <code>stack</code> is an empty list</li>
-<li>read the bottom part first</li>
+<li>read the last lines first</li>
 </ul>
-<p><a href="https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html">aosabook.org/en/500L/a-python-interpreter-written-in-python.html</a></p>
+</div>
+<div id="more-about-python.py" class="slide section level1">
+<h1>More about python.py</h1>
+<p>See full source code at <a href="https://roguh.com/intro_to_cs.equipo.1127/python.py">roguh.com/intro_to_cs.equipo.1127/python.py</a>.</p>
+<p>See <a href="https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html">aosabook.org/en/500L/a-python-interpreter-written-in-python.html</a> for my inspiration.</p>
+<p>It supports relatively advanced code for 117 lines.</p>
+<p><code>run_code(parse_string("a = 1\na = a + a\nb='birds'\nprint(a, ' ' + b)"))</code></p>
 </div>
 <div id="learning-resources" class="slide section level1">
 <h1>Learning resources</h1>

@@ -231,7 +231,7 @@ print(total)
 print(numbers)
 ```
 
-# Program 3: dictionaries_for_polyglots.py
+# Program 6: dictionaries_for_polyglots.py
 
 ```
 greetings = {
@@ -248,7 +248,7 @@ print(greetings["en"] + name)
 
 Dictionaries assign **keys** to **values**.
 
-# Program 3: dictionaries_for_polyglots.py output
+# Program 6: dictionaries_for_polyglots.py output
 
 ```
 Traceback (most recent call last):
@@ -276,7 +276,7 @@ print(dictionary["1"])
 
 what else might you use
 
-# Program 4: functions.py
+# Program 7: functions.py
 
 ```
 def greet(person)
@@ -284,7 +284,7 @@ def greet(person)
   print(message)
 ```
 
-# Program 4: functions.py output
+# Program 7: functions.py output
 
 ```
 ```
@@ -297,7 +297,7 @@ questions:
 - can a function call another function?
 - can a function call itself?
 
-# Program 5: python.py
+# Program 8: python.py
 
 ```
 def run_code(instructions):
