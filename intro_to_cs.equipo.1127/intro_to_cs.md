@@ -390,9 +390,9 @@ All you need is a computer and some time.
   - [practicepython.org/](https://www.practicepython.org/)
   - Corey Schafer [youtube.com/user/schafer5/playlists](https://www.youtube.com/user/schafer5/playlists)
   - [automatetheboringstuff.com](https://automatetheboringstuff.com/)
-  - MIT course on edX: edx.org/course/introduction-to-computer-science-and-programming-7
+  - MIT course on edX: [edx.org/course/introduction-to-computer-science-and-programming-7](https://edx.org/course/introduction-to-computer-science-and-programming-7)
   - [wikiversity](https://en.wikiversity.org/wiki/Category:Introduction_to_Computer_Science)
-  - https://www.pyladies.com/resources/
+  - [pyladies.com/resources/](https://www.pyladies.com/resources/)
 - find a project you're passionate about. make programming your hobby.
   - make a website
   - make a video game
