@@ -27,7 +27,8 @@ why they'd like to learn computer science
 
 # Intros
 
-(feel free to follow along at [roguh.com/intro_to_cs.equipo.1127](https://roguh.com/intro_to_cs.equipo.1127/)
+- feel free to follow along at [roguh.com/intro_to_cs.equipo.1127](https://roguh.com/intro_to_cs.equipo.1127/)
+- run Python code at repl.it [https://repl.it/languages/python3](https://repl.it/languages/python3)
 
 # What is programming?
 
@@ -59,6 +60,7 @@ youtu.be/Ct-lOOUqmyY
 - out-competing existing businesses
 - improving existing industries (healthcare, electric vehicle charging, ...)
 - all forms of science
+- **organizing information.** uses many fascinating branches of mathematics
 
 <!-- programmers! -->
 
@@ -104,7 +106,7 @@ print(message)
 
 ```
 $ python 1.0.py
-HelloAlice
+Hello,Alice
 ```
 
 # Program 1.1
@@ -121,7 +123,7 @@ print("Hello, " + name + "!")
 
 ```
 $ python 1.1.py
-Hello Alice
+Hello, Alice
 Hello, Alice!
 ```
 
@@ -148,14 +150,19 @@ of my 3 favorites, TAMALES are my most favorite food
 
 # Questions about lists:
 
-how to read each element in a list? how to add or remove elements to a list? 2D lists? quick searches for an element?
+- how to read each element in a list?
+- how to add or remove elements to a list?
+- 2D lists?
+- quick searches for an element?
 
 # Strings are lists
 
 ```
-> len("Hello!")
-> [1, 2] + [3, 4]
+>>> len("Hello!")
+>>> [1, 2] + [3, 4]
 ```
+
+The three arrows `>>>` mean try it in the REPL.
 
 # Program 3: Slices vs. indices
 
@@ -211,15 +218,16 @@ Let's use CodingBat!
 - repl.it to quickly run some code [https://repl.it/languages/python3](https://repl.it/languages/python3)
 - GOOGLE, official Python documentation, a sturdy textbook, peers, etc.
 
-# For-loops! Append! Pop!
+# Program 6: For-loops! Append! Pop!
 
-Look at each element in a list.
+Look at each element using `for x in elements`.
 
 ```
 numbers = [2, 4, 8]
 total = 0
-for number in numbers
+for number in numbers:
     total = total + number
+# MUST BE 4 SPACES!!!!
 
 highest_known_power_of_two = numbers.pop()
 
@@ -231,7 +239,14 @@ print(total)
 print(numbers)
 ```
 
-# Program 6: dictionaries_for_polyglots.py
+Output:
+
+```
+14
+[2, 4, 6, 8, 10]
+```
+
+# Program 7: dictionaries_for_polyglots.py
 
 ```
 greetings = {
@@ -248,7 +263,7 @@ print(greetings["en"] + name)
 
 Dictionaries assign **keys** to **values**.
 
-# Program 6: dictionaries_for_polyglots.py output
+# Program 7: dictionaries_for_polyglots.py output
 
 ```
 Traceback (most recent call last):
@@ -274,9 +289,12 @@ print(dictionary["1"])
 
 # Questions about dictionaries:
 
-what else might you use
+- see questions about lists
+- what can be a key?
+- what can be a value?
+- how are they implemented?
 
-# Program 7: functions.py
+# Program 8: functions.py
 
 ```
 def greet(person)
@@ -284,20 +302,20 @@ def greet(person)
   print(message)
 ```
 
-# Program 7: functions.py output
+# Program 8: functions.py output
 
 ```
 ```
 
 you defined the function "`greet`" but didn't do anything with it! (that's ok)
 
-questions:
+# Questions about functions:
 
 - can a function take more arguments?
 - can a function call another function?
 - can a function call itself?
 
-# Program 8: python.py
+# Program 9: python.py
 
 ```
 def run_code(instructions):
@@ -339,7 +357,7 @@ hints:
 - `names` is an empty dictionary, `stack` is an empty list
 - read the last lines first
 
-# Program 8 output
+# Program 9 Output
 
 ```
 Hello,Alice

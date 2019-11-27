@@ -119,7 +119,10 @@ why they'd like to learn computer science
 </div>
 <div id="intros-2" class="slide section level1">
 <h1>Intros</h1>
-<p>(feel free to follow along at <a href="https://roguh.com/intro_to_cs.equipo.1127/">roguh.com/intro_to_cs.equipo.1127</a></p>
+<ul>
+<li>feel free to follow along at <a href="https://roguh.com/intro_to_cs.equipo.1127/">roguh.com/intro_to_cs.equipo.1127</a></li>
+<li>run Python code at repl.it <a href="https://repl.it/languages/python3">https://repl.it/languages/python3</a></li>
+</ul>
 </div>
 <div id="what-is-programming" class="slide section level1">
 <h1>What is programming?</h1>
@@ -155,6 +158,7 @@ why they'd like to learn computer science
 <li>out-competing existing businesses</li>
 <li>improving existing industries (healthcare, electric vehicle charging, …)</li>
 <li>all forms of science</li>
+<li><strong>organizing information.</strong> uses many fascinating branches of mathematics</li>
 </ul>
 <!-- programmers! -->
 </div>
@@ -198,7 +202,7 @@ why they'd like to learn computer science
 <span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(message)</span></code></pre></div>
 <h3 id="output">Output</h3>
 <pre><code>$ python 1.0.py
-HelloAlice</code></pre>
+Hello,Alice</code></pre>
 </div>
 <div id="program-1.1" class="slide section level1">
 <h1>Program 1.1</h1>
@@ -209,7 +213,7 @@ print(message)
 print(&quot;Hello, &quot; + name + &quot;!&quot;)</code></pre>
 <h2 id="output-1">Output</h2>
 <pre><code>$ python 1.1.py
-Hello Alice
+Hello, Alice
 Hello, Alice!</code></pre>
 </div>
 <div id="program-2-lists.py" class="slide section level1">
@@ -229,12 +233,18 @@ print(&quot;of my &quot;,
 </div>
 <div id="questions-about-lists" class="slide section level1">
 <h1>Questions about lists:</h1>
-<p>how to read each element in a list? how to add or remove elements to a list? 2D lists? quick searches for an element?</p>
+<ul>
+<li>how to read each element in a list?</li>
+<li>how to add or remove elements to a list?</li>
+<li>2D lists?</li>
+<li>quick searches for an element?</li>
+</ul>
 </div>
 <div id="strings-are-lists" class="slide section level1">
 <h1>Strings are lists</h1>
-<pre><code>&gt; len(&quot;Hello!&quot;)
-&gt; [1, 2] + [3, 4]</code></pre>
+<pre><code>&gt;&gt;&gt; len(&quot;Hello!&quot;)
+&gt;&gt;&gt; [1, 2] + [3, 4]</code></pre>
+<p>The three arrows <code>&gt;&gt;&gt;</code> mean try it in the REPL.</p>
 </div>
 <div id="program-3-slices-vs.-indices" class="slide section level1">
 <h1>Program 3: Slices vs. indices</h1>
@@ -278,13 +288,14 @@ print(&quot;Hello, world!&quot;[-4:-1])</code></pre>
 <li>GOOGLE, official Python documentation, a sturdy textbook, peers, etc.</li>
 </ul>
 </div>
-<div id="for-loops-append-pop" class="slide section level1">
-<h1>For-loops! Append! Pop!</h1>
-<p>Look at each element in a list.</p>
+<div id="program-6-for-loops-append-pop" class="slide section level1">
+<h1>Program 6: For-loops! Append! Pop!</h1>
+<p>Look at each element using <code>for x in elements</code>.</p>
 <pre><code>numbers = [2, 4, 8]
 total = 0
-for number in numbers
+for number in numbers:
     total = total + number
+# MUST BE 4 SPACES!!!!
 
 highest_known_power_of_two = numbers.pop()
 
@@ -294,9 +305,12 @@ numbers.append(10)
 
 print(total)
 print(numbers)</code></pre>
+<p>Output:</p>
+<pre><code>14
+[2, 4, 6, 8, 10]</code></pre>
 </div>
-<div id="program-6-dictionaries_for_polyglots.py" class="slide section level1">
-<h1>Program 6: dictionaries_for_polyglots.py</h1>
+<div id="program-7-dictionaries_for_polyglots.py" class="slide section level1">
+<h1>Program 7: dictionaries_for_polyglots.py</h1>
 <pre><code>greetings = {
   &quot;english&quot;: &quot;Hello, &quot;,
   &quot;español&quot;: &quot;hola, &quot;
@@ -309,8 +323,8 @@ greetings[&quot;en&quot;] = greetings[&quot;english&quot;]
 print(greetings[&quot;en&quot;] + name)</code></pre>
 <p>Dictionaries assign <strong>keys</strong> to <strong>values</strong>.</p>
 </div>
-<div id="program-6-dictionaries_for_polyglots.py-output" class="slide section level1">
-<h1>Program 6: dictionaries_for_polyglots.py output</h1>
+<div id="program-7-dictionaries_for_polyglots.py-output" class="slide section level1">
+<h1>Program 7: dictionaries_for_polyglots.py output</h1>
 <pre><code>Traceback (most recent call last):
   File, line 8, in &lt;module&gt;
 NameError: name &#39;name&#39; is not defined</code></pre>
@@ -329,27 +343,34 @@ print(dictionary[&quot;1&quot;])</code></pre>
 </div>
 <div id="questions-about-dictionaries" class="slide section level1">
 <h1>Questions about dictionaries:</h1>
-<p>what else might you use</p>
+<ul>
+<li>see questions about lists</li>
+<li>what can be a key?</li>
+<li>what can be a value?</li>
+<li>how are they implemented?</li>
+</ul>
 </div>
-<div id="program-7-functions.py" class="slide section level1">
-<h1>Program 7: functions.py</h1>
+<div id="program-8-functions.py" class="slide section level1">
+<h1>Program 8: functions.py</h1>
 <pre><code>def greet(person)
   message = &quot;Hello &quot; + person
   print(message)</code></pre>
 </div>
-<div id="program-7-functions.py-output" class="slide section level1">
-<h1>Program 7: functions.py output</h1>
+<div id="program-8-functions.py-output" class="slide section level1">
+<h1>Program 8: functions.py output</h1>
 <pre><code></code></pre>
 <p>you defined the function “<code>greet</code>” but didn’t do anything with it! (that’s ok)</p>
-<p>questions:</p>
+</div>
+<div id="questions-about-functions" class="slide section level1">
+<h1>Questions about functions:</h1>
 <ul>
 <li>can a function take more arguments?</li>
 <li>can a function call another function?</li>
 <li>can a function call itself?</li>
 </ul>
 </div>
-<div id="program-8-python.py" class="slide section level1">
-<h1>Program 8: python.py</h1>
+<div id="program-9-python.py" class="slide section level1">
+<h1>Program 9: python.py</h1>
 <pre><code>def run_code(instructions):
     names = dict()
     stack = list()
@@ -388,8 +409,8 @@ run_code([ [&quot;LOAD_LITERAL&quot;, &quot;Alice&quot;],
 <li>read the last lines first</li>
 </ul>
 </div>
-<div id="program-8-output" class="slide section level1">
-<h1>Program 8 output</h1>
+<div id="program-9-output" class="slide section level1">
+<h1>Program 9 Output</h1>
 <pre><code>Hello,Alice</code></pre>
 </div>
 <div id="more-about-python.py" class="slide section level1">
