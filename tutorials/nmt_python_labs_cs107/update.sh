@@ -11,7 +11,7 @@ I rewrote much of the text, assignments, and some of the LaTeX for the 2016 vers
 
 Try 'em out!
 
-Contact me at [roguh.com/contact](https://roguh.com/contact) if you need the supplementary files mentioned in the exercises.
+Contact me at (roguh.com/contact)[https://roguh.com/contact] if you need the supplementary files mentioned in the exercises.
 
 ROGUH
 
