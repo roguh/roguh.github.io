@@ -2,6 +2,10 @@ HelloWorlds:
   categories: ['programming', 'projects', 'tutorials']
   tags: ['Git', 'GitHub', 'project', 'frontend', 'backend', 'nodejs', 'web', 'math', 'visualization', 'machine learning', 'computer vision', 'fun', 'videogame', 'parsing', 'interpreter', 'unfinished', 'programming languages']
 
+advent-of-code-2019:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'fun']
+
 git-quick-stats:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'anxiety inducing']

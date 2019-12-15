@@ -19,6 +19,8 @@ categories: {categories}
 
 GITHUB_LINK_TEMPLATE = '[github.com/{0}/{1}](https://github.com/{0}/{1})'
 
+total_github_requests = 0
+
 # parse YAML dates as strings
 NoDatesSafeLoader = yaml.SafeLoader
 NoDatesSafeLoader.yaml_implicit_resolvers = {
@@ -33,11 +35,13 @@ def markdown_link(link):
 
 
 def github(route=None, url=None):
+    global total_github_requests
     """Make a request to the GitHub API."""
     r = requests.get('https://api.github.com/' + route if url is None else url,
                      headers={'Accept': 'application/vnd.github.v3+json'})
     if r.status_code > 299:
         raise Exception(route, url, r)
+    total_github_requests += 1
     j = r.json()
     if type(j) is dict and j.get('message', False):
         raise Exception('{} {}\n{}\n{}'.format(route, url, j.get('message'), j.get('documentation_url')))
@@ -89,8 +93,10 @@ def md_content_for_all_repos(username, desired_repos, path='', project_count=200
     """Fetch a user's GitHub repos, convert to markdown, and write markdown
     files to given path.
     """
+    global total_github_requests
 
     repos = github('users/{}/repos?per_page={}'.format(username, project_count))
+    skipped = list()
     done = set()
 
     for repo in repos:
@@ -102,10 +108,15 @@ def md_content_for_all_repos(username, desired_repos, path='', project_count=200
                                     metadata=metadata))
                 done.add(project_name)
         else:
-            print('skipping', project_name)
+            skipped.append(project_name)
     missing = set(desired_repos) - done
+
     if len(missing):
         print('failed to process', *list(missing))
+    print('total github requests', total_github_requests)
+    if len(skipped) > 0:
+        print('skipped:')
+        print('\n'.join(skipped))
 
 
 def parse_config(filename):
