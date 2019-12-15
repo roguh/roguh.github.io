@@ -1,0 +1,866 @@
+\documentclass[11pt]{cselabheader}
+
+\newcommand{\thelabnumber}{5}
+\newcommand{\thetitle}{Strings and Tuples}
+\newcommand{\theauthor}{CSE/IT 107L}
+
+% Write title and author
+\title{\thetitle}
+\author{\theauthor}
+\date{NMT Department of Computer Science and Engineering}
+
+\fancyhead[R]{Lab \thelabnumber: \thetitle}
+\fancyhead[L]{\theauthor}
+
+\makehyperref
+\makeindex[title=Index of New Functions and Methods, intoc]
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\hrule
+
+\begin{multicols}{2}
+``All thought is a kind of computation.''
+\begin{flushright}
+--- D. Hobbes
+\end{flushright}
+
+``It [programming] is the only job I can think of where I get to be both an
+engineer and artist. There's an incredible, rigorous, technical element to it,
+which I like because you have to do very precise thinking. On the other hand, it
+has a wildly creative side where the boundaries of imagination are the only real
+limitation.''
+\begin{flushright}
+--- A. Hertzfeld
+\end{flushright}
+
+\section*{Introduction}
+This lab will introduce two new Python values that are very similar to
+lists: tuples and strings. You have seen strings before, but now you
+will learn to manipulate them. Strings and tuples support indexing,
+slicing, membership testing with \pythoninline{in}, equality checks,
+and other similar features. The main difference is that they are
+immutable, meaning that the elements at each index cannot be changed.
+
+The lab also introduces keyword arguments, which are useful for multi-purpose
+functions or for those with arguments that have default values. With a
+more detailed knowledge of strings, you will be able to write documentation
+for functions in the form of docstrings, which will be visible using the
+\pythoninline{help()} function.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{img/xkcd_1024.png}
+  \caption{\url{http://xkcd.com/1024}}
+\end{figure}
+\end{multicols}
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Tuples: Fixed-Length, Immutable Ordered Collections}
+
+Tuples\index{tuples} work a lot like lists, except they cannot be
+modified; they are \emph{immutable}\index{immutable}. Instead of brackets
+\pythoninline{[]}, tuples are delimited by writing parentheses
+\pythoninline{()} around the elements. Tuples support
+slicing\index{slicing tuples}, just as lists do.
+
+\begin{pyconcode}
+>>> food = ('eggs', 'bananas', 'lemonheads')
+>>> food[1]
+'bananas'
+>>> food[1:3]
+('bananas', 'lemonheads')
+>>> food[1] = 'steak' # tuples are immutable!
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+
+\end{pyconcode}
+
+Notice Python raises a \pythonindex{TypeError} with message
+```tuple' object does not support item assignment'' if the code
+attempts to assign to an item within a tuple.
+If a tuple contains a mutable value, such as a list, then that
+element can be modified without restriction.
+
+We can nest tuples and lists interchangeably:
+
+\begin{pyconcode}
+>>> points = [(1, 5), (3, 5), (0, 2), (1, 1),  # shift+enter for multi-line
+...           (2, 1), (3, 1), (4, 2)]
+>>> points[0]
+(1, 5)
+>>> fubar = ([1, 2, 3], [4, 5, (7, 8, 9)], (10, 11))
+>>> fubar
+([1, 2, 3], [4, 5, (7, 8, 9)], (10, 11))
+
+\end{pyconcode}
+
+Tuples, like lists, can also be empty. Use \pythonindex{len()} to find the
+length of a tuple:
+
+\begin{pyconcode}
+>>> foo = ()
+>>> len(foo)
+0
+
+\end{pyconcode}
+
+We can also define a tuple by simply separating values by commas:
+Conversely, we can \emph{unpack} tuples\index{unpack tuples}, which
+means assigning each element of a tuple to a variable. For example:
+
+\begin{pyconcode}
+>>> food = 'trail mix', 'nothing'
+>>> tylerfood, chrisfood = food
+>>> # equivalent to, but shorter than: tylerfood = food[0]; chrisfood = food[1]
+>>> tylerfood
+'trail mix'
+>>> chrisfood
+'nothing'
+
+\end{pyconcode}
+
+Unpacking is useful for assigning a fixed number of return values from a function.
+
+\section{Defining, Using, and Transforming Strings}
+
+You have seen strings\index{strings} in Python before. They are
+sequences of characters enclosed by either double quotes or single
+quotes; for example:
+
+\begin{pyconcode}
+>>> s = "I'm a string."
+>>> print(s)
+I'm a string.
+>>> r = 'I am also a string.'
+>>> print(r)
+I am also a string.
+
+\end{pyconcode}
+
+\subsection{Insert Special Characters by Escaping Them \pythoninline{"\", \', \\"}}
+
+Notice how we did not use a single quote in the second string because it was
+enclosed (\emph{delimited}) by single quotes. The proper way to use a single
+quote in a single quoted string or a double quote in a double quoted string
+is to use escape the quote with a backslash:
+
+\begin{pyconcode}
+>>> s = "Previously, we said \"I'm a string.\"."
+>>> print(s)
+Previously, we said "I'm a string.".
+>>> r = 'I\'m also a string.'
+>>> print(r)
+I'm also a string.
+
+\end{pyconcode}
+
+This is called \emph{escaping} a character\index{escaping
+characters}. We \emph{escaped} the double quotes and single quote
+respectively so that Python did not think it was the end of the
+string.
+
+You do not have to escape a single quote in a double quoted string and vice
+versa:
+
+\begin{pyconcode}
+>>> s = "I can use single quotes '' here"
+>>> print(s)
+I can use single quotes '' here
+>>> r = 'I can use double quotes "" here'
+>>> print(r)
+I can use double quotes "" here
+
+\end{pyconcode}
+
+If you want a string to go to a new line when printed, you use \pythoninline!\n! for that:
+
+\begin{pyconcode}
+>>> "Explicit is better than implicit.\nSimple is better than complex."
+'Explicit is better than implicit.\nSimple is better than complex.'
+>>> print("Explicit is better than implicit.\nSimple is better than complex.")
+Explicit is better than implicit.
+Simple is better than complex.
+
+\end{pyconcode}
+
+What, however, if you actually need a \pythoninline!\! in a string?
+You can type two backslashes to escape the backslash:
+
+\begin{pyconcode}
+>>> print("C:\\Users\\hrivera")
+C:\Users\hrivera
+
+\end{pyconcode}
+
+\subsection{Multi-Line Strings Using \pythoninline{"""}}
+
+If you want strings to go on for two or more lines of Python code, you
+have to enclose the string in three double quotes\index{multi-line
+strings}. Everything between the two triple-quotes will be a part
+of the string.
+
+\begin{listing}[H]
+  \vspace{-0.5em}
+\begin{python3code}
+weizsaecker = """We in the older generation owe to young people not the
+fulfillment of dreams but honesty. We must help younger people to
+understand why it is vital to keep memories alive. We want to help them
+to accept historical truth soberly, not one-sidedly, without taking
+refuge in Utopian doctrines, but also without moral arrogance. From our
+own history we learn what man is capable of. For that reason we must not
+imagine that we are quite different and have become better. There is no
+ultimately achievable moral perfection. We have learned as human beings,
+and as human beings we remain in danger. But we have the strength to
+overcome such danger again and again."""
+\end{python3code}
+  \vspace{-1em}
+  \caption{Excerpt of Richard von Weizs\"{a}cker's speech in
+the Bundestag to commemorate the 40th anniversary of the end of World War II.}
+  \vspace{-0.5em}
+\end{listing}
+
+
+\begin{listing}[H]
+  \vspace{-0.5em}
+\begin{pyconcode}
+>>> r = """I hear America singing, the varied carols I hear,
+... Those of mechanics, each one singing his as it should be blithe and strong,
+... The carpenter singing his as he measures his plank or beam,"""
+>>> print(r)
+I hear America singing, the varied carols I hear,
+Those of mechanics, each one singing his as it should be blithe and strong,
+The carpenter singing his as he measures his plank or beam,
+
+\end{pyconcode}
+  \vspace{-1em}
+  \caption{Excerpt of \emph{I Hear America Singing} by Walt Whitman.
+    Notice the triple-dots in the Python interactive shell indicate that
+    this is a multi-line segment of code.}
+  \vspace{-0.5em}
+\end{listing}
+
+
+\subsection{Checking String Properties Using \pythoninline{len, in, ==, !=}}
+
+Lists, tuples, and strings are \texttt{sequence} data
+types\index{sequence data types} --- this means they support indexing,
+slicing, and many of the functions that were introduced in the section
+describing lists in lab 4.
+A lot of other operations that work on lists also work on strings.
+You can test membership of a string using \pythonindex{in}.
+
+\begin{pyconcode}
+>>> s = 'abcde'
+>>> print('c' in s)
+True
+>>> print('f' in s)
+False
+>>> print('f' not in s)
+True
+>>> print('ab' in s)
+True
+
+\end{pyconcode}
+
+
+You can measure the length of a string by writing \pythonindex{len()}.
+
+\begin{pyconcode}
+>>> s = 'abcDE'
+>>> print(len(s))
+5
+>>> len("")
+0
+>>> len("Hello world!")
+12
+
+\end{pyconcode}
+
+
+\subsubsection{Checking String-Specific Properties}
+
+There are several functions that you can use to check if
+a string contains certain sets or sequences of characters.
+For example, you can check if a string is all uppercase using the
+\pythoninline{s.isalpha()} function. These functions all start with
+``is'' and return a boolean value.
+
+\begin{pyconcode}
+>>> s = 'abcDE'
+>>> print(s.isnumeric())
+False
+>>> s.isalpha()
+True
+>>> s.islower()
+False
+>>> print(s.isupper())
+False
+
+\end{pyconcode}
+
+Here is a complete list:
+
+% generated with
+% >>> [print('\n\item[\\pythonindex((s.{}))]  {}'.format(s.__name__, s.__doc__.split('\n\n')[1]))
+% ...  for s in [str.isalnum, str.isdecimal, str.isidentifier, str.isnumeric, str.isspace, str.isupper,
+% ...            str.isalpha, str.isdigit, str.islower, str.isprintable, str.istitle]]
+
+\begin{description}
+\item[\pythonindex{s.isalnum()}]  Return True if all characters in S are alphanumeric
+  and there is at least one character in S, False otherwise.
+
+\item[\pythonindex{s.isdecimal()}]  Return True if there are only decimal characters in S,
+  False otherwise.
+
+\item[\pythonindex{s.isidentifier()}]  Return True if S is a valid identifier according
+  to the language definition.
+
+\item[\pythonindex{s.isnumeric()}]  Return True if there are only numeric characters in S,
+  False otherwise.
+
+\item[\pythonindex{s.isspace()}]  Return True if all characters in S are whitespace
+  and there is at least one character in S, False otherwise.
+
+\item[\pythonindex{s.isupper()}]  Return True if all cased characters in S are uppercase and there is
+  at least one cased character in S, False otherwise.
+
+\item[\pythonindex{s.isalpha()}]  Return True if all characters in S are alphabetic
+  and there is at least one character in S, False otherwise.
+
+\item[\pythonindex{s.isdigit()}]  Return True if all characters in S are digits
+  and there is at least one character in S, False otherwise.
+
+\item[\pythonindex{s.islower()}]  Return True if all cased characters in S are lowercase and there is
+  at least one cased character in S, False otherwise.
+
+\item[\pythonindex{s.isprintable()}]  Return True if all characters in S are considered
+  printable in repr() or S is empty, False otherwise.
+
+\item[\pythonindex{s.istitle()}]  Return True if S is a titlecased string and there is at least one
+  character in S, i.e. upper- and titlecase characters may only
+  follow uncased characters and lowercase characters only cased ones.
+\end{description}
+
+
+\subsection{Indexing and Slicing Strings}
+
+A character is a single letter, digit, space, newline, or other symbol.
+Think of a string as a list of characters.
+This is because a string can be indexed like a list in order to pick out a specific \emph{character}.
+For example:
+
+\begin{pyconcode}
+>>> s = "99 Python Problems"
+>>> s[0]
+'9'
+>>> s[2]
+' '
+>>> s[3]
+'P'
+>>> s[-1]
+'s'
+>>> s[100]
+Traceback (most recent call last):
+  File "stdin", line 1, in <module>
+    s[100]
+IndexError: string index out of range
+
+\end{pyconcode}
+
+Slicing\index{slicing strings} works on strings. Review lab 4 for a
+description of several types of slices.
+
+\begin{pyconcode}
+>>> s = "The cat in the hat"
+>>> print(s[2])
+e
+>>> print(s[4:7])
+cat
+>>> print(s[15:18])
+hat
+>>> print(s[14:18])
+ hat
+>>> print(s[17:14:-1])
+tah
+>>> print(s[17::-1])
+tah eht ni tac ehT
+
+\end{pyconcode}
+
+\subsection{Creating New Strings}
+
+Unlike lists, strings are \emph{immutable}\index{immutable}. A
+string's components can be accessed but can't be
+modified.
+
+\begin{pyconcode}
+>>> s = 'Python'
+>>> s[0] = 'J'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+
+\end{pyconcode}
+
+In this case, Python raises a \pythonindex{TypeError}, just like when
+attempting to modify tuples.
+If you want to change a string, you must create a new string:
+
+\begin{pyconcode}
+>>> s = 'Python'
+>>> r = 'J' + s[1:]
+>>> print(r)
+Jython
+
+\end{pyconcode}
+
+
+\subsubsection{Concatenation and Repetition Using \pythoninline{+, *}}
+
+You can concatenate, or join, two strings using the \pythonindex{+}
+operator; this operation creates a new string.
+
+\begin{pyconcode}
+>>> r = "The cat"
+>>> s = " in the hat"
+>>> r + s
+'The cat in the hat'
+>>> s + r
+' in the hatThe cat'
+
+\end{pyconcode}
+
+In addition to that, we can repeat strings using the multiplication operator
+\pythonindex{*}:
+
+\begin{pyconcode}
+>>> s = "Hi"
+>>> r = 5 * s
+>>> print(r)
+HiHiHiHiHi
+>>> n = 3
+>>> print(r + 'cat' * n)
+HiHiHiHiHicatcatcat
+
+\end{pyconcode}
+
+
+\subsubsection{Replacing Substrings With \pythoninline{string.replace(old, new)}}
+
+The \pythonindex{string.replace(old, new)} replaces the substring
+\pythoninline{old} with the string \pythoninline{new}.
+For example:
+
+\begin{pyconcode}
+>>> s = 'abcDE'
+>>> r = s.replace('ab', 'more')
+>>> print(r)
+morecDE
+>>> print(s)
+abcDE
+
+\end{pyconcode}
+
+\subsubsection{Creating Uppercase and Lowercase Strings}
+
+The functions \pythonindex{s.upper()} \pythonindex{s.lower()}, and \pythonindex{s.capitalize()}
+create new strings that are entirely uppercase or lowercase, or capitalized.
+
+\begin{pyconcode}
+>>> s = 'abcDE'
+>>> print(s.upper())
+ABCDE
+>>> s.lower()
+'abcde'
+>>> s.capitalize()
+'Abcde'
+
+\end{pyconcode}
+
+\subsection{Splitting a String Into a List of Strings Using \pythoninline{str.split()}}
+
+How can a string of space separated words be transformed into a
+list of words? For example, the string \pythoninline{"The cat in the hat"}
+might be more useful as a list of strings:
+\pythoninline{["The", "cat", "in", "the", "hat"]}.
+Python's \pythonindex{str.split(delimiter)} function takes a string and returns
+a list of all substrings that were separated by a given delimiter.
+
+To split words separated by spaces, the delimiter would be the string \pythoninline{" "}.
+Here are some examples:
+
+\begin{pyconcode}
+>>> "The cat in the hat".split(" ")
+['The', 'cat', 'in', 'the', 'hat']
+>>> "1,2,3,4,5,6,7".split(",")
+['1', '2', '3', '4', '5', '6', '7']
+>>> "1, 2, 3, 4, 5,  6,7".split(", ")  # not magic
+['1', '2', '3', '4', '5', ' 6,7']
+>>> "none_here".split(" ")
+['none_here']
+
+\end{pyconcode}
+
+To split a string on any kind of whitespace, such as spaces or newlines, call the
+function without any arguments: \pythoninline{str.split()}.
+\begin{pyconcode}
+>>> "The cat in\nthe     hat".split(" ")
+['The', 'cat', 'in\nthe', '', '', '', '', 'hat']
+>>> "The cat in\nthe     hat".split()
+['The', 'cat', 'in', 'the', 'hat']
+
+\end{pyconcode}
+
+\section{Documenting Your Functions and Modules With Docstrings}
+
+The \pythoninline{help()} function introduced in the previous labs
+prints the given function's documentation which is known as a
+docstring. You can write detailed documentation for your functions by
+placing a triple-quoted string immediately under the beginning of a
+function definition (after the \pythoninline{def f(...):}).
+
+The docstring is a comment describing the use of a function: the
+documentation should include information about each argument, the
+return value, and the function's behavior.
+
+Function comments must follow the Python Enhancement Proposal 257 (PEP
+257), a document that describes Python docstring conventions. It is
+found at:
+
+\begin{center}
+  \url{https://www.python.org/dev/peps/pep-0257/}
+\end{center}
+
+The highlights of PEP 257 are listed below.
+
+For short functions, the docstring may be a one-liner:
+
+\begin{python3code}
+def midpoint(a, b):
+    """Find and return the midpoint of the given a and b."""
+    return (a+b)/2
+\end{python3code}
+
+For larger functions or for a longer explanation, you must write a
+short summary followed by as much text as needed:
+
+\begin{python3code}
+def calculate_weekly_pay(pay_rate, hours, tax_rate):
+    """Find net weekly pay after taxes with overtime set to 1.5 the pay rate.
+
+    The net pay after taxes is calculated given the number of hours worked in a
+    week, a pay rate, and a flat tax rate. Takes into consideration overtime pay
+    at 1.5 times the pay rate.
+
+    Arguments:
+    pay_rate -- rate of pay
+    hours -- number of hours worked in one week
+    tax_rate -- flat tax rate (for example, 0.15 for 15%)
+    """
+    pay_before_taxes = hours * pay_rate
+
+    # Add overtime payment if necessary
+    if hours > 40:
+        pay_before_taxes += (hours - 40) * pay_rate * 0.5
+
+    pay_after_taxes = pay_before_taxes * (1 - tax_rate)
+    return pay_after_taxes
+\end{python3code}
+
+\begin{warningbox}{Docstrings are Required}
+From now on, you will be required to put a \emph{docstring} at the beginning
+of every function that you write.
+\end{warningbox}
+
+
+\section{Optional Function Arguments: Keyword Arguments}
+
+Functions may take zero or more required arguments, these
+are called \textsl{positional arguments}\index{positional arguments}.
+There is a special syntax that can be used to define \textsl{optional
+arguments}\index{optional arguments}.
+For example, the following function takes either one or two arguments. The
+second argument has a default value of 5.
+
+\begin{pyconcode}
+>>> def f(fst, snd = 5):
+...    return fst * snd
+>>> f(10)
+50
+>>> f(10, 6)
+60
+>>> f()
+Traceback (most recent call last):
+  File ``<stdin>'', line 1, in <module>
+TypeError: f() missing 1 required positional argument: 'fst'
+
+\end{pyconcode}
+
+An important feature is that keyword arguments may be labeled
+and listed in any order when calling the function. For example,
+the following function takes two keyword arguments. There are five
+valid ways to call this function. You may pass no arguments, then
+the default values are used. You may pass either argument by itself
+or you may pass both arguments in any order.
+
+\begin{pyconcode}
+>>> def p(greeting='Hello', subject='world'):
+...     return '{} {}'.format(greeting, subject)
+>>> p()
+'Hello world'
+>>> p(greeting='Goodbye')
+'Goodbye world'
+>>> p(subject='humans')
+'Hello humans'
+>>> p(greeting='Bonjour', subject='le monde')
+'Bonjour le monde'
+>>> p(subject='le monde', greeting='Bonjour')
+'Bonjour le monde'
+
+\end{pyconcode}
+
+
+% \section{Sample Program} % TODO
+
+
+\newpage
+\section{Exercises}\label{exercises}
+\begin{ex}[stringfun.py]
+  \emph{This exercise is a modification of exercises in the Google Python
+    class, licensed under the
+    \href{http://www.apache.org/licenses/LICENSE-2.0.html}{Apache License 2.0}.}
+
+The following functions should not print anything.
+Create a user interface that uses the functions, the \pythoninline{input()}
+function, and the \pythoninline{print()} function.
+
+\begin{description}
+  \item[\pythoninline{ends()}]
+    Write a function that takes in a string from the user and
+    prints just the first two and the last two characters of the string.
+    You may assume that any input will be at least 2 characters long.
+
+    \begin{verbatimcode}
+      == ends ==
+      Enter a string >>> spring
+      spng
+    \end{verbatimcode}
+
+  \item[\pythoninline{mix()}]
+    Write a function that takes two strings \pythoninline!a! and
+    \pythoninline!b! and prints the two strings concatenated, but with the first
+    two characters of each word swapped with the other word's first two
+    characters. You may assume that any input will be at least two characters
+    long.
+    For example:
+
+    \begin{verbatimcode}
+      == mix ==
+      String a >>> german
+      String b >>> english
+      enrman geglish
+    \end{verbatimcode}
+
+    \begin{verbatimcode}
+      == mix ==
+      String a >>> dog
+      String b >>> dinner
+      dig donner
+    \end{verbatimcode}
+
+%   \item[\pythoninline{splitit()}]
+%     Consider dividing a string into two halves. If the length
+%     is even, the front and back halves are the same length. If the length is odd,
+%     we'll say that the extra character goes in the front.
+% 
+%     For example, in \pythoninline!'abcde'!, the front half is \pythoninline!'abc'!
+%     and the back half is \pythoninline!'de'!.
+% 
+%     Write a function that takes in two strings \pythoninline!a! and
+%     \pythoninline!b!  and prints a-front + b-front + a-back + b-back.
+% 
+%     For example,
+% 
+%     \begin{verbatimcode}
+%       == splitit ==
+%       String a >>> abcd
+%       String b >>> efghi
+%       abefgcdhi
+%     \end{verbatimcode}
+% 
+%     \begin{verbatimcode}
+%       == splitit ==
+%       String a >>> this dinner is
+%       String b >>> what am i doing1
+%       this diwhat am nner isi doing1
+%     \end{verbatimcode}
+\end{description}
+\end{ex}
+
+\begin{ex}[luhns.py]
+Luhn's algorithm provides a quick way to
+ check if a credit card is valid or not. The algorithm consists of four
+ steps.
+
+ \begin{enumerate}
+
+\item We will use the Diners Club card number 38520000023237 as an example.
+
+ \begin{center}
+ \begin{tabular}{llllllllllllll}
+3 & 8 & 5 & 2 & 0 & 0 & 0 & 0 & 0 & 2 & 3 & 2 & 3 & 7\\
+ \end{tabular}
+ \end{center}
+
+\item Starting with the second to last digit (ten's column digit),
+     multiply every other digit by two.
+ \begin{center}
+ \begin{tabular}{llllllllllllll}
+6 & 8 & 10 & 2 & 0 & 0 & 0 & 0 & 0 & 2 & 6 & 2 & 6 & 7
+ \end{tabular}
+ \end{center}
+
+\item Sum all the digits of the resulting number.
+ Note that for 10, you also sum its digits: $(1 + 0)$; for an 18, you would do $1 + 8$.
+ \[ 6 + 8 + (1 + 0) + 2 + 0 + 0 + 0 + 0 + 0 + 2 + 6 + 2 + 6 + 7 = 40 \]
+
+ \item If the total sum modulo by 10 is zero, then the card is valid;
+     otherwise it is invalid.
+ For this example, the last step is to check if $40$ modulus 10 is equal to 0, which is true.
+ So the card is valid.
+ \end{enumerate}
+
+ Write a program that implements Luhn's Algorithm for validating credit
+ cards. It should ask the user to enter a credit card number and tell the
+ user whether it is valid or not.
+
+ \emph{There must be a separate function called \texttt{validate} that
+  takes in a card number and validates it. It should not print anything
+  nor accept user input.}
+
+\end{ex}
+
+\begin{infobox}{Testing Script}
+You can test your code in \texttt{luhns.py} by running the test script
+\texttt{test\_luhns.py}. This will automatically test your function on various
+card numbers. The output of the test script may look like:
+
+\begin{bashcode}
+$ ls
+luhns.py test_luhns.py ...
+$ python3 test_luhns.py
+luhns.validate("49927398717") should return False, but returned True.
+luhns.validate("1234567812345678") should return False, but returned True.
+The function luhns.validate correctly verified 3 out of 5 card numbers.
+\end{bashcode}
+
+\end{infobox}
+
+% make sure students understand the tuple-encoding
+\begin{ex}[fractions.py] Any fraction can be written as the division
+of two integers. You could express this in Python as a tuple ---
+\pythoninline{(numerator, denominator)}.
+
+  For example, the fractions $\frac{1}{2}$, $\frac{10}{7}$, and
+  $\frac{499}{10001}$ can be represented using the tuples
+  \pythoninline{(1, 2)}, \pythoninline{(10, 7)}, and \pythoninline{(499, 10001)}.
+
+  Write the following functions: 
+
+  \begin{description}
+    \item[\pythoninline{reduce(fraction)}] This function takes a fraction, reduces it, and returns the result.
+        For example, \pythoninline{reduce((8, 4))} should return \pythoninline{(2, 1)}.
+        To reduce a fraction $a/b$, divide $a$ and $b$ by their GCD.
+        The result is $(a/d) / (b/d)$.
+        The math module comes with the \pythoninline{math.gcd} function.
+    \item[\pythoninline{add(fraction1, fraction2)}] Given two fractions as tuples, add them.
+    \item[\pythoninline{multiply(fraction1, fraction2)}] Given two fractions as tuples, multiply them.
+    \item[\pythoninline{divide(fraction1, fraction2)}] Given two fractions as tuples, divide them.
+  \end{description}
+  These functions should not use \pythoninline{input()} or \pythoninline{print()}. 
+
+  Write a small command-line interface such that the user running your
+  script sees something like this:
+
+  \begin{bashcode}
+$ python3 fractions.py
+Enter a fraction >>> 5/3
+Enter a fraction >>> 10/3
+Reduced fractions to 5/3 and 10/3.
+Sum of the fractions: 3/1.
+Multiplication of the fractions: 50/9.
+Division of the first by the second: 1/2 .
+$ python3 fractions.py
+Enter a fraction >>> 3628800/479001600 
+Enter a fraction >>> 10/1000
+Reduced fractions to 1/132 and 1/100 
+Sum of the fractions: 29/1650 
+Multiplication of the fractions: 1/13200 
+Division of the first by the second: 25/33 
+
+  \end{bashcode}
+
+  The \pythoninline{split} function may be useful when converting strings ``xxx/yyy'' into 
+  tuples (xxx, yyy).
+  You should use the functions \pythoninline{add, multiply, reduce}, and
+  \pythoninline{divide} from your main function.
+\end{ex}
+
+
+%\newpage
+%  ---------------- unfinished -----------------------
+%\appendix\section{Managing 135 Alphabets: Unicode and String Comparisons} TODO
+%% 128,000 characters covering 135 modern and historic scripts, as well as multiple symbol sets.
+%
+%% emoji, first script
+%\subsection{String Representation}
+%% a = 96
+%% 8-characters
+%
+%\subsection{Unicode}\label{unicode}
+%
+%  Multi-lingual writing.
+%  (\url{https://docs.python.org/3.5/howto/unicode.html}) Apple II BASIC
+%  program written by a French speaker might have lines like these:
+%
+%\begin{verbatim}
+%PRINT "MISE A JOUR TERMINEE"
+%PRINT "PARAMETRES ENREGISTRES"
+%\end{verbatim}
+%
+%  Those messages should contain accents (terminée, paramètre,
+%  enregistrés) and they just look wrong to someone who can read French.
+%  Python's strings can contain letters with accents and almost every
+%  known glyph on earth because they use the Unicode encoding\index{Unicode encoding}.
+%  The major difference between Python 2 and Python 3 is unicode.
+%
+%\subsection{String Comparison}
+%
+%  Strings are strings of characters, characters are integers.
+%  Example using ord() function.
+%  Strings are compared by their code points, not by abstract characters.
+%  (\url{https://docs.python.org/3.5/library/unicodedata.html}) For
+%  example, the character U+00C7 (LATIN CAPITAL LETTER C WITH CEDILLA)
+%  can also be expressed as the sequence U+0043 (LATIN CAPITAL LETTER C)
+%  U+0327 (COMBINING CEDILLA).
+%
+%  If you're comparing multi-lingual strings, import the unicode module with
+%  \pythonindex{import unicode}
+%  and then use \pythonindex{unicode.normalize()}.
+%  For example:
+
+\newpage
+
+\printindex
+\vfill
+\input{submitting}
+
+\end{document}

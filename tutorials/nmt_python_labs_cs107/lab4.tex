@@ -1,0 +1,849 @@
+\documentclass[11pt]{cselabheader}
+
+\newcommand{\thelabnumber}{4}
+\newcommand{\thetitle}{Lists and For Loops}
+\newcommand{\theauthor}{CSE/IT 107L}
+
+% Write title and author
+\title{\vspace{-4em} \thetitle}  % reduce space before the title
+\author{\theauthor}
+\date{NMT Department of Computer Science and Engineering}
+
+\fancyhead[R]{Lab \thelabnumber: \thetitle}
+\fancyhead[L]{\theauthor}
+
+\makehyperref
+\makeindex[title=Index of New Functions and Methods, intoc]
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\hrule
+
+\begin{quotation}
+``Programming is learned by writing programs.''
+\end{quotation}
+\begin{flushright}
+--- Brian Kernighan
+\end{flushright}
+
+\begin{quotation}
+``The purpose of computing is insight, not numbers.''
+\end{quotation}
+\begin{flushright}
+--- Richard Hamming, 1962
+\end{flushright}
+
+\begin{quotation}
+  ``From our own history we learn what man is capable of. For that reason we
+  must not imagine that we are quite different and have become better.''
+\end{quotation}
+\begin{flushright}
+  --- Richard von Weizs\'{a}cker
+%\\\textit{Speech to commemorate end of WWII, May 8 1985}
+\end{flushright}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth]{img/xkcd_1185.png}
+  \caption{\url{http://xkcd.com/1185}}
+\end{figure}
+
+\newpage
+
+\section*{Introduction}
+
+We have discussed several types of Python values. These
+include integers, floating point numbers, strings, and booleans.  This
+lab marks the start of your introduction containers for Python
+values. These are lists, tuples, strings, sets, and dictionaries.
+They are used to organize Python values and are
+called \emph{data structures}.
+In this lab, you will learn about lists, an ordered collection of
+Python values such as \pythoninline{[1, 2, 3]}. You will learn how to
+create, modify, and slice lists. You
+will also learn more about \pythoninline{for} loops, a
+powerful Python feature for accessing values in data structures.
+
+\vspace{-1.5em}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Lists: Ordered Collections of Python Values}
+
+One of the most important data types in Python is the list\index{list}. A list is an ordered
+collection of Python values. For example, we might create a list of numbers
+representing data points on a graph or create a list of strings representing
+names of students in a class. To create a Python list value, we simply
+place comma-separated values inside square brackets.
+The values within a list are called elements\index{list elements}.
+The number of values within a list is called the length\index{length} of a list.
+
+\begin{python3code}
+python_list = [value1, value2, value3, ...]
+\end{python3code}
+
+For example, the following list assigned to the variable \pythoninline{values}
+contains the integers 1, 2, 3, and 4; they're in this order.
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> print(values)
+[10, 20, 30, 40, 50]
+
+\end{pyconcode}
+
+Here is a list of strings:
+
+\begin{pyconcode}
+>>> strings = ['Mercury', 'Pluto', 'Luna']
+>>> strings
+['Mercury', 'Pluto', 'Luna']
+
+\end{pyconcode}
+
+How do you print the strings within the list? How do you modify the
+elements of a list? How do you combine two lists? Can you delete an element?
+As we will see, you can perform many operations on their elements or on the list itself.
+
+
+\subsection{Nested Lists: Lists Containing Lists}
+
+A Python list is just another type of Python value.
+Lists can store any type of Python value, therefore you
+may create lists that contain lists, also known as
+nested lists \index{nested lists}.
+
+For example, this is a 2 dimensional list that represents a $4\times 5$
+2-color picture:
+
+\begin{pyconcode}
+>>> picture = [[0, 1, 0, 1, 0],
+...            [0, 0, 0, 0, 0],
+...            [1, 0, 0, 0, 1],
+...            [0, 1, 1, 1, 0]]
+>>> print(picture)
+[[0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [0, 1, 1, 1, 0]]
+
+\end{pyconcode}
+
+The triple-dots \bashindex{...} under the \bashinline{>>>} indicate a
+multi-line code entry in the Python interactive shell. Use
+Shift+Enter to type multiple lines.
+
+This is a 2 dimensional list of strings. Notice that sublists do not have
+to be of the same length.
+
+\begin{pyconcode}
+>>> systems = [['Venus'], ['Earth', 'Moon'], ['Mars', 'Phobos', 'Deimos']]
+>>> print(systems)
+[['Venus'], ['Earth', 'Moon'], ['Mars', 'Phobos', 'Deimos']]
+
+\end{pyconcode}
+
+Finally, note that you can nest lists as deep as needed:
+\begin{pyconcode}
+>>> balancedleaves = [[[1, 3], [4, 6]],
+...                   [[11, 10, 8], [[15, 17, 41], [50], [55, 52, 53]]]]
+
+\end{pyconcode}
+
+
+\subsection{Accessing Elements Using Indexing}
+
+To access\index{element access} (extract or look at) an element within a list, you may
+use indexing. To index\index{indexing} % TERMINOLOGY
+the n$^\text{th}$ element in a list, write the list or a variable
+containing the list and then write square brackets with the number
+$n - 1$. This is because lists are 0-indexed\index{0-indexing}, meaning
+the first element of a list is at index 0 and the last element is at
+index N-1 where N is the number of elements in the list.
+For example: the first year in a decade ends in 0, but the last year ends in 9.
+Here's a picture that shows two 0-indexed lists:
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=\linewidth]{img/pythontutor_lists.png}
+  \end{center}
+  \caption{Two lists visualized using pythontutor.com. One is a list of integers, the other list contains strings. Note, each element has its index written directly above it. The first element in each list has index 0.}
+\end{figure}
+
+In these samples, we take values out of previously introduced lists:
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> values[0]
+10
+>>> values[3]
+40
+>>> values[5]  # does not exist
+Traceback (most recent call last):
+  File '<stdin>', line 1, in <module>
+    values[5]  # does not exist
+IndexError: list index out of range
+>>> print('the first and last elements are {} and {}'.format(values[0], values[4]))
+the first and last elements are 10 and 50
+>>> strings = ['Mercury', 'Pluto', 'Luna']
+>>> strings[0]
+'Mercury'
+>>> strings[2]
+'Luna'
+
+\end{pyconcode}
+
+Python lists contain Python values, so we can assign the elements of a list
+to a variable. For example,
+
+\begin{pyconcode}
+>>> values = [1, 2, 3, 4]
+>>> first = values[0]
+>>> print(first)
+1
+
+\end{pyconcode}
+
+\subsubsection{Access Elements From the End Using Negative Indices}
+If we wish, we can use negative array indices to reference elements starting at
+the end of the list. For example, -1 is the last element, -2 is the second to
+last element, and so on.
+
+\begin{pyconcode}
+>>> values = [32, 1, 54, -3, 6]
+>>> print(values[-1])
+6
+>>> print(values[-2])
+-3
+
+\end{pyconcode}
+
+\subsubsection{A Potential Error: Index Out of Range}
+
+What happens if you try to get the element at index $5$ in a
+list of 5 elements?
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> values[5]
+Traceback (most recent call last):
+  File ``<stdin>'', line 1, in <module>
+IndexError: list index out of range
+
+\end{pyconcode}
+
+Python will raise an \pythonindex{IndexError} with the message
+``list index out of range''. To avoid such an error, check the length
+of every list with an unknown length by using the \pythoninline{len}
+function before you try to access its elements.
+
+This error also occurs when using negative indexing and the index is
+too small; such as when trying to access the $-6^\text{th}$ element in
+a list of 5 elements.
+
+\subsection{\texorpdfstring%
+  {Checking List Properties With \pythoninline{len, sum}}
+  {Checking List Properties With len, sum}}
+The \pythoninline{len(l)} function returns the length of the list passed to it.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3, 12, 123]
+>>> print(len(values))
+5
+>>> empty = []
+>>> print(len(empty))
+0
+
+\end{pyconcode}
+
+The \pythoninline{sum(l)} function sums of every value in a
+list, so long as every value in the list is a number. If any values
+are not numbers, an error will occur.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3, 12, 123]
+>>> print(sum(values))
+141
+>>> values.append('test')
+>>> print(sum(values))
+Traceback (most recent call last):
+  File '<stdin>', line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+\end{pyconcode}
+
+
+\subsubsection{Lists to Booleans Using \pythoninline{in, ==, !=}}
+
+A common operation is to test if a list contains a given value. We can do this
+using the \pythonindex{in} keyword. We can also test if a list does not contain a
+value using \pythonindex{not in}.
+
+\begin{pyconcode}
+>>> values = [1, 'test', 30, 20]
+>>> print(1 in values)
+True
+>>> print('test' in values)
+True
+>>> print(2 in values)
+False
+>>> print(2 not in values)
+True
+
+\end{pyconcode}
+
+This could be used to simplify the example from Lab 2 involving checking user
+input against multiple valid passwords. Lists make it easier to add or remove
+passwords.
+
+\begin{python3code}
+passwords = ['hunter2', 'hunter3', 'hunter4']
+
+user_in = input('Please enter your password: ')
+
+if user_in in passwords:
+    print('Correct password. Welcome!')
+else:
+    print('Incorrect password.')
+\end{python3code}
+
+
+
+\subsection{Modifying Lists and Their Elements}
+The elements of a list are similar to variables.
+Think of each index as a ``slot'' where a Python value can be stored.
+Because of this, we can reassign the elements of a list by
+using the assignment operator\index{assignment operator, =}.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3]
+>>> values[0] = 16
+>>> values
+[16, 2, 3]
+>>> values[2] = 1
+>>> values
+[16, 2, 1]
+>>> values[3] = 10
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+
+\end{pyconcode}
+
+\subsubsection{Add an Element Using \pythoninline{list.append(value)}}
+
+Many functions exist to help manipulate lists. One of these is called
+\pythonindex{list.append(value)}. This adds a new value \pythoninline{value} onto
+the end of the list \pythoninline{list}. Do not name any of your variables \pythoninline{list},
+this name has special significance in Python.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3]
+>>> values.append(12)
+>>> values.append(123)
+>>> print(values)
+[1, 2, 3, 12, 123]
+
+\end{pyconcode}
+
+\subsubsection{Add an Element to Any Index Using \pythoninline{list.insert(index, value)}}
+
+\pythonindex{list.insert(index, value)} also inserts a value, but it allows you to choose where it
+goes. The first argument of the function is the index you want your new value to
+be located. Other values will be moved to make room.
+
+\begin{pyconcode}
+>>> values = [-1, 0, 1]
+>>> values.insert(2, 10)
+>>> print(values)
+[-1, 0, 10, 1]
+
+\end{pyconcode}
+
+\subsubsection{Remove Elements Using \pythoninline{list.pop()} and \pythoninline{list.pop(index)}}
+
+The \pythonindex{list.pop()} function is returns the Python
+value at the end of a list, but it also removes the value from the list.
+If given a value, then \pythonindex{list.pop(index)} will remove the
+value at that index.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3, 12, 123]
+>>> print(values.pop())
+123
+>>> values
+[1, 2, 3, 12]
+>>> print(values.pop(0))
+1
+>>> print(values)
+[2, 3, 12]
+
+\end{pyconcode}
+
+
+\subsubsection{Joining Two Lists With \pythoninline{+}}
+
+Two lists can be merged (joined or concatenated) together in order to
+combine them into one list using the \pythonindex{+} operator.
+
+\begin{pyconcode}
+>>> values = [1, 2, 3]
+>>> more_values = [3, 2, 111]
+>>> combined = values + more_values
+>>> print(combined)
+[1, 2, 3, 3, 2, 111]
+
+\end{pyconcode}
+
+The \pythoninline{+} operator preserves the order of the two lists.
+
+\subsubsection{Sorting and Reversing Lists}
+
+To sort a list, use the \pythonindex{list.sort()} function or the
+\pythonindex{sorted(l)} function. Both functions sort lists of strings
+in dictionary-order, and lists of numbers in ascending order.
+
+The keyword argument \pythoninline{reverse} can be set to
+\pythoninline{False} to sort the list in descending order.
+This looks like: \pythonindex{list.sort(reverse=False)}.
+We will discuss keyword arguments in later labs.
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> values.sort(reverse=True)
+>>> values
+[50, 40, 30, 20, 10]
+>>> values.sort()
+>>> values
+[10, 20, 30, 40, 50]
+
+\end{pyconcode}
+
+The \pythonindex{list.reverse()} function reverses the given list.
+
+\begin{pyconcode}
+>>> strings = ['Mercury', 'Pluto', 'Luna']
+>>> strings.reverse()
+>>> strings
+['Luna', 'Pluto', 'Mercury']
+
+\end{pyconcode}
+
+\section{Accessing Sublists by Slicing Lists}
+A sublist contains all of the elements of another list and no other elements.
+For example, \pythoninline{[1,2,3]} is a sublist of \pythoninline{[1,2,3,4,5]}.
+We can access many different sublists from a Python list by
+using slicing. Four of slicing methods are shown in the following
+subsections.
+
+A list is a sublist of itself, and the empty list \pythonindex{[]} is
+a sublist of every list. This means slices will always result in
+either the original list itself, the empty list, or something between
+the two extremes.
+
+Everything that can be done with a slice can also be done using
+for-loops or while-loops; but slices are a useful Python feature
+for writing concise code.
+
+\subsection{\texorpdfstring%
+  {Access All Elements After $M$ Using \pythoninline{[M:]}}
+  {Access All Elements After M Using {[}M:{]}}}
+
+The slice of the list \pythoninline{l}, \pythonindex{l[m:]},
+will contain every element after the index \pythoninline{m}.
+Note that \pythoninline{l[m:]} includes \pythoninline{l[m]}.
+For example,
+
+\begin{pyconcode}
+>>> strings = ['Mercury', 'Venus', 'Earth', 'Mars']
+>>> strings[2:]
+['Earth', 'Mars']
+>>> strings[0:]
+['Mercury', 'Venus', 'Earth', 'Mars']
+
+\end{pyconcode}
+
+\subsection{\texorpdfstring%
+  {Access All Elements Before $N$ Using \pythoninline{[:N]}}
+  {Access All Elements Before N Using {[}:N{]}}}
+Similarly, the slice \pythonindex{l[:n]} will create a sublist
+that contains every element before the index \pythoninline{n}.
+Note that \pythoninline{l[:n]} does not include \pythoninline{l[n]}.
+
+\begin{pyconcode}
+>>> strings = ['Mercury', 'Venus', 'Earth', 'Mars']
+>>> strings[:0]
+[]
+>>> strings[:1]
+['Mercury']
+>>> strings[:3]
+['Mercury', 'Venus', 'Earth']
+
+\end{pyconcode}
+
+If out-of-bounds indices are used, the slice returns
+a list instead of raising an exception.
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> values[:100000]
+[10, 20, 30, 40, 50]
+>>> values[100000:]
+[]
+
+\end{pyconcode}
+
+\subsection{\texorpdfstring%
+  {Access All Elements Between $M$ and $N$ Using \pythoninline{[M:N]}}
+  {Access All Elements Between M and N Using {[}M:N{]}}}
+To access all elements between two indices \pythoninline{m} and
+\pythoninline{n}, slice the list using \pythonindex{l[m:n]}.
+Here are some examples:
+
+% Odd numbers with prime number of divisors
+\begin{pyconcode}
+>>> values = [3, 5, 7, 9, 11, 13, 17, 19, 23, 25, 29, 31]
+>>> values[1:5]
+[5, 7, 9, 11]
+>>> values[100:115]
+[]
+>>> values[-4:-10]
+[]
+>>> values[-10:-4]
+[7, 9, 11, 13, 17, 19]
+
+\end{pyconcode}
+
+\subsection{Skip Every $S$ Elements Using \pythoninline{[M:N:S]},
+  \pythoninline{[:N:S]}, \pythoninline{[M::S]}, and \pythoninline{[::S]}}
+
+To skip elements, you can use a third index \pythoninline{s}
+that defines the step size. To skip every other element between two
+indices, use the slice \pythoninline{l[m:n:2]}.
+To skip every \pythoninline{s} element, use this slice: \pythonindex{l[m:n:s]}.
+This Python interactive shell session demonstrates the concept:
+
+\begin{pyconcode}
+>>> values = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> values[0:9:2]
+[3, 9, 15, 21, 27]
+>>> values[1:10:2]
+[6, 12, 18, 24, 30]
+>>> values[1:10:4]
+[6, 18, 30]
+>>> values[0:10:4]
+[3, 15, 27]
+>>> values[0:10:3]
+[3, 12, 21, 30]
+
+\end{pyconcode}
+
+You can omit either the first or second index to include either every
+element starting from the beginning or from the end.  For example,
+
+\begin{pyconcode}
+>>> values = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+>>> values[:9:2]
+[3, 9, 15, 21, 27]
+>>> values[1::4]
+[6, 18, 30]
+>>> values[::4]
+[3, 15, 27]
+
+\end{pyconcode}
+
+
+\section{Lists are Mutable: Side-Effects of Modifying Elements}
+
+What does this program print?
+
+\begin{python3code}
+x = [4, -4]
+y = x
+x[0] = x[0] + 1
+print y
+print x
+\end{python3code}
+
+Both variables \pythoninline{x} and \pythoninline{y} store the same
+list, not a copy of the list. Therefore, when you modify one variable,
+they both change.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.5\linewidth]{img/pythontutor_listvalues.png}
+  \end{center}
+  \caption{A visualization of the result of modifying a list when two variables are
+  storing it. Try to run the code.}
+\end{figure}
+
+\section{\texorpdfstring%
+  {Traversing Lists Using \pythoninline{for} Loops}
+  {Traversing Lists Using For Loops}}
+
+In Lab 1, we saw how to use \pythoninline{for} loops.
+These were only the most basic type of \pythoninline{for}
+loop. In fact, Python has many methods for traversing (or iterating)
+through data in a controlled way, thus avoiding the potentially
+unpredictable behavior of \pythoninline{while} loops. Most of
+those methods involve a \pythonindex{for} loop.
+This is how you access each element in a list:
+
+\begin{python3code}
+values = [1, 2, 3, 4]
+for value in values:
+    # code that uses the `value`
+\end{python3code}
+
+Suppose you have a list of strings called \pythoninline{strings} that
+you need to print.  You could write a while loop to print all
+\pythoninline{len(strings)} elements, or you could use this for-loop:
+
+\begin{python3code}
+lines = ['# arithmetic.py', 'x = 7', 'y = 5 + x',
+         'print(y)', 'print(x)']
+for line in lines:
+    print(line)
+\end{python3code}
+
+Like any other loop, you can have any type of Python code
+under the indentation. For example, you could check the current element
+at every iteration to see if it is larger than the largest known element
+and in this way you can find the maximum element in the list.
+
+\begin{python3code}
+elements = [10, 14, -3, 5, -100, 12, 4]
+maximum = elements[0]  # first guess
+for element in elements:
+    if element > maximum:
+        maximum = element
+\end{python3code}
+
+If you have a nested list, you can traverse it using nested
+for loops:
+
+\begin{python3code}
+picture = [[0, 1, 0, 1, 0],
+           [0, 0, 0, 0, 0],
+           [1, 0, 0, 0, 1],
+           [0, 1, 1, 1, 0]]
+for row in picture:
+    for bit in row:
+        if bit != 0:
+            print(bit, end='')  # print without the newline
+    print()  # print newline
+\end{python3code}
+
+
+\subsection{\texorpdfstring%
+  {Access the Index of Current Elements With \pythoninline{enumerate()}}
+  {Access the Index of Current Elements With enumerate()}}
+
+If you have a list and need to access the index and the element at the
+index at the same time, you should consider the \pythonindex{enumerate(l)}
+function. This example prints the elements in a list, their index,
+and the next element in the list (if it exists).
+
+\begin{pyconcode}
+>>> values = [10, 20, 30, 40, 50]
+>>> for index, element in enumerate(values):
+...     if index < len(values) - 1:
+...         next_element = values[index + 1]
+...         print('{} at {}, next: {}'.format(element, index, next_element))
+...     else:
+...         print('{} at {}'.format(element, index))
+10 at 0, next: 20
+20 at 1, next: 30
+30 at 2, next: 40
+40 at 3, next: 50
+50 at 4
+
+\end{pyconcode}
+
+As another example, suppose you have a list of strings that represent lines of
+Python code. You can print each string and the line number by using this code:
+
+\begin{pyconcode}
+>>> lines = ['# arithmetic.py', 'x = 7', 'y = 5 + x',
+...          'print(y)', 'print(x)']
+>>> for index, line in enumerate(lines):
+...     print('{}: {}'.format(index + 1, line))
+1: # arithmetic.py
+2: x = 7
+3: y = 5 + x
+4: print(y)
+5: print(x)
+
+\end{pyconcode}
+
+\subsection{\texorpdfstring%
+  {Traverse Multiple Lists Using \pythoninline{zip()}}
+  {Traverse Multiple Lists Using zip()}}
+
+The \pythonindex{zip(l1, l2)} function can be used to traverse multiple lists
+element-by-element. Here are some examples:
+
+\begin{pyconcode}
+>>> group1 = [1, 10, 100, 1000, 10000]
+>>> group2 = [1, 2, 4, 8, 16]
+>>> for element1, element2 in zip(group1, group2):
+...     print("10s: {}, 2s: {}".format(element1, element2))
+10s: 1, 2s: 1
+10s: 10, 2s: 2
+10s: 100, 2s: 4
+10s: 1000, 2s: 8
+10s: 10000, 2s: 16
+
+\end{pyconcode}
+
+You could use \pythoninline{for index, (e1, e2, e3) in enumerate(zip(l1, l2, l3))} to iterate through multiple lists and access the current index.
+
+\subsection{Creating New Lists}
+One way to create a new list based on a previously exisitng list is to use
+a for-loop to check each element of the existing list and append
+an element to the new list.
+For example, the following function takes a list and returns
+a list without any negative numbers and with every non-negative number
+replaced by its square root:
+
+\begin{pyconcode}
+>>> import math
+>>> def sqrt_of_elements(elements):
+...     result = []
+...     for elem in elements:
+...         if elem >= 0:
+...             result.append(math.sqrt(elem))
+...     return result
+...
+>>> sqrt_of_elements([-1, -2])
+[]
+>>> test_list = [-1, 0, 1, 4]
+>>> r = sqrt_of_elements(test_list)
+>>> r
+[0.0, 1.0, 2.0]
+
+\end{pyconcode}
+
+% TODO \section{Sample Program}
+
+\newpage
+\section{Exercises}\label{exercises}
+
+% TODO \begin{ex}[easyexercise.py]\end{ex} ?
+
+\begin{ex}[navigate2.py] Modify \texttt{navigate.py} from lab 3 so
+  that, instead of performing each action as it is entered, the
+  program accepts user input without drawing anything until the ``stop''
+  command is given all while ignoring invalid inputs.  After the user
+  finishes, the program should run the drawing commands all at once.
+
+  There are many ways to approach this problem.
+  One way is to accept the user's input and append the strings to a list.
+  For example, if the user enters ``forward, left, 50, forward, right, 20, forward, stop,''
+  you might have the following list:
+  \begin{python3code}
+  ['forward', 'left', '50', 'forward', 'right', '20', 'forward']
+  \end{python3code}
+\end{ex}
+
+\begin{ex}[statistics107.py]
+  Write the functions listed below. They should that take a list as a parameter
+  and return the following numbers.
+
+  \begin{description}
+  \item[\pythoninline{max(elements)}] maximum element.
+  \item[\pythoninline{min(elements)}] minimum element.
+  \item[\pythoninline{sum(elements)}] the sum of every element in the list.
+  \end{description}
+
+  Although you may find them useful for testing, do not use the
+  built-in functions \pythoninline{max, min, sum}.
+  Also, write the following functions that take a list and return a list with the
+  following elements:
+
+  \begin{description}
+  \item[\pythoninline{odds(elements)}] all odd elements of the input list.
+  \item[\pythoninline{evens(elements)}] all even elements.
+  \item[\pythoninline{every_other(elements)}] finds every other element, starting from the 0$^\text{th}$.
+  \item[\pythoninline{every_other_odd(elements)}] finds every other element then returns only the odd elements.
+  \item[\pythoninline{every_other_even(elements)}] finds every other element then returns only the even elements.
+  \end{description}
+
+  You do not need to accept user input, just write the functions and use the
+  function \pythoninline{run_tests} to check them.
+
+  Remember you can call your own functions from any part of your program, even from
+  other functions that you write.
+  The goal is to reduce repetition.
+  What's the minimum amount of code you'll have to write?
+
+  \begin{pyconcode}
+>>> import statistics107
+>>> statistics107.every_other([1,2,3,4])
+[1, 3]
+>>> statistics107.every_other_even([1, 100, 45, 23, 10, 2, 4, 13])
+[100, 2]
+>>> statistics107.evens([1,2,3,4])
+[2, 4]
+>>> statistics107.sum([1,2,3,4])
+10
+>>> sum([1,2,3,4])  # write your own!
+10
+
+\end{pyconcode}
+\end{ex}
+
+% \begin{ex}[sorted.py] Take in numbers as input until ``stop'' is entered. As you
+%   take in each number, insert it into a list so that the list is sorted in
+%   ascending order. That is, look through the list until you find the place where
+%   the new element belongs, then use \pythoninline{.insert()} to place it there.
+%   If the number is already in the list, do not add it again. After ``stop'' is
+%   entered, print out the list. Do not use any of Python's built-in sorting
+%   functions.
+%
+%   You cannot use \pythoninline!.sort()! for this exercise.
+%   % !!! or sorted
+%
+%   Sample:
+%
+%   \begin{verbatimcode}
+% Input a number >>> 12
+% Input a number >>> 5.2
+% Input a number >>> 73
+% Input a number >>> 45
+% Input a number >>> 100
+% Input a number >>> -5
+% Input a number >>> 2.3
+% Input a number >>> stop
+% [-5.0, 2.3, 5.2, 12.0, 45.0, 73.0, 100.0]
+%   \end{verbatimcode}
+%
+%   What happens in the background:
+%
+%   \begin{verbatimcode}
+% Input a number >>> 12
+% List contains [12.0]
+% Input a number >>> 5.2
+% List contains [5.2, 12.0]
+% Input a number >>> 73
+% List contains [5.2, 12.0, 73.0]
+% Input a number >>> 45
+% List contains [5.2, 12.0, 45.0, 73.0]
+% Input a number >>> 100
+% List contains [5.2, 12.0, 45.0, 73.0, 100.0]
+% Input a number >>> -5
+% List contains [-5.0, 5.2, 12.0, 45.0, 73.0, 100.0]
+% Input a number >>> 2.3
+% List contains [-5.0, 2.3, 5.2, 12.0, 45.0, 73.0, 100.0]
+% Input a number >>> stop
+% [-5.0, 2.3, 5.2, 12.0, 45.0, 73.0, 100.0]
+%   \end{verbatimcode}
+%
+% \end{ex}
+
+\printindex
+\vfill
+\input{submitting}
+
+\end{document}
