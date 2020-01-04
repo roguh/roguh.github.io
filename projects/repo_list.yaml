@@ -1,3 +1,7 @@
+project_howdy:
+  categories: ['programming', 'projects', 'content generation']
+  tags: ['Git', 'GitHub', 'project', 'human languages', 'greetings']
+
 HelloWorlds:
   categories: ['programming', 'projects', 'tutorials']
   tags: ['Git', 'GitHub', 'project', 'frontend', 'backend', 'nodejs', 'web', 'math', 'visualization', 'machine learning', 'computer vision', 'fun', 'videogame', 'parsing', 'interpreter', 'unfinished', 'programming languages']
@@ -109,3 +113,7 @@ ocaml-parsing:
 SCMinHS:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'Haskell', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
+
+rust-ls:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'utility']
