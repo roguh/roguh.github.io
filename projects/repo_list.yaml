@@ -1,3 +1,12 @@
+the_long_count:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'Mesoamerican', 'Mayan', 'counting', 'math']
+
+hrpypy:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
+
+
 project_howdy:
   categories: ['programming', 'projects', 'content generation']
   tags: ['Git', 'GitHub', 'project', 'human languages', 'greetings']
@@ -104,7 +113,7 @@ CORE:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'Haskell', 'parsing', 'Core lang', 'programming languages', 'unfinished', 'standards compliant', 'interpreter', 'compiler']
   addLanguages: false
-ocaml-lox:
+hrclox:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
 ocaml-parsing:
