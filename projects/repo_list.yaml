@@ -116,6 +116,9 @@ CORE:
 hrclox:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
+plox:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
 ocaml-parsing:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'parsing', 'boilerplate', 'programming languages']
@@ -124,5 +127,9 @@ SCMinHS:
   tags: ['Git', 'GitHub', 'project', 'Haskell', 'parsing', 'programming languages', 'standards compliant', 'interpreter']
 
 rust-ls:
+  categories: ['programming', 'projects']
+  tags: ['Git', 'GitHub', 'project', 'utility']
+
+b_________________e_____________e_________________________________-------------------------________p:
   categories: ['programming', 'projects']
   tags: ['Git', 'GitHub', 'project', 'utility']
