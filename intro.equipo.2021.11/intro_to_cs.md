@@ -14,21 +14,35 @@ why they want to program
 why they'd like to learn computer science
 -->
 
+<!--
+there's always errors
+syntax, runtime, logic
+
+why use data structures?
+speed incredible, but is limited
+
+MANY FREE AND HIGH QUALITY (STATE OF THE ART) RESOURCES!!!!!!
+a better computer and good internet can help, but you can get started on any machine and even a slow connection
+
+coding <-> computer science
+cooking <-> chemistry
+--->
+
 # Intros
 
 # Intros
 
 - Mexican-American dreamer (DACA) raised in Santa Fe, NM
 - graduated with computer science and math degrees from New Mexico Tech in 2018
-- aced Triplebyte recruitment agency's assessment
+- Triplebyte recruitment agency
 - started working in a healthcare startup
 - currently at a large renewable energy company building software for electric vehicle charging stations and large-scale batteries for powering buildings
 
 # Useful Websites
 
-- feel free to follow along at [roguh.com/intro_to_cs.equipo.2021_11](/intro_to_cs.equipo.2021_11/)
+- feel free to follow along at [roguh.com/intro.equipo.2021.11](/intro.equipo.2021.11/)
   - there's a table of contents! click "contents?"
-  - you can also see a PDF version at  [roguh.com/intro_to_cs.equipo.2021_11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf](/intro_to_cs.equipo.2021_11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf)
+  - you can also see a PDF version at  [roguh.com/intro.equipo.2021.11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf](/intro.equipo.2021.11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf)
 - run Python code at repl.it [https://repl.it/languages/python3](https://repl.it/languages/python3)
 
 (you can use a smartphone if you don't have a laptop)
