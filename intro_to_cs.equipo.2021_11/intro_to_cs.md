@@ -1,7 +1,7 @@
 ---
 title: Intro to programming using Python
 subtitle: Equipo Academy's College Simulation Day
-date: 2021.11
+date: 2021.11.24
 author: Hugo O. Rivera
 ---
 
