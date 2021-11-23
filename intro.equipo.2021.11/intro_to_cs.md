@@ -17,15 +17,17 @@ author: Hugo O. Rivera
 
 # Useful Websites
 
-- feel free to follow along at [roguh.com/intro.equipo.2021.11](/intro.equipo.2021.11/)
-  - there's a table of contents! click "contents?"
-  - you can also see a PDF version at  [roguh.com/intro.equipo.2021.11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf](/intro.equipo.2021.11/intro_to_cs_by_hugo_o_rivera_2021_11.pdf)
-- run Python code at repl.it [repl.it/languages/python3](https://repl.it/languages/python3)
+- Pick one:
+  - Type [bit.ly/3FDoRlt](https://bit.ly/3FDoRlt)
+  - Go to [roguh.com](https://roguh.com), scroll to bottom and click **"A brief intro to computer science and programming"**
+  - Type [roguh.com/intro.equipo.2021.11](/intro.equipo.2021.11/)
+- Run Python code at repl.it [repl.it/languages/python3](https://repl.it/languages/python3)
   - REPL: Read, Evaluate, Print, Loop
     - Read: you type in code, the computer reads it
     - Evaluate: the computer runs the code
     - Print: the computer prints the results
     - Loop: this same thing happens all over again
+  - You'll need an account later
 
 (you can use a smartphone if you don't have a laptop)
 
@@ -101,9 +103,9 @@ special powers.
 
 It's a friendly programming language :)
 
-# Go here, please
+# We need repl.it
 
-run Python code at repl.it [repl.it/languages/python3](https://repl.it/languages/python3)
+[repl.it/languages/python3](https://repl.it/languages/python3)
 
 make an account later to save your programs!
 
@@ -118,7 +120,6 @@ print("Hello, world!")
 # Program 1
 
 ```python
-# 1.0.py
 name = "Alice"
 message = "Hello," + name
 print(message)
@@ -127,7 +128,6 @@ print(message)
 # Program 1: details
 
 ```python
-# 1.0.py
 name = "Alice"
 message = "Hello," + name
 print(message)
@@ -148,7 +148,6 @@ print(message)
 # Program 1: output
 
 ```python
-# 1.0.py
 name = "Alice"
 message = "Hello," + name
 print(message)
@@ -156,8 +155,7 @@ print(message)
 
 ### Output
 
-```shell
-$ python 1.0.py
+```
 Hello,Alice
 ```
 
@@ -174,7 +172,6 @@ The line that starts with `#` is a **comment** meant to help people reading the 
 ## Output
 
 ```
-$ python 1.1.py
 Hello, Alice
 ```
 
@@ -210,7 +207,47 @@ print(greeting + name)
 
 # What do `>>>` and `$` at the beginning of a line mean?
 
-<!-- TODO -->
+# Problem: ABBA
+
+```
+a = "a"
+b = "b"
+print(<YOUR CODE HERE>)
+```
+
+Output:
+
+```
+abba
+```
+
+# Other test cases
+
+Test 2:
+
+```
+a = "alpha"
+b = "bet"
+```
+
+Output:
+
+```
+alphabetbetalpha
+```
+
+Test 3:
+
+```
+a = "word"
+b = "word"
+```
+
+Output:
+
+```
+wordwordwordword
+```
 
 # CodingBat!
 
@@ -218,8 +255,8 @@ codingbat.com -> Python -> String-1 -> `make_abba`
 
 [codingbat.com/prob/p182144](https://codingbat.com/prob/p182144)
 
-<!-- to do more coding bat you'll need to learn about slices
-and probably other Python concepts... -->
+To do more coding bat you'll need to learn about list/string slices
+and other Python concepts...
 
 # Program 3: Arithmetic and Numbers
 
