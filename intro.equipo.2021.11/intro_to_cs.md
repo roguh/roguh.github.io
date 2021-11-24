@@ -63,7 +63,7 @@ Computers:
 
 # *Que pueden hacer?* What can they do?
 
-- *controlando la tecnología*
+- *controlar la tecnología*
 - **controlling technology** (a LOT of technology?)
 - automating tasks: computers can do the boring things quickly
 - analyzing data and discovering new insights
@@ -82,7 +82,7 @@ Computers:
 - REPL: Read, Evaluate, Print, Loop
   - *Lee* | Read: you type in code, the computer reads it
   - *Evalúa* | Evaluate: the computer runs the code
-    - Computes, thinks, translates
+    - Computes, thinks, translates, acts, does what you told it to do
   - *Imprime* | Print: the computer prints the results
   - *Repite* | Loop: repeats, this same thing happens all over again
 
@@ -189,15 +189,13 @@ Easy to learn, commonly used by scientist and companies.
   - *Populares **libraries** de aprendizaje automático. Redes neuronales, inteligencia artificial.*
   - Popular machine learning **libraries**. Neural networks, artificial intelligence.
 - [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
-  - *servidor web*
-  - web servers
+  - *servidor web* | web servers
 - *Mi trabajo: controlar la velocidad (los amperios) a la que se cargan los vehículos eléctricos.*
 - My work: controlling how fast (the amps) electric vehicles charge.
 
 In general:
 
-- *Escribir programas rápidamente* | Writing programs quickly.
-- *Pracitcar* | Practicing.
+- *Escribir programas rápidamente* | Writing programs quickly. *Practicar* | Practicing.
 - *Aprender* | Learning.
 
 # Program 1.2
@@ -261,7 +259,7 @@ print(2 ** 10)
 print(195.51 // 10)
 ```
 
-# Program 3.1: A googol and *notación científica* | scientific notation
+# Program 3.1: A googol, *notación científica* | scientific notation
 
 ```python
 print(10 ** 100)
@@ -304,15 +302,17 @@ print(math.pi * radius ** 2)
 
 1, -50, 0, 1000000000000
 
-# Exercise: *calcule el volumen de un cubo* | compute the volume of a cube
+`int(4.9) == 4`
 
-<!-- translate -->
+# Exercise: *calcule el volumen de un cubo* | compute the volume of a cube
 
 ```
 user_input = <YOUR CODE HERE>
 side_length = float(user_input)
 print(<YOUR CODE HERE>)
 ```
+
+![](./cube.png)
 
 # Exercise: *calcule el volumen de un cubo* | compute the volume of a cube
 
@@ -327,25 +327,25 @@ print(<YOUR CODE HERE>)
 - *¿Cómo calcular el volumen de un cubo?*
 - How to compute the volume of a cube?
 
-# I/O
+# *E/S* | I/O
 
-<!-- translate -->
-
-Two very important things a computer does:
-
-- Input. Receive information from the world.
+- *Entrada or ingresar de información* | Input. Receive information from the world.
   - Keyboard, touch screen
-  - Thermometer, other special hardware
-  - GPS
   - Hard drives, SSDs, RAM, memory
   - Network (other computers)
-- Output. Deliver information to the world.
+  - GPS, thermometers, other special hardware
+- *Salida de información* | Output. Deliver information to the world.
   - Screens
-  - How fast a rocket should go, other special hardware
+  - Printers
   - Hard drives, SSDs, RAM, memory
   - Network (other computers)
+  - How fast a rocket should go, other special hardware
 
-# Program 6: *Dibujo con una tortuga* | Drawing with Turtle
+[*Periférico de entrada*](https://es.wikipedia.org/wiki/Periférico_de_entrada)
+
+[Input/Output](https://en.wikipedia.org/wiki/Input/output)
+
+# Program 6: *Dibuja con una tortuga* | Drawing with Turtle
 
 ```python
 import turtle
@@ -357,8 +357,6 @@ turtle.forward(50)
 ```
 
 # How to run
-
-<!-- translate -->
 
 *Por favor crea una cuenta*
 
@@ -457,6 +455,21 @@ turtle.speed("fastest")
 turtle.tracer(False) # Esconde | Hide the turtle until it's done
 turtle.update() # Enseñar | Show what the turtle drew
 ```
+
+# Squares
+
+```python
+import turtlae
+
+turtle.speed("fastest")
+for square_number in range(35):
+  turtle.left(10)
+  for _ in range(4):
+    turtle.forward(200)
+    turtle.left(90)
+```
+
+triangles? octagons?
 
 # Advanced program: *Recursividad* | Recursion
 
@@ -662,7 +675,7 @@ Free and powerful: [Unity](https://unity.com/) and [Godot](https://godotengine.o
 
 # Recommended resources:
 
-<!-- translate -->
+<!-- translate more -->
 
 *Todos usan estos recursos, incluso los profesionales:*
 
@@ -691,7 +704,7 @@ Money:
 
 # Learning resources
 
-<!-- translate -->
+<!-- translate more -->
 
 *Todo lo que necesitas es una computadora y tiempo.*
 
@@ -713,21 +726,18 @@ All you need is a computer and time.
 - [pyladies.com/resources/](https://www.pyladies.com/resources/)
 - [Mark Galassi's serious programming course](https://markgalassi.sourceforge.io/small-courses-html/index.html)
 
-# You can also start with JavaScript
+# *También puedes comenzar con JavaScript* | You can also start with JavaScript
 
-<!-- translate -->
-
-Try JavaScript!
+*Se utiliza para crear sitios web y servidores web.*
 
 It is used to make websites and web servers.
 
-Learning resources are bountiful. Ask me if you want advice.
-
 # Installing JavaScript
 
+- *Ya lo tienes*
 - You already have it!
   - Press Ctrl+Shift+C on your web browser
-- When you know more, install: TypeScript, npm or yarn, node
+- More advanced: install TypeScript, npm or yarn, node
 
 ![](./ctrl_shift_c.png)
 

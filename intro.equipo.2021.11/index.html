@@ -168,7 +168,7 @@ Hugo O. Rivera Calzadillas
 <div id="que-pueden-hacer-what-can-they-do" class="slide section level1">
 <h1><em>Que pueden hacer?</em> What can they do?</h1>
 <ul>
-<li><em>controlando la tecnología</em></li>
+<li><em>controlar la tecnología</em></li>
 <li><strong>controlling technology</strong> (a LOT of technology?)</li>
 <li>automating tasks: computers can do the boring things quickly</li>
 <li>analyzing data and discovering new insights</li>
@@ -190,7 +190,7 @@ Hugo O. Rivera Calzadillas
 <li><em>Lee</em> | Read: you type in code, the computer reads it</li>
 <li><em>Evalúa</em> | Evaluate: the computer runs the code
 <ul>
-<li>Computes, thinks, translates</li>
+<li>Computes, thinks, translates, acts, does what you told it to do</li>
 </ul></li>
 <li><em>Imprime</em> | Print: the computer prints the results</li>
 <li><em>Repite</em> | Loop: repeats, this same thing happens all over again</li>
@@ -272,16 +272,14 @@ Hola Alice</code></pre>
 </ul></li>
 <li><a href="https://flask.palletsprojects.com/">Flask</a> and <a href="https://www.djangoproject.com/">Django</a>
 <ul>
-<li><em>servidor web</em></li>
-<li>web servers</li>
+<li><em>servidor web</em> | web servers</li>
 </ul></li>
 <li><em>Mi trabajo: controlar la velocidad (los amperios) a la que se cargan los vehículos eléctricos.</em></li>
 <li>My work: controlling how fast (the amps) electric vehicles charge.</li>
 </ul>
 <p>In general:</p>
 <ul>
-<li><em>Escribir programas rápidamente</em> | Writing programs quickly.</li>
-<li><em>Pracitcar</em> | Practicing.</li>
+<li><em>Escribir programas rápidamente</em> | Writing programs quickly. <em>Practicar</em> | Practicing.</li>
 <li><em>Aprender</em> | Learning.</li>
 </ul>
 </div>
@@ -324,8 +322,8 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span> <span class="op">**</span> <span class="dv">10</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">195.51</span> <span class="op">//</span> <span class="dv">10</span>)</span></code></pre></div>
 </div>
-<div id="program-3.1-a-googol-and-notación-científica-scientific-notation" class="slide section level1">
-<h1>Program 3.1: A googol and <em>notación científica</em> | scientific notation</h1>
+<div id="program-3.1-a-googol-notación-científica-scientific-notation" class="slide section level1">
+<h1>Program 3.1: A googol, <em>notación científica</em> | scientific notation</h1>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">**</span> <span class="dv">100</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">1e100</span>)</span></code></pre></div>
 <ul>
@@ -356,13 +354,14 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 <h3 id="integer-int">integer, int</h3>
 <p><em>un número entero</em> | whole number</p>
 <p>1, -50, 0, 1000000000000</p>
+<p><code>int(4.9) == 4</code></p>
 </div>
 <div id="exercise-calcule-el-volumen-de-un-cubo-compute-the-volume-of-a-cube" class="slide section level1">
 <h1>Exercise: <em>calcule el volumen de un cubo</em> | compute the volume of a cube</h1>
-<!-- translate -->
 <pre><code>user_input = &lt;YOUR CODE HERE&gt;
 side_length = float(user_input)
 print(&lt;YOUR CODE HERE&gt;)</code></pre>
+<p><img src="./cube.png" /></p>
 </div>
 <div id="exercise-calcule-el-volumen-de-un-cubo-compute-the-volume-of-a-cube-1" class="slide section level1">
 <h1>Exercise: <em>calcule el volumen de un cubo</em> | compute the volume of a cube</h1>
@@ -376,30 +375,30 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 <li>How to compute the volume of a cube?</li>
 </ul>
 </div>
-<div id="io" class="slide section level1">
-<h1>I/O</h1>
-<!-- translate -->
-<p>Two very important things a computer does:</p>
+<div id="es-io" class="slide section level1">
+<h1><em>E/S</em> | I/O</h1>
 <ul>
-<li>Input. Receive information from the world.
+<li><em>Entrada or ingresar de información</em> | Input. Receive information from the world.
 <ul>
 <li>Keyboard, touch screen</li>
-<li>Thermometer, other special hardware</li>
-<li>GPS</li>
 <li>Hard drives, SSDs, RAM, memory</li>
 <li>Network (other computers)</li>
+<li>GPS, thermometers, other special hardware</li>
 </ul></li>
-<li>Output. Deliver information to the world.
+<li><em>Salida de información</em> | Output. Deliver information to the world.
 <ul>
 <li>Screens</li>
-<li>How fast a rocket should go, other special hardware</li>
+<li>Printers</li>
 <li>Hard drives, SSDs, RAM, memory</li>
 <li>Network (other computers)</li>
+<li>How fast a rocket should go, other special hardware</li>
 </ul></li>
 </ul>
+<p><a href="https://es.wikipedia.org/wiki/Periférico_de_entrada"><em>Periférico de entrada</em></a></p>
+<p><a href="https://en.wikipedia.org/wiki/Input/output">Input/Output</a></p>
 </div>
-<div id="program-6-dibujo-con-una-tortuga-drawing-with-turtle" class="slide section level1">
-<h1>Program 6: <em>Dibujo con una tortuga</em> | Drawing with Turtle</h1>
+<div id="program-6-dibuja-con-una-tortuga-drawing-with-turtle" class="slide section level1">
+<h1>Program 6: <em>Dibuja con una tortuga</em> | Drawing with Turtle</h1>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
@@ -409,7 +408,6 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 </div>
 <div id="how-to-run" class="slide section level1">
 <h1>How to run</h1>
-<!-- translate -->
 <p><em>Por favor crea una cuenta</em></p>
 <p>You need a free account.</p>
 <p><a href="https://replit.com/languages/python_turtle">replit.com/languages/python_turtle</a></p>
@@ -488,30 +486,42 @@ side_length = 100
 <div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>turtle.tracer(<span class="va">False</span>) <span class="co"># Esconde | Hide the turtle until it&#39;s done</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>turtle.update() <span class="co"># Enseñar | Show what the turtle drew</span></span></code></pre></div>
 </div>
+<div id="squares" class="slide section level1">
+<h1>Squares</h1>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtlae</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&quot;fastest&quot;</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> square_number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">35</span>):</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  turtle.left(<span class="dv">10</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">200</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span></code></pre></div>
+<p>triangles? octagons?</p>
+</div>
 <div id="advanced-program-recursividad-recursion" class="slide section level1">
 <h1>Advanced program: <em>Recursividad</em> | Recursion</h1>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_line(width, depth<span class="op">=</span><span class="dv">0</span>):</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> depth <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        turtle.forward(width)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">2</span> <span class="op">*</span> <span class="dv">60</span>)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_snowflake(width<span class="op">=</span><span class="dv">100</span>, depth<span class="op">=</span><span class="dv">1</span>):</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        koch_line(width, depth)</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">180</span> <span class="op">-</span> <span class="dv">60</span>)</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&#39;fastest&#39;</span>)</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>koch_snowflake(<span class="dv">200</span>, <span class="dv">3</span>)</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>turtle.done()</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_line(width, depth<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> depth <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        turtle.forward(width)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">2</span> <span class="op">*</span> <span class="dv">60</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_snowflake(width<span class="op">=</span><span class="dv">100</span>, depth<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>        koch_line(width, depth)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">180</span> <span class="op">-</span> <span class="dv">60</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&#39;fastest&#39;</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>koch_snowflake(<span class="dv">200</span>, <span class="dv">3</span>)</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>turtle.done()</span></code></pre></div>
 <ul>
 <li>functions</li>
 <li>recursive functions</li>
@@ -556,12 +566,12 @@ side_length = 100
 </div>
 <div id="program-11-http-solicitudes-requests-with-requests-library" class="slide section level1">
 <h1>Program 11: HTTP <em>solicitudes</em> | requests with <code>requests</code> library</h1>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">&#39;https://www.google.com/search?q=&#39;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> urllib.parse.quote_plus(<span class="st">&#39;equipo academy&#39;</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(base_url <span class="op">+</span> query)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">&#39;https://www.google.com/search?q=&#39;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> urllib.parse.quote_plus(<span class="st">&#39;equipo academy&#39;</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(base_url <span class="op">+</span> query)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code></pre></div>
 <p><code>response.status_code</code> 200 is ok.</p>
 <p><code>response.status_code</code> ≥400 is <strong>error</strong></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Status codes</a></p>
@@ -571,7 +581,7 @@ side_length = 100
 <!-- translate -->
 <p><em>La versión 2 de Python es muy antigua y ya no recibe actualizaciones.</em></p>
 <p>Python version 2 is very old and no longer maintained.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">&quot;Hello, world!&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">&quot;Hello, world!&quot;</span></span></code></pre></div>
 <p>Find newer resources!</p>
 <h2 id="maintaining-software">Maintaining software</h2>
 <p>Receiving updates. Taking care of security problems.</p>
@@ -681,7 +691,7 @@ Python 3.9.7</code></pre>
 </div>
 <div id="recommended-resources" class="slide section level1">
 <h1>Recommended resources:</h1>
-<!-- translate -->
+<!-- translate more -->
 <p><em>Todos usan estos recursos, incluso los profesionales:</em></p>
 <p>Everyone uses these, even professionals:</p>
 <ul>
@@ -709,7 +719,7 @@ Python 3.9.7</code></pre>
 </div>
 <div id="learning-resources" class="slide section level1">
 <h1>Learning resources</h1>
-<!-- translate -->
+<!-- translate more -->
 <p><em>Todo lo que necesitas es una computadora y tiempo.</em></p>
 <p>All you need is a computer and time.</p>
 <ul>
@@ -732,31 +742,30 @@ Python 3.9.7</code></pre>
 <li><a href="https://markgalassi.sourceforge.io/small-courses-html/index.html">Mark Galassi’s serious programming course</a></li>
 </ul>
 </div>
-<div id="you-can-also-start-with-javascript" class="slide section level1">
-<h1>You can also start with JavaScript</h1>
-<!-- translate -->
-<p>Try JavaScript!</p>
+<div id="también-puedes-comenzar-con-javascript-you-can-also-start-with-javascript" class="slide section level1">
+<h1><em>También puedes comenzar con JavaScript</em> | You can also start with JavaScript</h1>
+<p><em>Se utiliza para crear sitios web y servidores web.</em></p>
 <p>It is used to make websites and web servers.</p>
-<p>Learning resources are bountiful. Ask me if you want advice.</p>
 </div>
 <div id="installing-javascript" class="slide section level1">
 <h1>Installing JavaScript</h1>
 <ul>
+<li><em>Ya lo tienes</em></li>
 <li>You already have it!
 <ul>
 <li>Press Ctrl+Shift+C on your web browser</li>
 </ul></li>
-<li>When you know more, install: TypeScript, npm or yarn, node</li>
+<li>More advanced: install TypeScript, npm or yarn, node</li>
 </ul>
 <p><img src="./ctrl_shift_c.png" /></p>
 </div>
 <div id="program-12-javascript" class="slide section level1">
 <h1>Program 12: JavaScript</h1>
 <!-- translate -->
-<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> user_input <span class="op">=</span> <span class="fu">prompt</span>(<span class="st">&quot;Enter the size of a square&quot;</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> number <span class="op">=</span> <span class="bu">Number</span>(user_input)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> area <span class="op">=</span> number <span class="op">*</span> number</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;The area is &quot;</span> <span class="op">+</span> area)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> user_input <span class="op">=</span> <span class="fu">prompt</span>(<span class="st">&quot;Enter the size of a square&quot;</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> number <span class="op">=</span> <span class="bu">Number</span>(user_input)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> area <span class="op">=</span> number <span class="op">*</span> number</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;The area is &quot;</span> <span class="op">+</span> area)</span></code></pre></div>
 </div>
 <div id="projects" class="slide section level1">
 <h1>Projects</h1>
