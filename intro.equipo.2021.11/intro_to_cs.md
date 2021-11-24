@@ -1,26 +1,27 @@
 ---
-title: Intro to programming using Python
-subtitle: Equipo Academy's College Simulation Day
+title: "*Introducción a la programación informática* | Introduction to programming"
 date: 2021.11.24
-author: Hugo O. Rivera
+author: Hugo O. Rivera Calzadillas
 ---
 
-<!-- translate title -->
-
-# Intros
+# Intro
 
 <!-- name, why learn programming? -->
 
-# Intros
+# Intro
 
 <!-- translate -->
 
-- Mexican, DACA
+- Mexicano, DACA
 - Santa Fe, NM
-- computer science and math, New Mexico Tech, 2018
-- Triplebyte recruitment
+- *ciencias de la computación y matemáticas* | computer science and math, New Mexico Tech, 2018
+- Triplebyte *empresa de reclutamiento* | recruitment company
 - healthcare startups
-- renewable energy company building software for electric vehicle charging stations
+  - a startup is a company that is just starting and could be getting investment funding
+  - *un startup es una empresa que recién está comenzando y que podría obtener financiación para inversiones*
+- renewable energy company building software for controlling electric vehicle charging stations
+  - *software para controlar cargadores de vehículos eléctricos* 
+  - [PowerFlex](https://www.powerflex.com/)
 
 # Visit
 
@@ -31,14 +32,16 @@ author: Hugo O. Rivera
 
 <!-- translate -->
 
-- 12 + 1 programs
-- Python exercises on your Chromebook
+- 12 + 1 *programas* | programs
+- Python *ejercicios* | exercises on Chromebook
 
 # What is programming?
 
-<!-- ask a student to read it -->
+> La programación es el arte y la ciencia de traducir ideas en un programa
 
 > [Programming is the art and science of translating a set of ideas into a program](https://en.wikiversity.org/wiki/What_is_%22programming%22)
+
+> Un programa es **una lista de instrucciones exactas que puede seguir una computadora**.
 
 > [A program is **a list of [exact] instructions a computer can follow**.](https://en.wikiversity.org/wiki/What_is_%22programming%22)
 
@@ -50,25 +53,23 @@ youtu.be/Ct-lOOUqmyY
 
 # What is programming, really?
 
-<!-- translate -->
-
 Computers:
 
-- Fast
-- Very dumb
-- Very flexible. **Programmable**
-- Takes instructions very literally, has special powers.
+- *Rápidas* | Fast
+- *Tontas* | Very dumb
+- *Flexible* | Very flexible. **Programmable**
+- *Toma las cosas literalmente* | Takes instructions very literally, has special powers.
   - What special powers?
 
-# What can you do with computers?
+# *Que pueden hacer?* What can they do?
 
-<!-- translate -->
-
+- *controlando la tecnología*
 - **controlling technology** (a LOT of technology?)
 - automating tasks: computers can do the boring things quickly
 - analyzing data and discovering new insights
 - all forms of science: biology, medicine, physics, rocket science, mathematics
 - improve communication, access to knowledge
+- *organizando información*
 - **organizing information.** uses many fascinating branches of mathematics
 - make new forms of art
 - improving existing industries (healthcare, electric vehicle charging, ...)
@@ -79,19 +80,21 @@ Computers:
 [repl.it/languages/python3](https://repl.it/languages/python3)
 
 - REPL: Read, Evaluate, Print, Loop
-  <!-- translate -->
-  - Read: you type in code, the computer reads it
-  - Evaluate: the computer runs the code
-  - Print: the computer prints the results
-  - Loop: this same thing happens all over again
+  - *Lee* | Read: you type in code, the computer reads it
+  - *Evalúa* | Evaluate: the computer runs the code
+    - Computes, thinks, translates
+  - *Imprime* | Print: the computer prints the results
+  - *Repite* | Loop: repeats, this same thing happens all over again
 
 # Program 0
 
 ```python
-print("Hello, world!")
+print("¡Hola Mundo!")
 ```
 
-<!-- translate -->
+```python
+print("Hello, world!")
+```
 
 # Program 1
 
@@ -101,17 +104,17 @@ message = "Hello," + name
 print(message)
 ```
 
-<!-- translate -->
-
-# Program 1: details
-
 ```python
-name = "Alice"
-message = "Hello," + name
-print(message)
+nombre = "Alice"
+mensaje = "Hola" + nombre
+print(mensaje)
 ```
 
-## If you typed this program, what would it show?
+## *Que va a hacer?*
+
+## What will it do?
+
+`print` *quiere decir imprimir*
 
 # Program 1: output
 
@@ -121,10 +124,17 @@ message = "Hello," + name
 print(message)
 ```
 
+```python
+nombre = "Alice"
+mensaje = "Hola" + nombre
+print(mensaje)
+```
+
 ### Output
 
 ```
 Hello,Alice
+HolaAlice
 ```
 
 # Program 1.1
@@ -135,19 +145,28 @@ message = "Hello, " + name
 print(message)
 ```
 
+```python
+nombre = "Alice"
+mensaje = "Hola " + nombre
+print(mensaje)
+```
+
 ## Output
 
 ```
 Hello, Alice
+Hola Alice
 ```
 
 # What is a programming language for?
 
 <!-- translate -->
 
+> para expresar un conjunto de instrucciones detalladas para una computadora digital
+
 > for expressing a set of detailed instructions for a digital computer
 
-[Read an overview of programming languages here](https://www.britannica.com/technology/computer-programming-language)
+[Read more here](https://www.britannica.com/technology/computer-programming-language)
 
 # Python
 
@@ -155,36 +174,44 @@ Hello, Alice
 
 <!-- translate -->
 
+*Fácil de aprender, comúnmente utilizado por científicos y empresas.*
+
 Easy to learn, commonly used by scientist and companies.
 
 # Uses?
 
 <!-- translate -->
 
-- [SciPy](https://scipy.org/), [Numpy](https://numpy.org/), [Pandas](https://pandas.pydata.org/): scientists, mathematicians, and analysts every day to process all kinds of data.
-- [Tensorflow](https://www.tensorflow.org/): popular machine learning **libraries**.
-  - Neural networks, artificial intelligence.
-- [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/): web servers.
-- My work: controlling how fast electric vehicles charge
+- [SciPy](https://scipy.org/), [Numpy](https://numpy.org/), [Pandas](https://pandas.pydata.org/)
+  - los científicos y matemáticos los utilizan para procesar todo tipo de datos. 
+  - scientists and mathematicians use these to process all kinds of data.
+- [Tensorflow](https://www.tensorflow.org/)
+  - *Populares **libraries** de aprendizaje automático. Redes neuronales, inteligencia artificial.*
+  - Popular machine learning **libraries**. Neural networks, artificial intelligence.
+- [Flask](https://flask.palletsprojects.com/) and [Django](https://www.djangoproject.com/)
+  - *servidor web*
+  - web servers
+- *Mi trabajo: controlar la velocidad (los amperios) a la que se cargan los vehículos eléctricos.*
+- My work: controlling how fast (the amps) electric vehicles charge.
 
 In general:
 
-- Writing programs quickly.
-- Practicing.
-- Learning.
+- *Escribir programas rápidamente* | Writing programs quickly.
+- *Pracitcar* | Practicing.
+- *Aprender* | Learning.
 
 # Program 1.2
 
 ```python
-name = "Alice"
-print("Hello, " + name + "!")
+nombre = "Alice"
+print("Hello, " + nombre + "!")
 ```
 
 # Program 1.2: output
 
 ```python
-name = "Alice"
-print("Hello, " + name + "!")
+nombre = "Alice"
+print("Hello, " + nombre + "!")
 ```
 
 ## Output
@@ -196,14 +223,14 @@ Hello, Alice!
 # Program 2: Two variables
 
 ```python
-name = "Zach"
-greeting = "Goodbye"
-print(greeting + name)
+nombre = "Zach"
+saludo = "Goodbye"
+print(saludo + nombre)
 ```
 
 <!-- translate -->
 
-# Problem: ABBA
+# Exercise: ABBA
 
 ```
 first = "a"
@@ -211,7 +238,7 @@ second = "b"
 print(<YOUR CODE HERE>)
 ```
 
-It should print:
+*Debería imprimir* | It should print:
 
 ```
 abba
@@ -234,17 +261,17 @@ print(2 ** 10)
 print(195.51 // 10)
 ```
 
-# Program 3.1: A googol and scientific notation
+# Program 3.1: A googol and *notación científica* | scientific notation
 
 ```python
 print(10 ** 100)
 print(1e100)
 ```
 
-- `5e23` means `5 * 10 ** 23`
-- `3.95e-5` means `3.95 * 10 ** (-5)`
+- `5e23 == 5 * 10 ** 23`
+- `3.95e-5 == 3.95 * 10 ** (-5)`
 - `^` has a different meaning in Python.
-  - `142 ^ 51` is not `142 ** 51`
+  - `142 ^ 51 != 142 ** 51` (*NO SON IGUAL* | NOT EQUAL)
 
 # Program 4: More math and modules/libraries
 
@@ -263,15 +290,21 @@ radius = float(user_input)
 print(math.pi * radius ** 2)
 ```
 
-## Names for numbers
+## *Nombres para números* | Names for numbers
 
-<!-- translate -->
+### float 
 
-A float is a number with a "floating point": 1.1, 1.0, 99.124124, 0.000123, -50.05
+*número de coma/punto flotante* | number with a "floating point"
 
-An integer is a whole number: 1, -50, 0, 1000000000000
+1.1, 1.0, 99.124124, 0.000123, -50.05
 
-# Exercise: compute the volume of a cube
+### integer, int
+
+*un número entero* | whole number
+
+1, -50, 0, 1000000000000
+
+# Exercise: *calcule el volumen de un cubo* | compute the volume of a cube
 
 <!-- translate -->
 
@@ -281,7 +314,7 @@ side_length = float(user_input)
 print(<YOUR CODE HERE>)
 ```
 
-# Exercise: compute the volume of a cube
+# Exercise: *calcule el volumen de un cubo* | compute the volume of a cube
 
 ```
 user_input = <YOUR CODE HERE>
@@ -289,9 +322,9 @@ side_length = float(user_input)
 print(<YOUR CODE HERE>)
 ```
 
-<!-- translate -->
-
+- *¿Cómo obtener información?*
 - How to get the side length?
+- *¿Cómo calcular el volumen de un cubo?*
 - How to compute the volume of a cube?
 
 # I/O
@@ -312,7 +345,7 @@ Two very important things a computer does:
   - Hard drives, SSDs, RAM, memory
   - Network (other computers)
 
-# Program 6: Turtle basics
+# Program 6: *Dibujo con una tortuga* | Drawing with Turtle
 
 ```python
 import turtle
@@ -327,11 +360,13 @@ turtle.forward(50)
 
 <!-- translate -->
 
+*Por favor crea una cuenta*
+
 You need a free account.
 
 [replit.com/languages/python_turtle](https://replit.com/languages/python_turtle)
 
-# Program 7: Stairs
+# Program 7: *Escalones* | Stairs
 
 ```python
 turtle.forward(100)
@@ -350,7 +385,7 @@ turtle.forward(100)
 turtle.right(90)
 ```
 
-# Program 8: For loops (AKA iteration)
+# Program 8: *Iteración* | For loops (AKA iteration)
 
 ```python
 import turtle
@@ -361,7 +396,7 @@ for color in ['red', 'green', 'orange', 'blue']:
     turtle.left(90)
 ```
 
-# Program 8.1: Stairs v2
+# Program 8.1: *Escalones v2* | Stairs v2
 
 Version 2
 
@@ -375,7 +410,7 @@ for stair_count in range(40)
     turtle.right(90)
 ```
 
-# Program 8.2: Colorful Stairs
+# Program 8.2: *Escalones de colores*
 
 ```python
 import turtle
@@ -392,9 +427,7 @@ for stair_count in range(40):
     turtle.right(90)
 ```
 
-# Exercise: Draw a square
-
-<!-- translate -->
+# Exercise: *Dibuja un cuadrado* | Draw a square
 
 ```
 import turtle
@@ -404,9 +437,7 @@ side_length = 100
 <YOUR CODE HERE>
 ```
 
-# Exercise: Draw a square next to a triangle
-
-<!-- translate -->
+# Exercise: *Dibuja un cuadrado junto a un triángulo* | Draw a square next to a triangle
 
 ```
 import turtle
@@ -423,11 +454,11 @@ turtle.speed("fastest")
 ```
 
 ```python
-turtle.tracer(False) # Hide the turtle until it's done
-turtle.update() # Show what the turtle drew
+turtle.tracer(False) # Esconde | Hide the turtle until it's done
+turtle.update() # Enseñar | Show what the turtle drew
 ```
 
-# Advanced program: recursion
+# Advanced program: *Recursividad* | Recursion
 
 ```python
 import turtle
@@ -495,41 +526,28 @@ turtle.done()
 
 --->
 
-# Program 11: HTTP requests with `requests` library
-
-<!-- translate -->
-
-<!-- TODO -->
-
-You need a repl.it account for these programs!
+# Program 11: HTTP *solicitudes* | requests with `requests` library
 
 ```python
+import urllib
+base_url = 'https://www.google.com/search?q='
+query = urllib.parse.quote_plus('equipo academy')
+response = requests.get(base_url + query)
+print(response.status_code)
+print(response.text)
 ```
 
-# Program 11.1: requests to Google Maps
+`response.status_code` 200 is ok.
 
-<!-- TODO -->
+`response.status_code` ≥400 is **error**
 
-```python
-```
-
-# Program 11.2: requests to Open Street Maps
-
-<!-- TODO -->
-
-```python
-```
-
-# Program 11.3: requests to NASA
-
-<!-- TODO -->
-
-```python
-```
+[Status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 # A warning!
 
 <!-- translate -->
+
+*La versión 2 de Python es muy antigua y ya no recibe actualizaciones.*
 
 Python version 2 is very old and no longer maintained.
 
@@ -538,6 +556,10 @@ print "Hello, world!"
 ```
 
 Find newer resources!
+
+## Maintaining software
+
+Receiving updates. Taking care of security problems.
 
 # A good sign
 
@@ -551,11 +573,46 @@ Python 3.9.7
 >>> sys.version
 '3.9.7 (default, Oct 10 2021, 15:13:22) \n[GCC 11.1.0]'
 ```
+
 # A list of Python features
 
-<!-- TODO -->
-
-- Type hints
+- type hints
+- builtin list, dict, set
+- list comprehensions
+- dict comprehensions
+- `for i, e in enumerate(collection)`
+- OOP
+- setup.py and source code in src/PACKAGENAME
+- pydocstyle and pylint for linting
+- black and isort for formatting (PEP 8)
+- bandit and safety for security scanning
+- builtin json library
+- builtin enum library
+- builtin unittest library
+- builtin re library
+- builtin copy library
+- builtin random library
+- builtin math library
+- builtin datetime library
+- builtin pprint library
+- builtin itertools library (count)
+- builtin collections library (defaultdict)
+- builtin argparse library
+- pytest for running tests and getting nice output
+- pydantic for validation with nice error messages and a type-base interface
+- cerberus for validation (being phased out)
+- config in environment variables https://12factor.net/
+- pdb for debugging
+- docstrings for documentation
+- `__str__` method for string representation
+- type hints (need an extra tool to actually typecheck), builtin typing library
+- `-1` as a list index
+- f-strings for interpolation
+- `b"binary data"` for bytes
+- `str.join`
+- `float('inf')` for infinity
+- keyword arguments
+- keyword arguments from a dict
 
 # Some computer science and programming topics
 
@@ -567,6 +624,31 @@ Python 3.9.7
 - HTTP
 - HTML and CSS
 - Docker, Kubernetes
+
+# Linux
+
+- [Mint](https://linuxmint.com/)
+- [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+- [Arch Linux](https://archlinux.org/)
+- [Linux from scratch](https://www.linuxfromscratch.org/)
+
+# My computer
+
+- Manjaro Linux (based off Arch Linux)
+- i3 window manager
+- neovim with [lots of plugins](https://github.com/roguh/confs/tree/main/vim)
+- ASDF for installing Python, can also use PyEnv or Anaconda
+- Firefox
+- Slack, Teams, Outlook for work
+
+# Android
+
+- a type of Linux!
+- Try installing [F-Droid](https://www.f-droid.org/) to install [Termux](https://termux.com/) to try out Linux
+- You can also install Termux on some Chromebooks
+- You can run Python on Termux
+- To make Android apps, you need to use Java or Kotlin and the [Android Studio](https://developer.android.com/studio)
+  - [How to build an app](https://developer.android.com/training/basics/firstapp)
 
 # Videogames in Python
 
@@ -582,12 +664,16 @@ Free and powerful: [Unity](https://unity.com/) and [Godot](https://godotengine.o
 
 <!-- translate -->
 
+*Todos usan estos recursos, incluso los profesionales:*
+
 Everyone uses these, even professionals:
 
 - Google
 - Stackoverflow
 - Python documentation [docs.python.org/3.9/](https://docs.python.org/3.9/)
   - Pick the Python version you have!
+
+*Gratis:*
 
 Free:
 
@@ -597,6 +683,8 @@ Free:
 - [Introduction to Python Programming at Udacity](https://classroom.udacity.com/courses/ud1110)
 - Many more
 
+*Necesitan dinero:*
+
 Money:
 
 - $29.99 [Learn Python 3 The Hard Way](https://shop.learncodethehardway.org/access/buy/9/)
@@ -604,6 +692,8 @@ Money:
 # Learning resources
 
 <!-- translate -->
+
+*Todo lo que necesitas es una computadora y tiempo.*
 
 All you need is a computer and time.
 
@@ -654,9 +744,9 @@ console.log("The area is " + area)
 
 # Projects
 
-<!-- translate -->
+*Encuentra un proyecto que te apasione.*
 
-find a project you're passionate about. make programming a hobby.
+Find a project you're passionate about.
 
 - a cooking tool
 - a video game
@@ -671,10 +761,11 @@ find a project you're passionate about. make programming a hobby.
 
 # Aprende a aprender
 
-<!-- translate -->
-<!-- TODO -->
+*Ser un autodidacta te ayudara*
 
 Learn to teach yourself
+
+This will help you in college and in any other opportunities you may take.
 
 As a professional, I have to learn new technologies every few years.
 

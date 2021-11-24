@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Hugo O. Rivera" />
-  <title>Intro to programming using Python</title>
+  <meta name="author" content="Hugo O. Rivera Calzadillas" />
+  <title>Introducción a la programación informática | Introduction to programming</title>
   <style type="text/css">
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -86,31 +86,34 @@
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Intro to programming using Python</h1>
-  <p class="subtitle">Equipo Academy’s College Simulation Day</p>
+  <h1 class="title"><em>Introducción a la programación informática</em> | Introduction to programming</h1>
   <p class="author">
-Hugo O. Rivera
+Hugo O. Rivera Calzadillas
   </p>
   <p class="date">2021.11.24</p>
 </div>
-<div class="slide section level1">
-
-<!-- translate title -->
-</div>
-<div id="intros" class="slide section level1">
-<h1>Intros</h1>
+<div id="intro" class="slide section level1">
+<h1>Intro</h1>
 <!-- name, why learn programming? -->
 </div>
-<div id="intros-1" class="slide section level1">
-<h1>Intros</h1>
+<div id="intro-1" class="slide section level1">
+<h1>Intro</h1>
 <!-- translate -->
 <ul>
-<li>Mexican, DACA</li>
+<li>Mexicano, DACA</li>
 <li>Santa Fe, NM</li>
-<li>computer science and math, New Mexico Tech, 2018</li>
-<li>Triplebyte recruitment</li>
-<li>healthcare startups</li>
-<li>renewable energy company building software for electric vehicle charging stations</li>
+<li><em>ciencias de la computación y matemáticas</em> | computer science and math, New Mexico Tech, 2018</li>
+<li>Triplebyte <em>empresa de reclutamiento</em> | recruitment company</li>
+<li>healthcare startups
+<ul>
+<li>a startup is a company that is just starting and could be getting investment funding</li>
+<li><em>un startup es una empresa que recién está comenzando y que podría obtener financiación para inversiones</em></li>
+</ul></li>
+<li>renewable energy company building software for controlling electric vehicle charging stations
+<ul>
+<li><em>software para controlar cargadores de vehículos eléctricos</em></li>
+<li><a href="https://www.powerflex.com/">PowerFlex</a></li>
+</ul></li>
 </ul>
 </div>
 <div id="visit" class="slide section level1">
@@ -124,15 +127,20 @@ Hugo O. Rivera
 <h1>What to Expect</h1>
 <!-- translate -->
 <ul>
-<li>12 + 1 programs</li>
-<li>Python exercises on your Chromebook</li>
+<li>12 + 1 <em>programas</em> | programs</li>
+<li>Python <em>ejercicios</em> | exercises on Chromebook</li>
 </ul>
 </div>
 <div id="what-is-programming" class="slide section level1">
 <h1>What is programming?</h1>
-<!-- ask a student to read it -->
+<blockquote>
+<p>La programación es el arte y la ciencia de traducir ideas en un programa</p>
+</blockquote>
 <blockquote>
 <p><a href="https://en.wikiversity.org/wiki/What_is_%22programming%22">Programming is the art and science of translating a set of ideas into a program</a></p>
+</blockquote>
+<blockquote>
+<p>Un programa es <strong>una lista de instrucciones exactas que puede seguir una computadora</strong>.</p>
 </blockquote>
 <blockquote>
 <p><a href="https://en.wikiversity.org/wiki/What_is_%22programming%22">A program is <strong>a list of [exact] instructions a computer can follow</strong>.</a></p>
@@ -146,27 +154,27 @@ Hugo O. Rivera
 </div>
 <div id="what-is-programming-really-1" class="slide section level1">
 <h1>What is programming, really?</h1>
-<!-- translate -->
 <p>Computers:</p>
 <ul>
-<li>Fast</li>
-<li>Very dumb</li>
-<li>Very flexible. <strong>Programmable</strong></li>
-<li>Takes instructions very literally, has special powers.
+<li><em>Rápidas</em> | Fast</li>
+<li><em>Tontas</em> | Very dumb</li>
+<li><em>Flexible</em> | Very flexible. <strong>Programmable</strong></li>
+<li><em>Toma las cosas literalmente</em> | Takes instructions very literally, has special powers.
 <ul>
 <li>What special powers?</li>
 </ul></li>
 </ul>
 </div>
-<div id="what-can-you-do-with-computers" class="slide section level1">
-<h1>What can you do with computers?</h1>
-<!-- translate -->
+<div id="que-pueden-hacer-what-can-they-do" class="slide section level1">
+<h1><em>Que pueden hacer?</em> What can they do?</h1>
 <ul>
+<li><em>controlando la tecnología</em></li>
 <li><strong>controlling technology</strong> (a LOT of technology?)</li>
 <li>automating tasks: computers can do the boring things quickly</li>
 <li>analyzing data and discovering new insights</li>
 <li>all forms of science: biology, medicine, physics, rocket science, mathematics</li>
 <li>improve communication, access to knowledge</li>
+<li><em>organizando información</em></li>
 <li><strong>organizing information.</strong> uses many fascinating branches of mathematics</li>
 <li>make new forms of art</li>
 <li>improving existing industries (healthcare, electric vehicle charging, …)</li>
@@ -177,108 +185,131 @@ Hugo O. Rivera
 <h1>Visit</h1>
 <p><a href="https://repl.it/languages/python3">repl.it/languages/python3</a></p>
 <ul>
-<li>REPL: Read, Evaluate, Print, Loop <!-- translate -->
+<li>REPL: Read, Evaluate, Print, Loop
 <ul>
-<li>Read: you type in code, the computer reads it</li>
-<li>Evaluate: the computer runs the code</li>
-<li>Print: the computer prints the results</li>
-<li>Loop: this same thing happens all over again</li>
+<li><em>Lee</em> | Read: you type in code, the computer reads it</li>
+<li><em>Evalúa</em> | Evaluate: the computer runs the code
+<ul>
+<li>Computes, thinks, translates</li>
+</ul></li>
+<li><em>Imprime</em> | Print: the computer prints the results</li>
+<li><em>Repite</em> | Loop: repeats, this same thing happens all over again</li>
 </ul></li>
 </ul>
 </div>
 <div id="program-0" class="slide section level1">
 <h1>Program 0</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</span></code></pre></div>
-<!-- translate -->
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;¡Hola Mundo!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</span></code></pre></div>
 </div>
 <div id="program-1" class="slide section level1">
 <h1>Program 1</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
-<!-- translate -->
-</div>
-<div id="program-1-details" class="slide section level1">
-<h1>Program 1: details</h1>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
-<h2 id="if-you-typed-this-program-what-would-it-show">If you typed this program, what would it show?</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mensaje <span class="op">=</span> <span class="st">&quot;Hola&quot;</span> <span class="op">+</span> nombre</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mensaje)</span></code></pre></div>
+<h2 id="que-va-a-hacer"><em>Que va a hacer?</em></h2>
+<h2 id="what-will-it-do">What will it do?</h2>
+<p><code>print</code> <em>quiere decir imprimir</em></p>
 </div>
 <div id="program-1-output" class="slide section level1">
 <h1>Program 1: output</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mensaje <span class="op">=</span> <span class="st">&quot;Hola&quot;</span> <span class="op">+</span> nombre</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mensaje)</span></code></pre></div>
 <h3 id="output">Output</h3>
-<pre><code>Hello,Alice</code></pre>
+<pre><code>Hello,Alice
+HolaAlice</code></pre>
 </div>
 <div id="program-1.1" class="slide section level1">
 <h1>Program 1.1</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> name</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> name</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mensaje <span class="op">=</span> <span class="st">&quot;Hola &quot;</span> <span class="op">+</span> nombre</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mensaje)</span></code></pre></div>
 <h2 id="output-1">Output</h2>
-<pre><code>Hello, Alice</code></pre>
+<pre><code>Hello, Alice
+Hola Alice</code></pre>
 </div>
 <div id="what-is-a-programming-language-for" class="slide section level1">
 <h1>What is a programming language for?</h1>
 <!-- translate -->
 <blockquote>
+<p>para expresar un conjunto de instrucciones detalladas para una computadora digital</p>
+</blockquote>
+<blockquote>
 <p>for expressing a set of detailed instructions for a digital computer</p>
 </blockquote>
-<p><a href="https://www.britannica.com/technology/computer-programming-language">Read an overview of programming languages here</a></p>
+<p><a href="https://www.britannica.com/technology/computer-programming-language">Read more here</a></p>
 </div>
 <div id="python" class="slide section level1">
 <h1>Python</h1>
 <p><img src="./python.svg" /></p>
 <!-- translate -->
+<p><em>Fácil de aprender, comúnmente utilizado por científicos y empresas.</em></p>
 <p>Easy to learn, commonly used by scientist and companies.</p>
 </div>
 <div id="uses" class="slide section level1">
 <h1>Uses?</h1>
 <!-- translate -->
 <ul>
-<li><a href="https://scipy.org/">SciPy</a>, <a href="https://numpy.org/">Numpy</a>, <a href="https://pandas.pydata.org/">Pandas</a>: scientists, mathematicians, and analysts every day to process all kinds of data.</li>
-<li><a href="https://www.tensorflow.org/">Tensorflow</a>: popular machine learning <strong>libraries</strong>.
+<li><a href="https://scipy.org/">SciPy</a>, <a href="https://numpy.org/">Numpy</a>, <a href="https://pandas.pydata.org/">Pandas</a>
 <ul>
-<li>Neural networks, artificial intelligence.</li>
+<li>los científicos y matemáticos los utilizan para procesar todo tipo de datos.</li>
+<li>scientists and mathematicians use these to process all kinds of data.</li>
 </ul></li>
-<li><a href="https://flask.palletsprojects.com/">Flask</a> and <a href="https://www.djangoproject.com/">Django</a>: web servers.</li>
-<li>My work: controlling how fast electric vehicles charge</li>
+<li><a href="https://www.tensorflow.org/">Tensorflow</a>
+<ul>
+<li><em>Populares <strong>libraries</strong> de aprendizaje automático. Redes neuronales, inteligencia artificial.</em></li>
+<li>Popular machine learning <strong>libraries</strong>. Neural networks, artificial intelligence.</li>
+</ul></li>
+<li><a href="https://flask.palletsprojects.com/">Flask</a> and <a href="https://www.djangoproject.com/">Django</a>
+<ul>
+<li><em>servidor web</em></li>
+<li>web servers</li>
+</ul></li>
+<li><em>Mi trabajo: controlar la velocidad (los amperios) a la que se cargan los vehículos eléctricos.</em></li>
+<li>My work: controlling how fast (the amps) electric vehicles charge.</li>
 </ul>
 <p>In general:</p>
 <ul>
-<li>Writing programs quickly.</li>
-<li>Practicing.</li>
-<li>Learning.</li>
+<li><em>Escribir programas rápidamente</em> | Writing programs quickly.</li>
+<li><em>Pracitcar</em> | Practicing.</li>
+<li><em>Aprender</em> | Learning.</li>
 </ul>
 </div>
 <div id="program-1.2" class="slide section level1">
 <h1>Program 1.2</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> nombre <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
 </div>
 <div id="program-1.2-output" class="slide section level1">
 <h1>Program 1.2: output</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> nombre <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
 <h2 id="output-2">Output</h2>
 <pre><code>Hello, Alice!</code></pre>
 </div>
 <div id="program-2-two-variables" class="slide section level1">
 <h1>Program 2: Two variables</h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Zach&quot;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">&quot;Goodbye&quot;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(greeting <span class="op">+</span> name)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">&quot;Zach&quot;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>saludo <span class="op">=</span> <span class="st">&quot;Goodbye&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saludo <span class="op">+</span> nombre)</span></code></pre></div>
 <!-- translate -->
 </div>
-<div id="problem-abba" class="slide section level1">
-<h1>Problem: ABBA</h1>
+<div id="exercise-abba" class="slide section level1">
+<h1>Exercise: ABBA</h1>
 <pre><code>first = &quot;a&quot;
 second = &quot;b&quot;
 print(&lt;YOUR CODE HERE&gt;)</code></pre>
-<p>It should print:</p>
+<p><em>Debería imprimir</em> | It should print:</p>
 <pre><code>abba</code></pre>
 </div>
 <div id="codingbat" class="slide section level1">
@@ -289,55 +320,59 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 </div>
 <div id="program-3-arithmetic-and-numbers" class="slide section level1">
 <h1>Program 3: Arithmetic and Numbers</h1>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span> <span class="op">**</span> <span class="dv">10</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">195.51</span> <span class="op">//</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span> <span class="op">**</span> <span class="dv">10</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">195.51</span> <span class="op">//</span> <span class="dv">10</span>)</span></code></pre></div>
 </div>
-<div id="program-3.1-a-googol-and-scientific-notation" class="slide section level1">
-<h1>Program 3.1: A googol and scientific notation</h1>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">**</span> <span class="dv">100</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">1e100</span>)</span></code></pre></div>
+<div id="program-3.1-a-googol-and-notación-científica-scientific-notation" class="slide section level1">
+<h1>Program 3.1: A googol and <em>notación científica</em> | scientific notation</h1>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">**</span> <span class="dv">100</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">1e100</span>)</span></code></pre></div>
 <ul>
-<li><code>5e23</code> means <code>5 * 10 ** 23</code></li>
-<li><code>3.95e-5</code> means <code>3.95 * 10 ** (-5)</code></li>
+<li><code>5e23 == 5 * 10 ** 23</code></li>
+<li><code>3.95e-5 == 3.95 * 10 ** (-5)</code></li>
 <li><code>^</code> has a different meaning in Python.
 <ul>
-<li><code>142 ^ 51</code> is not <code>142 ** 51</code></li>
+<li><code>142 ^ 51 != 142 ** 51</code> (<em>NO SON IGUAL</em> | NOT EQUAL)</li>
 </ul></li>
 </ul>
 </div>
 <div id="program-4-more-math-and-moduleslibraries" class="slide section level1">
 <h1>Program 4: More math and modules/libraries</h1>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">145</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi <span class="op">*</span> radius <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">145</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi <span class="op">*</span> radius <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="program-5-input" class="slide section level1">
 <h1>Program 5: Input</h1>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please enter the radius: &quot;</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="bu">float</span>(user_input)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi <span class="op">*</span> radius <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div>
-<h2 id="names-for-numbers">Names for numbers</h2>
-<!-- translate -->
-<p>A float is a number with a “floating point”: 1.1, 1.0, 99.124124, 0.000123, -50.05</p>
-<p>An integer is a whole number: 1, -50, 0, 1000000000000</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Please enter the radius: &quot;</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="bu">float</span>(user_input)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi <span class="op">*</span> radius <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div>
+<h2 id="nombres-para-números-names-for-numbers"><em>Nombres para números</em> | Names for numbers</h2>
+<h3 id="float">float</h3>
+<p><em>número de coma/punto flotante</em> | number with a “floating point”</p>
+<p>1.1, 1.0, 99.124124, 0.000123, -50.05</p>
+<h3 id="integer-int">integer, int</h3>
+<p><em>un número entero</em> | whole number</p>
+<p>1, -50, 0, 1000000000000</p>
 </div>
-<div id="exercise-compute-the-volume-of-a-cube" class="slide section level1">
-<h1>Exercise: compute the volume of a cube</h1>
+<div id="exercise-calcule-el-volumen-de-un-cubo-compute-the-volume-of-a-cube" class="slide section level1">
+<h1>Exercise: <em>calcule el volumen de un cubo</em> | compute the volume of a cube</h1>
 <!-- translate -->
 <pre><code>user_input = &lt;YOUR CODE HERE&gt;
 side_length = float(user_input)
 print(&lt;YOUR CODE HERE&gt;)</code></pre>
 </div>
-<div id="exercise-compute-the-volume-of-a-cube-1" class="slide section level1">
-<h1>Exercise: compute the volume of a cube</h1>
+<div id="exercise-calcule-el-volumen-de-un-cubo-compute-the-volume-of-a-cube-1" class="slide section level1">
+<h1>Exercise: <em>calcule el volumen de un cubo</em> | compute the volume of a cube</h1>
 <pre><code>user_input = &lt;YOUR CODE HERE&gt;
 side_length = float(user_input)
 print(&lt;YOUR CODE HERE&gt;)</code></pre>
-<!-- translate -->
 <ul>
+<li><em>¿Cómo obtener información?</em></li>
 <li>How to get the side length?</li>
+<li><em>¿Cómo calcular el volumen de un cubo?</em></li>
 <li>How to compute the volume of a cube?</li>
 </ul>
 </div>
@@ -363,85 +398,84 @@ print(&lt;YOUR CODE HERE&gt;)</code></pre>
 </ul></li>
 </ul>
 </div>
-<div id="program-6-turtle-basics" class="slide section level1">
-<h1>Program 6: Turtle basics</h1>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>turtle.color(<span class="st">&quot;red&quot;</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">50</span>)</span></code></pre></div>
+<div id="program-6-dibujo-con-una-tortuga-drawing-with-turtle" class="slide section level1">
+<h1>Program 6: <em>Dibujo con una tortuga</em> | Drawing with Turtle</h1>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>turtle.color(<span class="st">&quot;red&quot;</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">50</span>)</span></code></pre></div>
 </div>
 <div id="how-to-run" class="slide section level1">
 <h1>How to run</h1>
 <!-- translate -->
+<p><em>Por favor crea una cuenta</em></p>
 <p>You need a free account.</p>
 <p><a href="https://replit.com/languages/python_turtle">replit.com/languages/python_turtle</a></p>
 </div>
-<div id="program-7-stairs" class="slide section level1">
-<h1>Program 7: Stairs</h1>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span></code></pre></div>
+<div id="program-7-escalones-stairs" class="slide section level1">
+<h1>Program 7: <em>Escalones</em> | Stairs</h1>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>turtle.left(<span class="dv">90</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>turtle.forward(<span class="dv">100</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>turtle.right(<span class="dv">90</span>)</span></code></pre></div>
 </div>
-<div id="program-8-for-loops-aka-iteration" class="slide section level1">
-<h1>Program 8: For loops (AKA iteration)</h1>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color <span class="kw">in</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;blue&#39;</span>]:</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    turtle.color(color)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">75</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span></code></pre></div>
+<div id="program-8-iteración-for-loops-aka-iteration" class="slide section level1">
+<h1>Program 8: <em>Iteración</em> | For loops (AKA iteration)</h1>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color <span class="kw">in</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;blue&#39;</span>]:</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    turtle.color(color)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">75</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span></code></pre></div>
 </div>
-<div id="program-8.1-stairs-v2" class="slide section level1">
-<h1>Program 8.1: Stairs v2</h1>
+<div id="program-8.1-escalones-v2-stairs-v2" class="slide section level1">
+<h1>Program 8.1: <em>Escalones v2</em> | Stairs v2</h1>
 <p>Version 2</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> stair_count <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">40</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    turtle.right(<span class="dv">90</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> stair_count <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">40</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    turtle.right(<span class="dv">90</span>)</span></code></pre></div>
 </div>
-<div id="program-8.2-colorful-stairs" class="slide section level1">
-<h1>Program 8.2: Colorful Stairs</h1>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>]</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> stair_count <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">40</span>):</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pick a color</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    turtle.color(colors[stair_count <span class="op">%</span> <span class="bu">len</span>(colors])</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw 1 stair</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    turtle.right(<span class="dv">90</span>)</span></code></pre></div>
+<div id="program-8.2-escalones-de-colores" class="slide section level1">
+<h1>Program 8.2: <em>Escalones de colores</em></h1>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> stair_count <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">40</span>):</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pick a color</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    turtle.color(colors[stair_count <span class="op">%</span> <span class="bu">len</span>(colors])</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw 1 stair</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    turtle.left(<span class="dv">90</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    turtle.forward(<span class="dv">10</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    turtle.right(<span class="dv">90</span>)</span></code></pre></div>
 </div>
-<div id="exercise-draw-a-square" class="slide section level1">
-<h1>Exercise: Draw a square</h1>
-<!-- translate -->
+<div id="exercise-dibuja-un-cuadrado-draw-a-square" class="slide section level1">
+<h1>Exercise: <em>Dibuja un cuadrado</em> | Draw a square</h1>
 <pre><code>import turtle
 
 side_length = 100
 
 &lt;YOUR CODE HERE&gt;</code></pre>
 </div>
-<div id="exercise-draw-a-square-next-to-a-triangle" class="slide section level1">
-<h1>Exercise: Draw a square next to a triangle</h1>
-<!-- translate -->
+<div id="exercise-dibuja-un-cuadrado-junto-a-un-triángulo-draw-a-square-next-to-a-triangle" class="slide section level1">
+<h1>Exercise: <em>Dibuja un cuadrado junto a un triángulo</em> | Draw a square next to a triangle</h1>
 <pre><code>import turtle
 
 side_length = 100
@@ -450,34 +484,34 @@ side_length = 100
 </div>
 <div id="trick-speedup-turtle-when-drawing-complex-things" class="slide section level1">
 <h1>Trick: Speedup turtle when drawing complex things</h1>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&quot;fastest&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>turtle.tracer(<span class="va">False</span>) <span class="co"># Hide the turtle until it&#39;s done</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>turtle.update() <span class="co"># Show what the turtle drew</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&quot;fastest&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>turtle.tracer(<span class="va">False</span>) <span class="co"># Esconde | Hide the turtle until it&#39;s done</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>turtle.update() <span class="co"># Enseñar | Show what the turtle drew</span></span></code></pre></div>
 </div>
-<div id="advanced-program-recursion" class="slide section level1">
-<h1>Advanced program: recursion</h1>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_line(width, depth<span class="op">=</span><span class="dv">0</span>):</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> depth <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        turtle.forward(width)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">2</span> <span class="op">*</span> <span class="dv">60</span>)</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_snowflake(width<span class="op">=</span><span class="dv">100</span>, depth<span class="op">=</span><span class="dv">1</span>):</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>        koch_line(width, depth)</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">180</span> <span class="op">-</span> <span class="dv">60</span>)</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&#39;fastest&#39;</span>)</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>koch_snowflake(<span class="dv">200</span>, <span class="dv">3</span>)</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>turtle.done()</span></code></pre></div>
+<div id="advanced-program-recursividad-recursion" class="slide section level1">
+<h1>Advanced program: <em>Recursividad</em> | Recursion</h1>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> turtle</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_line(width, depth<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> depth <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        turtle.forward(width)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">2</span> <span class="op">*</span> <span class="dv">60</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        turtle.left(<span class="dv">60</span>)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        koch_line(width <span class="op">/</span> <span class="dv">3</span>, depth <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> koch_snowflake(width<span class="op">=</span><span class="dv">100</span>, depth<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        koch_line(width, depth)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        turtle.right(<span class="dv">180</span> <span class="op">-</span> <span class="dv">60</span>)</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>turtle.speed(<span class="st">&#39;fastest&#39;</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>koch_snowflake(<span class="dv">200</span>, <span class="dv">3</span>)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>turtle.done()</span></code></pre></div>
 <ul>
 <li>functions</li>
 <li>recursive functions</li>
@@ -520,34 +554,27 @@ side_length = 100
 
 --->
 </div>
-<div id="program-11-http-requests-with-requests-library" class="slide section level1">
-<h1>Program 11: HTTP requests with <code>requests</code> library</h1>
-<!-- translate -->
-<!-- TODO -->
-<p>You need a repl.it account for these programs!</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-</div>
-<div id="program-11.1-requests-to-google-maps" class="slide section level1">
-<h1>Program 11.1: requests to Google Maps</h1>
-<!-- TODO -->
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-</div>
-<div id="program-11.2-requests-to-open-street-maps" class="slide section level1">
-<h1>Program 11.2: requests to Open Street Maps</h1>
-<!-- TODO -->
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-</div>
-<div id="program-11.3-requests-to-nasa" class="slide section level1">
-<h1>Program 11.3: requests to NASA</h1>
-<!-- TODO -->
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="program-11-http-solicitudes-requests-with-requests-library" class="slide section level1">
+<h1>Program 11: HTTP <em>solicitudes</em> | requests with <code>requests</code> library</h1>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">&#39;https://www.google.com/search?q=&#39;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> urllib.parse.quote_plus(<span class="st">&#39;equipo academy&#39;</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(base_url <span class="op">+</span> query)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.text)</span></code></pre></div>
+<p><code>response.status_code</code> 200 is ok.</p>
+<p><code>response.status_code</code> ≥400 is <strong>error</strong></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Status codes</a></p>
 </div>
 <div id="a-warning" class="slide section level1">
 <h1>A warning!</h1>
 <!-- translate -->
+<p><em>La versión 2 de Python es muy antigua y ya no recibe actualizaciones.</em></p>
 <p>Python version 2 is very old and no longer maintained.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">&quot;Hello, world!&quot;</span></span></code></pre></div>
 <p>Find newer resources!</p>
+<h2 id="maintaining-software">Maintaining software</h2>
+<p>Receiving updates. Taking care of security problems.</p>
 </div>
 <div id="a-good-sign" class="slide section level1">
 <h1>A good sign</h1>
@@ -559,9 +586,44 @@ Python 3.9.7</code></pre>
 </div>
 <div id="a-list-of-python-features" class="slide section level1">
 <h1>A list of Python features</h1>
-<!-- TODO -->
 <ul>
-<li>Type hints</li>
+<li>type hints</li>
+<li>builtin list, dict, set</li>
+<li>list comprehensions</li>
+<li>dict comprehensions</li>
+<li><code>for i, e in enumerate(collection)</code></li>
+<li>OOP</li>
+<li>setup.py and source code in src/PACKAGENAME</li>
+<li>pydocstyle and pylint for linting</li>
+<li>black and isort for formatting (PEP 8)</li>
+<li>bandit and safety for security scanning</li>
+<li>builtin json library</li>
+<li>builtin enum library</li>
+<li>builtin unittest library</li>
+<li>builtin re library</li>
+<li>builtin copy library</li>
+<li>builtin random library</li>
+<li>builtin math library</li>
+<li>builtin datetime library</li>
+<li>builtin pprint library</li>
+<li>builtin itertools library (count)</li>
+<li>builtin collections library (defaultdict)</li>
+<li>builtin argparse library</li>
+<li>pytest for running tests and getting nice output</li>
+<li>pydantic for validation with nice error messages and a type-base interface</li>
+<li>cerberus for validation (being phased out)</li>
+<li>config in environment variables https://12factor.net/</li>
+<li>pdb for debugging</li>
+<li>docstrings for documentation</li>
+<li><code>__str__</code> method for string representation</li>
+<li>type hints (need an extra tool to actually typecheck), builtin typing library</li>
+<li><code>-1</code> as a list index</li>
+<li>f-strings for interpolation</li>
+<li><code>b"binary data"</code> for bytes</li>
+<li><code>str.join</code></li>
+<li><code>float('inf')</code> for infinity</li>
+<li>keyword arguments</li>
+<li>keyword arguments from a dict</li>
 </ul>
 </div>
 <div id="some-computer-science-and-programming-topics" class="slide section level1">
@@ -577,6 +639,39 @@ Python 3.9.7</code></pre>
 <li>Docker, Kubernetes</li>
 </ul>
 </div>
+<div id="linux" class="slide section level1">
+<h1>Linux</h1>
+<ul>
+<li><a href="https://linuxmint.com/">Mint</a></li>
+<li><a href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">Ubuntu</a></li>
+<li><a href="https://archlinux.org/">Arch Linux</a></li>
+<li><a href="https://www.linuxfromscratch.org/">Linux from scratch</a></li>
+</ul>
+</div>
+<div id="my-computer" class="slide section level1">
+<h1>My computer</h1>
+<ul>
+<li>Manjaro Linux (based off Arch Linux)</li>
+<li>i3 window manager</li>
+<li>neovim with <a href="https://github.com/roguh/confs/tree/main/vim">lots of plugins</a></li>
+<li>ASDF for installing Python, can also use PyEnv or Anaconda</li>
+<li>Firefox</li>
+<li>Slack, Teams, Outlook for work</li>
+</ul>
+</div>
+<div id="android" class="slide section level1">
+<h1>Android</h1>
+<ul>
+<li>a type of Linux!</li>
+<li>Try installing <a href="https://www.f-droid.org/">F-Droid</a> to install <a href="https://termux.com/">Termux</a> to try out Linux</li>
+<li>You can also install Termux on some Chromebooks</li>
+<li>You can run Python on Termux</li>
+<li>To make Android apps, you need to use Java or Kotlin and the <a href="https://developer.android.com/studio">Android Studio</a>
+<ul>
+<li><a href="https://developer.android.com/training/basics/firstapp">How to build an app</a></li>
+</ul></li>
+</ul>
+</div>
 <div id="videogames-in-python" class="slide section level1">
 <h1>Videogames in Python</h1>
 <p>Use pygame at <a href="https://replit.com/new/pygame">replit.com/new/pygame</a></p>
@@ -587,6 +682,7 @@ Python 3.9.7</code></pre>
 <div id="recommended-resources" class="slide section level1">
 <h1>Recommended resources:</h1>
 <!-- translate -->
+<p><em>Todos usan estos recursos, incluso los profesionales:</em></p>
 <p>Everyone uses these, even professionals:</p>
 <ul>
 <li>Google</li>
@@ -596,6 +692,7 @@ Python 3.9.7</code></pre>
 <li>Pick the Python version you have!</li>
 </ul></li>
 </ul>
+<p><em>Gratis:</em></p>
 <p>Free:</p>
 <ul>
 <li>Python Tutor to get a deep understanding of the code <a href="https://pythontutor.com">pythontutor.com/</a></li>
@@ -604,6 +701,7 @@ Python 3.9.7</code></pre>
 <li><a href="https://classroom.udacity.com/courses/ud1110">Introduction to Python Programming at Udacity</a></li>
 <li>Many more</li>
 </ul>
+<p><em>Necesitan dinero:</em></p>
 <p>Money:</p>
 <ul>
 <li>$29.99 <a href="https://shop.learncodethehardway.org/access/buy/9/">Learn Python 3 The Hard Way</a></li>
@@ -612,6 +710,7 @@ Python 3.9.7</code></pre>
 <div id="learning-resources" class="slide section level1">
 <h1>Learning resources</h1>
 <!-- translate -->
+<p><em>Todo lo que necesitas es una computadora y tiempo.</em></p>
 <p>All you need is a computer and time.</p>
 <ul>
 <li>self-teaching is common and feasible thanks to open-source</li>
@@ -661,8 +760,8 @@ Python 3.9.7</code></pre>
 </div>
 <div id="projects" class="slide section level1">
 <h1>Projects</h1>
-<!-- translate -->
-<p>find a project you’re passionate about. make programming a hobby.</p>
+<p><em>Encuentra un proyecto que te apasione.</em></p>
+<p>Find a project you’re passionate about.</p>
 <ul>
 <li>a cooking tool</li>
 <li>a video game</li>
@@ -677,9 +776,9 @@ Python 3.9.7</code></pre>
 </div>
 <div id="aprende-a-aprender" class="slide section level1">
 <h1>Aprende a aprender</h1>
-<!-- translate -->
-<!-- TODO -->
+<p><em>Ser un autodidacta te ayudara</em></p>
 <p>Learn to teach yourself</p>
+<p>This will help you in college and in any other opportunities you may take.</p>
 <p>As a professional, I have to learn new technologies every few years.</p>
 </div>
 <div id="how-to-learn-more" class="slide section level1">
