@@ -2,13 +2,13 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=author content="Hugo O. Rivera">
-<meta name=description content="How to start an async Python program, and how to run async code in a thread, or from a thread.">
+<meta name=description content="How to start an async Python program, how to run async code in a thread, or from a thread, how to use uvloop, and some examples of different asynchronous tasks you can start.">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="/images/hugo_square_bigger_margin.png">
 <meta name=twitter:title content="Async Python Tricks">
-<meta name=twitter:description content="How to start an async Python program, and how to run async code in a thread, or from a thread.">
+<meta name=twitter:description content="How to start an async Python program, how to run async code in a thread, or from a thread, how to use uvloop, and some examples of different asynchronous tasks you can start.">
 <meta property="og:title" content="Async Python Tricks">
-<meta property="og:description" content="How to start an async Python program, and how to run async code in a thread, or from a thread.">
+<meta property="og:description" content="How to start an async Python program, how to run async code in a thread, or from a thread, how to use uvloop, and some examples of different asynchronous tasks you can start.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/tutorials/python_asyncio/"><meta property="og:image" content="/images/hugo_square_bigger_margin.png"><meta property="article:section" content="tutorials">
 <meta property="article:published_time" content="2021-12-27T00:00:00+00:00">
@@ -75,7 +75,7 @@ December 27, 2021
 </span>
 <span class=reading-time>
 <i class="fas fa-clock"></i>
-2 minutes read
+3 minutes read
 </span>
 </div>
 <div class=categories>
@@ -87,7 +87,9 @@ December 27, 2021
 <i class="fas fa-tag"></i>
 <a href=../../tags/linux/>Linux</a>
 <span class=separator>•</span>
-<a href=../../tags/python/>Python</a></div>
+<a href=../../tags/python/>Python</a>
+<span class=separator>•</span>
+<a href=../../tags/asynchronous-python/>Asynchronous Python</a></div>
 </div>
 </header>
 <div>
@@ -157,7 +159,45 @@ to request that the async loop run the function.</p>
 <h3 id=wait-for-result>Wait for result</h3>
 <p>You can use the optional <code>timeout</code> parameter to specify how long to wait.</p>
 <pre tabindex=0><code>asyncio.run_coroutine_threadsafe(coro, loop).result(timeout)
-</code></pre>
+</code></pre><h2 id=optimization-use-a-faster-async-loop>Optimization: Use a faster async loop</h2>
+<p>Use <a href=https://github.com/MagicStack/uvloop>uvloop</a> instead of the built-in loop
+for a potential performance increase.</p>
+<blockquote>
+<p>Call uvloop.install() before calling asyncio.run() or manually creating an asyncio event loop.</p>
+</blockquote>
+<h2 id=what-can-run-asynchronously>What can run asynchronously?</h2>
+<h3 id=built-in>Built-in</h3>
+<ul>
+<li>TCP, Unix sockets with the builtin <a href=https://docs.python.org/3/library/asyncio-stream.html#asyncio-streams>asyncio streams</a></li>
+<li>External processes, with <a href=https://docs.python.org/3/library/asyncio-subprocess.html#asyncio-subprocess><code>asyncio.create_subprocess_exec</code> and <code>asyncio.create_subprocess_shell</code></a></li>
+<li>Queue putting and getting with an <a href=https://docs.python.org/3/library/asyncio-queue.html#asyncio-queues><code>asyncio.Queue</code></a></li>
+<li>Other <a href=https://docs.python.org/3/library/asyncio-sync.html>async synchronization</a>,
+such as <code>asyncio.Lock</code> or <code>asyncio.Event</code>.
+Compare to thread synchronization APIs, such as <code>threading.Lock</code>.</li>
+<li>Callback-based code bridged with async code using <a href=https://docs.python.org/3/library/asyncio-future.html#asyncio-futures>Futures</a></li>
+<li>Signal handling with <a href=https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.add_signal_handler><code>loop.add_signal_handler</code></a></li>
+</ul>
+<h3 id=external-libraries>External libraries</h3>
+<p>There is support for many types of network protocols, and other I/O bound tasks.
+Many projects have official libraries that support asyncio.</p>
+<ul>
+<li><a href=https://docs.aiohttp.org/en/stable/>aiohttp</a> is a popular client and server HTTP library.</li>
+<li>Many HTTP APIs, such as <a href=TODO>FastAPI</a>
+support running async code in response to an HTTP request.</li>
+<li>NATS with the <a href=https://github.com/nats-io/nats.py>official async library</a>. It had significant changes with the v2 release, including Python 3.10 support.</li>
+<li>Kafka with <a href=https://github.com/aio-libs/aiokafka>aiokafka</a>.</li>
+<li>ZeroMQ with <a href=https://pyzmq.readthedocs.io/en/latest/api/zmq.asyncio.html>the official library</a> or <a href=https://github.com/aio-libs/aiozmq>aiozmq</a>, which must use a custom async loop.</li>
+<li>Redis with either <a href=https://github.com/aio-libs/aioredis-py>aioredis</a>
+or <a href=https://github.com/jonathanslenders/asyncio-redis>asyncio-redis</a>, which is not actively maintained.</li>
+<li>Memcache, redis, or in-memory caching with <a href=https://github.com/aio-libs/aiocache>aiocache</a>.</li>
+<li>Databases with <a href=https://github.com/MagicStack/asyncpg>asyncpg</a>
+or <a href=https://github.com/encode/databases>databases</a>.</li>
+<li>DNS with <a href=https://github.com/saghul/aiodns>aiodns</a>.</li>
+<li>Serial device access with <a href=https://github.com/changyuheng/aioserial>aioserial</a></li>
+<li>Logging asynchronously with <a href=https://github.com/async-worker/aiologger>aiologger</a>.
+Make sure to use the right repository.</li>
+</ul>
+<p>See <a href=https://github.com/timofurrer/awesome-asyncio#web-frameworks>awesome-asyncio</a>.</p>
 </div>
 <footer>
 </footer>
