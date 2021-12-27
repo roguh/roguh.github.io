@@ -2,13 +2,13 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=author content="Hugo O. Rivera">
-<meta name=description content="TODO">
+<meta name=description content="How to adjust output from Python's asyncio library.">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="/images/hugo_square_bigger_margin.png">
 <meta name=twitter:title content="Async Python: Debug Mode and Warnings">
-<meta name=twitter:description content="TODO">
+<meta name=twitter:description content="How to adjust output from Python's asyncio library.">
 <meta property="og:title" content="Async Python: Debug Mode and Warnings">
-<meta property="og:description" content="TODO">
+<meta property="og:description" content="How to adjust output from Python's asyncio library.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/tutorials/python_asyncio_warnings/"><meta property="og:image" content="/images/hugo_square_bigger_margin.png"><meta property="article:section" content="tutorials">
 <meta property="article:published_time" content="2021-12-27T00:00:00+00:00">
@@ -141,7 +141,9 @@ In this case use:</p>
 <h3 id=default-warning-threshold-value>Default warning threshold value</h3>
 <p>The default as of Python 3.10 (in 2021) is <code>0.1</code> seconds.</p>
 <h2 id=change-the-log-handler>Change the log handler</h2>
-<p>You can adjust the asyncio logger by getting the <code>"asyncio"</code> <a href=https://docs.python.org/3/library/logging.html#logging.Logger><code>logging.Logger</code></a>:</p>
+<p>You can adjust the asyncio logger by getting the <code>"asyncio"</code> <a href=https://docs.python.org/3/library/logging.html#logging.Logger><code>logging.Logger</code></a>.</p>
+<p>The default level of <code>logging.DEBUG</code> may be too verbose, so you can set its
+logging level to <code>logging.WARNING</code>.</p>
 <pre tabindex=0><code>import logging
 
 logger: logging.Logger = logging.getLogger(&quot;asyncio&quot;)

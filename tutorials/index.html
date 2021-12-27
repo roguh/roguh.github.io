@@ -62,6 +62,21 @@ Hugo O. Rivera's website
 </article>
 <ul>
 <li>
+<a class=title href=../tutorials/python_asyncio/>Async Python Tricks</a>
+<span class=date>December 27, 2021</span>
+<div class=categories>
+<i class="fas fa-folder"></i>
+<a href=../categories/programming/>programming</a>
+<span class=separator>•</span>
+<a href=../categories/tutorials/>tutorials</a></div>
+<div class=tags>
+<i class="fas fa-tag"></i>
+<a href=../tags/linux/>Linux</a>
+<span class=separator>•</span>
+<a href=../tags/python/>Python</a></div>
+<p>Some code snippets demonstrating how to start an async Python program, and how to run async code in a thread or from a thread.</p>
+</li>
+<li>
 <a class=title href=../tutorials/python_asyncio_warnings/>Async Python: Debug Mode and Warnings</a>
 <span class=date>December 27, 2021</span>
 <div class=categories>
@@ -74,27 +89,7 @@ Hugo O. Rivera's website
 <a href=../tags/linux/>Linux</a>
 <span class=separator>•</span>
 <a href=../tags/python/>Python</a></div>
-<p>Enable Debug Mode Warnings about blocking async code In debug mode, you will get warnings about async code that blocks for too long as well as other warnings.
-Example code:
-import asyncio import time async def blocks(): print("START") # Synchronous blocking code time.sleep(0.35) await asyncio.sleep(0.5) # Synchronous blocking code time.sleep(0.15) await asyncio.sleep(0.1) print("DONE") asyncio.run(blocks(), debug=True) Output:
-START Executing &lt;Task pending name='Task-804' coro=&lt;blocks() running at &lt;ipython-input-7-1388d45e4cc5>:4> wait_for=&lt;Future pending cb=[&lt;TaskWakeupMethWrapper object at 0x7f71d70e7910>()] created at /usr/lib/python3.</p>
-</li>
-<li>
-<a class=title href=../tutorials/python_asyncio/>Async Python: Purpose and Some Tricks</a>
-<span class=date>December 27, 2021</span>
-<div class=categories>
-<i class="fas fa-folder"></i>
-<a href=../categories/programming/>programming</a>
-<span class=separator>•</span>
-<a href=../categories/tutorials/>tutorials</a></div>
-<div class=tags>
-<i class="fas fa-tag"></i>
-<a href=../tags/linux/>Linux</a>
-<span class=separator>•</span>
-<a href=../tags/python/>Python</a></div>
-<p>Code Starting an Async Program In Python 3.7 and above, you can use asyncio.run to easily start your async program:
-async def async_main(): await asyncio.sleep(1) print("Async") def main(): asyncio.run(async_main(), debug=True) if __name__ == "__main__": main() Alternatives To run an async program in other ways, you need to use the loop directly.
-loop = asyncio.get_running_loop() loop.run_until_complete if you have one function you need to run loop.run_forever if you never want to close the async loop Running blocking synchronous functions after Python 3.</p>
+<p>How to adjust output from Python's asyncio library.</p>
 </li>
 <li>
 <a class=title href=../tutorials/intro_to_cs.equipo/>Intro to programming using Python at Equipo Academy’s College Simulation Day</a>
