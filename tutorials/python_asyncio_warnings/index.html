@@ -93,7 +93,9 @@ December 27, 2021
 </div>
 </header>
 <div>
-<h1 id=enable-debug-mode>Enable Debug Mode</h1>
+<h1 id=enable-asyncio-debug-mode>Enable asyncio Debug Mode</h1>
+<p>See the <a href=https://docs.python.org/3/library/asyncio-dev.html#debug-mode>Python docs</a>
+for all the ways to turn on async debug mode.</p>
 <h2 id=warnings-about-blocking-async-code>Warnings about blocking async code</h2>
 <p>In <a href=https://docs.python.org/3/library/asyncio-dev.html#debug-mode>debug mode</a>,
 you will get warnings about async code that blocks for too long
@@ -153,6 +155,18 @@ logger.setLevel(logging.WARNING)
 
 json_logging_handler = ...
 logger.addHandler(json_logging_handler)
+</code></pre><h2 id=use-aiodebug>Use aiodebug</h2>
+<p>If you don&rsquo;t want to turn on debug mode in production,
+use <a href=https://github.com/qntln/aiodebug>aiodebug</a>
+to log warnings when callbacks block the event loop:</p>
+<pre tabindex=0><code>aiodebug.log_slow_callbacks.enable(0.15)
+</code></pre><p>This works by wrapping <code>asyncio.events.Handler._run</code> with a timing and logging function.</p>
+<p>To modify the logger&rsquo;s output, you need to use the logger
+named after a specific file in the aiodebug project.</p>
+<p>This may work:</p>
+<pre tabindex=0><code>import aiodebug.log_slow_callbacks
+
+logger = logging.getLogger(aiodebug.log_slow_callbacks.__name__)
 </code></pre>
 </div>
 <footer>
