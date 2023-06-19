@@ -1,0 +1,905 @@
+\documentclass[11pt]{cselabheader}
+
+\newcommand{\thelabnumber}{3}
+\newcommand{\thetitle}{Defining Functions and Modules}
+\newcommand{\theauthor}{CSE/IT 107L}
+
+% Write title and author
+\title{\thetitle}
+\author{\theauthor}
+\date{NMT Department of Computer Science and Engineering}
+
+\fancyhead[R]{Lab \thelabnumber: \thetitle}
+\fancyhead[L]{\theauthor}
+
+\makehyperref
+\makeindex[title=Index of New Functions and Methods, intoc]
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\hrule
+
+\begin{quotation}
+  ``How do we convince people that in programming simplicity and clarity – in short:
+  what mathematicians call elegance – are not a dispensable luxury, but a crucial matter
+  that decides between success and failure?''
+\end{quotation}
+\begin{flushright}
+--- Edsger Dijkstra
+\end{flushright}
+
+\begin{quotation}
+  ``Simplicity is the ultimate sophistication.''
+\end{quotation}
+\begin{flushright}
+--- Leonardo Da Vinci
+\end{flushright}
+
+\begin{quotation}
+  ``Only ugly languages become popular. Python is the exception.''
+\end{quotation}
+\begin{flushright}
+--- Donald Knuth
+\end{flushright}
+
+\vspace{1em}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{img/xkcd_353.png}
+  \caption{\url{http://xkcd.com/353}}
+\end{figure}
+
+\newpage
+
+\section*{Introduction}
+
+This lab is meant to introduce the
+\pythoninline{"".format()} function for printing values, a
+new type of loop called the \pythoninline{while} loop, and
+the reasons and methods for defining Python functions and modules.
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\section{\texorpdfstring%
+  {Convert Variables and Values to Formatted Strings Using \pythoninline{"".format()}}
+  {Convert Variables and Values to Formatted Strings Using "".format()}}
+
+
+Previously, when we wanted to print out both a number and a string, we
+had to print them on separate lines:
+
+\begin{python3code}
+print("x is equal to:")
+print(x)
+\end{python3code}
+
+However, there is a more effective way to print Python values.
+The \pythonindex{"".format()} method offers many more options
+for formatting output:
+
+\begin{pyconcode}
+>>> x = 5
+>>> print("x is equal to: {}".format(x))
+x is equal to: 5
+>>> import math
+>>> print("5 digits of pi: {:.5f}".format(math.pi))
+5 digits of pi: 3.14159
+
+\end{pyconcode}
+
+In the first example, the function replaces the \pythoninline!"{}"! in
+the string with the value of \pythoninline{x}.  If we include multiple
+instances of \pythoninline!{}! in our string, we are able to pass
+multiple values to \pythoninline{"".format()}. It will place each of
+the values into the string.
+
+\begin{pyconcode}
+>>> x = 5
+>>> y = 6
+>>> print("x is equal to {} and y is equal to {}.".format(x, y))
+x is equal to 5 and y is equal to 6.
+>>> print("row {}: {},{},{}".format(1, x, y, 1))
+row 1: 5,6,1
+
+\end{pyconcode}
+
+
+\subsection{Printing Numbers}
+
+We can use the \pythoninline{"".format()} method to print a specific
+number of decimal places. To do this, add \pythoninline{:.2f} inside
+of the \pythoninline!{}!. The \pythoninline{.2f} specifies that we
+want 2 digits to follow the decimal point.
+
+\begin{pyconcode}
+>>> print(3.141592653589793)
+3.141592653589793
+>>> print("{:.2f}".format(3.141592653589793))
+3.14
+
+\end{pyconcode}
+
+For more powerful formatting options, see
+\begin{center}
+  \vspace{-2mm}
+  \url{https://pyformat.info/}
+
+  \url{https://docs.python.org/3/library/string.html#format-string-syntax}
+  \vspace{-2mm}
+\end{center}
+
+
+\subsection{Alternatives}
+
+You are encouraged to use \pythoninline{"".format()} in your exercises,
+but there are several other ways of achieving the same results.
+For the sake of simplicity and brevity we will only show brief demonstrations.
+If \pythoninline{y = 5}, then the lines
+\pythoninline{print('X ' + str(y) + ' Z')},
+\pythoninline{print('X %s Z' % y)}, and
+\pythoninline{print("X", y, "Z")} have the same effect.
+
+
+\section{\texorpdfstring%
+  {Repetition with \pythoninline{while} Loops}
+  {Repetition with While Loops}}
+
+As we saw in lab 0, Python's \pythoninline{for} loops have
+limitations.  It is not possible to use them to repeat code for an
+indefinite number of times.  To do that, we'll have to use
+\pythonindex{while} loops, which allow for more free-form iteration.
+The syntax of a \pythoninline{while} loop is very similar to that of
+an \pythoninline{if} statement, but instead of only running the
+indented block of code once, the loop will continue running it until
+the given boolean statement is no longer true.
+In general, \pythoninline{while} loops look like:
+
+\begin{python3code}
+while boolean_condition:
+    # run this code until the boolean is False
+    pass
+# run this code once the while loop finishes
+\end{python3code}
+
+The special keyword \pythonindex{pass} is a placeholder for indented
+Python code. Here's an example:
+
+\begin{python3code}
+x = 10
+while x > 0:
+    print(x)
+    x = x - 1
+\end{python3code}
+
+The above program will print out the numbers 10 to 1.
+There are many ways to decide when a while-loop should stop running its
+code --- the previous demonstration involves variable reassignment.
+Every time the loop runs, the code assigns a smaller value to
+the Python variable \pythoniline{x}. Eventually, the variable is smaller
+than 1 and the loop stops running.
+It is similar to this code:
+
+\begin{python3code}
+x = 10
+if x > 0:
+    print(x)
+    x = x - 1
+    if x > 0:
+        print(x)
+        x = x - 1
+        if x > 0:
+            ...  # arbitrary depth!!!
+\end{python3code}
+
+Try to run the following code manually. What should it print?
+
+\begin{python3code}
+x = 10
+while x > 0:
+    x = x - 1
+    print(x)
+\end{python3code}
+
+This version of the program will print out the numbers 9 to 0. This
+might seem a bit strange, since the condition of the loop says it will
+stop when \pythoninline{x} is no longer larger than 0. And yet, it
+prints out the value 0 before the loop ends. This is because the loop
+condition is only checked whenever the end of the indented section is
+reached. If the condition is \pythoninline{True}, then the indented
+section will be executed again. If the condition is
+\pythoninline{False}, then the loop will end.
+
+If the boolean value starts out \pythoninline{False}, then the loop
+will never execute.  An example:
+
+\begin{python3code}
+x = 0
+while x > 0:
+    x = x - 1
+    print(x)
+\end{python3code}
+
+\subsection{Infinite Loops}
+
+Although
+while-loops are more flexible, they are also more \textbf{dangerous} and harder
+to debug than for-loops.  If the boolean statement is never
+\pythoninline{False}, the Python code could go into an \emph{infinite
+loop}\index{infinite loop}.
+
+\begin{python3code}
+while True:
+    print("Printing forever")
+\end{python3code}
+
+Press \emph{Ctrl+C} to stop this loop.
+
+\subsection{Indefinite Loops}
+
+Let's write a clone of the Linux command \bashinline{cat}.
+It should take a line of the user's input and immediately print it.
+
+\begin{python3code}
+user_input = ""  # no input yet...
+while user_input != "exit":
+    user_input = input()
+    print(user_input)
+\end{python3code}
+
+The \pythoninline{while} loop depends on user input.
+It only stops when the user types ``exit.''
+Otherwise, it keeps prompting for more input.
+This loop runs for an indefinite, maybe even infinite,
+number of times.
+
+For example, the Python interactive shell reads lines of
+Python code until you type Ctrl+D or ``exit''.
+Video games draw frames to the screen until the graphics engine
+needs to shutdown.
+Many other programs need to loop for an indefinite number of times.
+
+
+\subsection{Reading User Input}
+
+The following sample program repeatedly prompts for user
+input and prints the sum of all inputs until the user types either
+``exit'' or ``forget''.
+This is also an example of conditional statements nested within
+\pythoninline{while} loops. There could also be a
+while-loop within a conditional statement.
+
+\begin{python3code}
+user_input = ""
+sum = 0
+print("Type 'exit' to quit, or 'forget' to reset")
+
+# stop when the user's input is 'exit'
+while user_input != "exit":
+    user_input = input("Please type a number: ")
+    if user_input == "forget":
+        sum = 0
+    elif user_input == "exit":
+        print("goodbye!")
+    else:
+        user_input = int(user_input)
+        sum += user_input
+        print(sum)
+\end{python3code}
+
+\section{Defining Functions}
+
+As we have seen, functions can be called with a specific
+number of arguments and some functions return values that
+can be assigned to variables.
+For example, the \pythoninline{print(x)}
+function takes an argument and returns nothing;
+\pythoninline{y = input(x)} takes an argument and
+returns a string; and the \pythoninline{turtle.goto(x, y)}
+function takes two arguments and returns nothing.
+In this section, we will describe the idea of a function and you will
+learn how to write your own functions.
+
+\subsection{Intuition}
+
+A function accepts some number of parameters as input\index{function
+parameters}, it could also take no input. A function runs code using
+its inputs, and then returns an output\index{return statement}.  A
+function should have a clearly defined purpose and a short but
+descriptive name.  Think of a function as a subprogram or a machine
+that is available for use by any part of the Python program.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.4\linewidth]{img/function.png}
+  \end{center}
+  \caption{A diagram of a function. Inputs are on the left, output is on the right.}
+\end{figure}
+
+Functions are important because they are:
+
+\begin{description}
+  \item[Modular] Functions allow us to break our programs into many smaller pieces. This
+    also allows us to easily think about each small piece in detail.
+  \item[Easy to Test] Functions allow us to test small parts of our programs while not
+    affecting other parts of the program --- this reduces errors in our code.
+  \item[Reusable] Instead of writing the same code many times, we can place this
+    code within a function and call the function whenever that code is needed.
+\end{description}
+
+\subsection{A Function With No Input or Output}
+
+The simplest function is one that takes no input and
+returns no output. It is defined by writing the
+\pythonindex{def} keyword, the function's name, matching parantheses,
+and a colon. Then, the code that should run when the function is called
+must be written and indented. Some examples of these functions are
+the \pythoninline{turtle.done()} and the \pythoninline{exit()} functions.
+
+\begin{python3code}
+def function_name():
+    # Python code
+    pass
+# to run the Python code:
+function_name()
+\end{python3code}
+
+When called, the following function, prints ``goodbye''
+and then exits the program:
+
+\begin{pyconcode}
+>>> def goodbye_and_exit():
+...     print("Goodbye.")
+...     exit()
+>>> goodbye_and_exit()
+Goodbye.
+
+\end{pyconcode}
+
+\subsection{A Function With Input and No Output}
+
+A function can take zero or more parameters\index{function parameters} as input.
+For example, the \pythoninline{print()} function takes a Python value
+as its input.
+To write a function that takes parameters, write them within the
+parentheses.
+The parameters can be used from within the function's code as though they
+are variables.
+
+\begin{python3code}
+def function_name(parameter):
+    # Python code uses the variable named `parameter`
+    pass
+
+def function_name2(parameter1, parameter2, parameter3):
+    # Python code that uses all 3 parameters
+    pass
+
+# Using these functions:
+function_name("sample")  # `parameter` has value set to "sample"
+function_name2(5, 9, 3)  # `parameter1` is set to 5
+\end{python3code}
+
+\begin{pyconcode}
+>>> import turtle
+>>> def draw_hexagon(side_length):
+...     for i in range(6):
+...         turtle.forward(side_length)
+...         turtle.left(360 / 6)
+
+\end{pyconcode}
+
+
+\subsection{A Function That Produces Output Using the \pythoninline{return} Keyword}
+
+When we used functions from the math module, we were always able to assign the
+result of a function to a variable. For example:
+
+\begin{pyconcode}
+>>> import math
+>>> x = math.sqrt(16)
+>>> print(x)
+4.0
+
+\end{pyconcode}
+
+So how do we get a function to give back a value --- or \emph{return} a value? We write
+a return statement\index{return statement} at the end of the function
+by writing the \pythonindex{return} keyword and the Python value or variable
+that the function should output.
+
+\begin{python3code}
+def function_name(parameter1, parameter2):
+    # Python code uses variables named `parameter1`, `parameter2`
+    # defines `result` somewhere
+    result = ...
+    return result
+
+# To use it:
+x = function_name(2, 10)  # parameter1 set to 2, x set to return value
+\end{python3code}
+
+An example:
+
+\begin{pyconcode}
+>>> def square(x):
+...     return x ** 2
+...
+>>> y = square(5)
+>>> print(y)
+25
+>>> square(4.3)
+18.49
+
+\end{pyconcode}
+
+As soon as a \pythoninline{return} statement is reached, the function stops
+executing and just returns the value given to it. Any subsequent statements that
+are part of the function will be skipped.
+
+If a function is called with a different number of parameters
+than it was designed for, Python will raise a \pythonindex{TypeError}
+with a message that says how many parameters it should take.
+This function takes two parameters and returns a numeric value:
+
+\begin{pyconcode}
+>>> def wage(hours, base_rate):
+...     if hours > 40:
+...         ot_pay = (hours - 40) * base_rate * 1.5
+...         return base_rate * 40 + ot_pay
+...     pay = hours * base_rate
+...     return pay
+...
+>>> wage(40, 10)
+400
+>>> wage(50, 10)
+550.0
+>>> wage(10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    wage(10)
+TypeError: wage() missing 1 required positional argument: 'base_rate'
+>>> wage(10, 20, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    wage(10, 20, 30)
+TypeError: wage() takes 2 positional arguments but 3 were given
+
+\end{pyconcode}
+
+The \pythoninline{grocer} function takes two parameters and returns a string:
+
+\begin{pyconcode}
+>>> def grocer(num_fruits, fruit_kind):
+...     return 'Stock: {} cases of {}'.format(num_fruits, fruit_kind)
+...
+>>> grocer(37, 'kale')
+'Stock: 37 cases of kale'
+>>> print(grocer(0, 'bananas'))
+Stock: 0 cases of bananas
+
+\end{pyconcode}
+
+
+A function may also call other functions. Here is the wage example,
+but now the \pythoninline{wage_after_tax} function uses the \pythoninline{wage}
+function:
+
+\begin{python3code}
+def wage(hours, base_rate):
+    """Calculate and return weekly pay for a given amount of hours and base rate taking
+    into consideration overtime pay at 1.5 times the given rate."""
+    if hours > 40:
+        ot_pay = (hours - 40) * base_rate * 1.5
+        return base_rate * 40 + ot_pay
+    pay = hours * base_rate
+    return pay
+
+def wage_after_tax(hours, base_rate, tax_rate):
+    """Calculate and return weekly pay after taxes for a given amount of hours and a
+    base rate with a flat tax rate."""
+    pay = wage(hours, base_rate)  # use the previously defined function
+    return pay * (1 - tax_rate)
+\end{python3code}
+
+A good resource:
+
+\begin{center}
+\url{https://docs.python.org/3/tutorial/controlflow.html#defining-functions}
+\end{center}
+
+
+\section{Reusing Code: Creation and Usage of Modules}
+
+When writing large programs, it is convenient to split them
+into small files. This makes it easier to test and debug small parts
+of the entire program.  How can a programmer use code from two or more
+different \bashinline{.py} files?
+
+The solution is to place your code into modules\index{module}.  A module is
+essentially a \bashinline{.py} file. In fact, you've been writing
+Python modules this entire semester.  You could import the file
+\texttt{test.py} and access anything defined within it by writing
+\pythoninline{import test}.  However, these files are likely are
+missing one bit of code to work properly.
+
+\subsection{Bad Solution: Copy and Paste}
+
+You could copy and paste the code you wish to share between two
+\bashinline{.py} files, but this is a terrible idea under almost any
+circumstance.  Any fixes or improvements to either segment of shared
+code must be copied manually.  If the code is used frequently, this
+might have to happen multiple times.
+
+If you use modules, a programmer can immediately tell that
+you're using code from another file and understand that they may need
+to interact with the imported file as well.
+
+\subsection{Half Solution: Import Your Code}
+For learning purposes, let's try to write and import a broken module. Place the
+following text in a file called \texttt{bad\_artifical\_intelligence.py}.
+
+\begin{python3code}
+def greetings(recipient):
+    greeting = "Hello {}!".format(recipient)
+    return greeting
+
+# test the greetings functions
+if greetings("World") == "Hello World!":
+    result = "passed"
+else:
+    result = "failed"
+print("The `artificial_intelligence` module has {} all tests!".format(result))
+\end{python3code}
+
+Here we have a function called \pythoninline{greetings} that takes a string and
+returns a string. After the function is defined, we test it by giving it the
+input \pythoninline{"World"} and checking that it outputs the correct string,
+\pythoninline{"Hello World!"}. If we run \texttt{python3
+  bad\_artificial\_intelligence.py} on its own, it will print the expected
+output:
+
+\begin{bashcode}
+The `artificial_intelligence` module has passed all tests!
+\end{bashcode}
+
+However, this is module still \textbf{broken}! If we wish to use the function
+\pythoninline{greetings} in some other Python program, then we'll see that it
+has unexpected side effects. Now let's see an example where we
+\pythoninline{import} our existing code and use it in another program, called
+\texttt{greeter.py}:
+
+\begin{python3code}
+import bad_artificial_intelligence
+
+user_name = input("Please type your name: ")
+greetings = bad_artificial_intelligence.greetings(user_name)
+print(greetings)
+\end{python3code}
+
+\textbf{Side Note}: To import another module, you need to make sure that both
+files are in the same directory! Otherwise, you will see this error message:
+
+\begin{bashcode}
+$ python3 greeter.py  # files in wrong directories
+Traceback (most recent call last):
+  File "greeter.py", line 1, in <module>
+    import bad_artificial_intelligence
+ImportError: No module named 'bad_artificial_intelligence'
+\end{bashcode}%$
+
+Here's what happens when \texttt{greeter.py} is run correctly:
+
+\begin{bashcode}
+$ ls
+greeter.py  bad_artificial_intelligence.py
+
+$ python3 greeter.py
+Please type your name: gazorpazorpfield
+The `bad_artificial_intelligence` module has passed all tests!
+Hello gazorpazorpfield!
+\end{bashcode}
+
+The problem here is that \texttt{greeter.py} is also printing the output of
+\texttt{bad\_artificial\_intelligence.py}. This isn't what we want! The testing
+code in our module has nothing to do with our greeter printing script! How can
+we make our module more \emph{modular}? In this case, the problem is in how we
+wrote the \texttt{bad\_artificial\_intelligence.py} file.
+
+\subsection{Full Solution: Import Your Code and Check the \pythoninline{__name__} Variable}
+
+Please refer to the previous section if you haven't written the file
+\texttt{bad\_artificial\_intelligence.py}.
+
+The problem with the previous version of the file \texttt{greeter.py}
+is that the testing code for \texttt{bad\_artificial\_intelligence}
+was always running, even when the module was being used only for its
+\pythoninline{bad_artificial_intelligence.greetings} function.
+
+The \pythoninline{math} and the \pythoninline{turtle} modules are
+defined in the \texttt{math.py} and \texttt{turtle.py} files located
+somewhere on your machine.  They may have testing code, or sample
+code, but this code would only run if you were to type
+\bashinline{python3 /crazy/file/path/turtle.py} or \bashindex{python3
+-m turtle} (try this for different modules).
+
+The question is: how does a file know whether it's being imported as a
+module using \pythoninline{import test_file} or if it's being run as a
+program using \bashinline{python3 test_file.py}? Python keeps a
+variable called \bashindex{\_\_name\_\_}.  It is set to the file name,
+unless the program is being run using \bashinline{python3 test_file.py}.
+In this case, the variable is set to \pythoninline{"__main__"}.
+
+Here is the corrected version of the \texttt{bad\_artificial\_intelligence.py}
+file, now called \texttt{artificial\_intelligence}:
+
+\begin{python3code}
+def greetings(recipient):
+    greeting = "Hello {}!".format(recipient)
+    return greeting
+
+# If this file is being run as `python3 artificial_intelligence`, run some testing code
+if __name__ == "__main__":
+    if greetings("World") == "Hello World!":
+        result = "passed"
+    else:
+        result = "failed"
+    print("The `artificial_intelligence` module has {} all tests!".format(result))
+\end{python3code}
+
+Change the \texttt{greeter.py} Python script so that it imports and uses
+this module instead. Its output:
+
+\begin{bashcode}
+$ python3 greeter.py
+Please type your name: gazorpazorpfield
+Hello gazorpazorpfield!
+\end{bashcode}%$
+
+
+\subsection{Boilerplate Code: Check if \pythoninline{__name__ == "__main__"}}\label{boilerplate}
+
+All of your programs are required to have the boilerplate code\index{boilerplate code} for
+checking if \pythoninline{__name__} equals \pythoninline{"__main__"}
+and a \pythoninline{main()} function for running code that doesn't
+belong in any other function.
+
+Any code that previously would have gone outside of any function declaration
+should now go inside a \pythonindex{main()} function as shown below.  This is so
+you can test your \pythoninline{main} code from the Python interactive shell, or
+from another program.
+
+Furthermore, it's strongly advised that all of the code in your program that
+uses IO functions, like \pythoninline{input()} or \pythoninline{print()}, should
+only be called from within the \pythoninline{main} function! This is the best
+way to avoid the situation we ran into in our example, where our module was
+printing messages unrelated to the program that was using it. When you're
+reusing code from some other program, you don't want the functions you use to
+clutter up your program by printing irrelevant messages to your screen.
+
+\begin{multicols}{2}
+This code follows the boilerplate requirement:
+\begin{python3code}
+def f(x):
+    return x % 5
+
+def main():
+    # test and demo f
+    print(f(5) == f(10))
+    i = input()
+    i = int(i)
+    print(f(i))
+
+if __name__ == "__main__":
+    main()
+\end{python3code}
+
+\columnbreak
+This code is doing it wrong:
+\begin{python3code}
+def f(x):
+    print("sup br0s?")
+    print("I just got {}!".format(x))
+    print("Think it's divisible by 5?")
+    return x % 5
+
+# test f
+print(f(5) == f(10))
+i = input()
+i = int(i)
+print(f(i))
+\end{python3code}
+\end{multicols}
+
+Be the change you wish to see in the world. Write clean code.
+
+\section{Making Calculations Shorter}
+\label{sec:calc}
+
+Python operators such as \pythoninline{+}, \pythoninline{-},
+\pythoninline{*}, \pythoninline{%}, were introduced in Lab 1. There is
+a variant of these that you can use to assign to a variable.
+
+\begin{pyconcode}
+>>> x = 5
+>>> x += 3 # same as x = x + 3
+>>> x
+8
+>>> x *= 10 # same as x = x * 10
+>>> x
+80
+
+\end{pyconcode}
+
+The available assignment operators are:
+\begin{multicols}{3}
+\begin{description}
+  \item[\protect\pythonindex{+=}] addition
+  \item[\protect\pythonindex{-=}] subtraction
+  \item[\protect\pythonindex{*=}] multiplication
+  \item[\protect\pythonindex{/=}] division
+  \item[\protect\pythonindex{//=}] integer division
+  \item[\protect\pythonindex{**=}] exponentiation
+\end{description}
+\end{multicols}
+
+
+\section{Sample Program}
+
+This sample program defines some relatively short functions and a
+\pythoninline{main()} function for getting input and printing the return value
+of both functions.
+
+\pythoninput{lab3/functionfun.py}
+
+
+\newpage
+\section{Exercises}\label{exercises}
+
+\begin{warningbox}{New Requirements}
+  Please be aware of the new code style requirement. See lab 2 for a
+  description of PEP 8.
+
+  Also, we now require your programs to have the boilerplate code as shown
+  in Section \ref{boilerplate} on page \pageref{boilerplate}.
+\end{warningbox}
+
+
+\begin{ex}[fizzbuzz.py] Have the user enter a positive integer number. Then,
+  print the numbers from 1 to that number each on a line. When the printed
+  number is divisible by 3, print ``Fizz'', and when the number is divisible by
+  5, print ``Buzz'', and when it is divisible by both, print ``FizzBuzz''.
+
+  You must use \pythoninline!.format()! and a \pythoninline!while! loop.
+
+  Should look like this when run:
+
+  \begin{verbatimcode}
+Enter a number: -1
+Not a positive number!
+  \end{verbatimcode}
+
+  \begin{verbatimcode}
+Enter a number: 16
+1
+2
+3 Fizz
+4
+5 Buzz
+6 Fizz
+7
+8
+9 Fizz
+10 Buzz
+11
+12 Fizz
+13
+14
+15 FizzBuzz
+16
+  \end{verbatimcode}
+\end{ex}
+
+\begin{ex}[date.py, horoscope.py]
+  For this exercise you will need to write two different Python modules. Make
+  sure you follow the boilerplate requirements for both programs, so that the
+  two modules don't interfere with each other.
+
+  The first program will be in \pythoninline{date.py}. It should ask the user for a month and
+  a day of the month, and convert it to the corresponding day of the year.
+  Assume the current year is not a leap year. For incorrect dates,
+  like \pythoninline{('February', 29)}, \pythoninline{('March', 42)} or \pythoninline{('Scotchtober', 1)}, your
+  conversion function should return \pythoninline{-1}, and you should print an
+  error from the \pythoninline{main} function.
+
+  \textbf{Hint:} Both of these programs will be easier to write if you write a
+  helper function, \pythoninline{days_in_month()}, which takes in the name of a
+  month and returns the number of days in that month.
+
+  Example Input:
+
+  \begin{verbatimcode}
+Enter the month: March
+Enter the day: 14
+  \end{verbatimcode}
+
+  Output:
+
+  \begin{verbatimcode}
+Day of the year: 73
+  \end{verbatimcode}
+
+  Next, \pythoninline{horoscope.py} should take in a month and a day, and use that date
+  to print the horoscope of someone who was born on that day. You should use the
+  \pythoninline{import} statement to make use of the code you wrote in
+  \texttt{date.py} for determining the user's astrological sign. The
+  horoscopes themselves are completely up to you, as long as they start with the
+  correct sign.
+
+  Example Input:
+
+  \begin{verbatimcode}
+Enter the month: March
+Enter the day: 14
+  \end{verbatimcode}
+
+  Output:
+
+  \begin{verbatimcode}
+Pisces: Tui and La, push and pull, commit and rebase...
+  \end{verbatimcode}
+
+  For a reference on the zodiac dates, see the ``Tropical zodiac'' column from
+  this table: \url{https://en.wikipedia.org/wiki/Zodiac#Table_of_dates}. Watch
+  out for Capricorn! That zodiac spans from December 22nd to January 20th.
+
+\end{ex}
+
+\begin{ex}[navigate.py]
+  Write a program that takes directions from the command line to draw a
+  line. Let the user input ``left'', ``right'', ``forward'', or ``stop''. Left
+  and right turn the turtle left or right however many degrees are entered,
+  forward moves the turtle forward (however far you wish), and stop ends the
+  program.
+
+    Input:
+
+  \begin{verbatimcode}
+Please enter a direction: forward
+Please enter a direction: left
+How many degrees? 45
+Please enter a direction: forward
+Please enter a direction: left
+How many degrees? -1
+Invalid number, not moving.
+Please enter a direction: left
+How many degrees? 45
+Please enter a direction: forward
+Please enter a direction: forward
+Please enter a direction: left
+How many degrees? 45
+Please enter a direction: left
+How many degrees? 45
+Please enter a direction: forward
+Please enter a direction: right
+How many degrees? 45
+Please enter a direction: forward
+Please enter a direction: stop
+  \end{verbatimcode}
+
+  Output:
+  \begin{center}
+  \includegraphics[width=1.0in]{img/exercise_navigate}
+  \end{center}
+
+\end{ex}
+
+\printindex
+\vfill
+\input{submitting}
+
+\end{document}

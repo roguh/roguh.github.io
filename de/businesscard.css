@@ -1,1 +1,68 @@
-@media print{body{background-color:#001000;color:#fff}a{color:#a8ffd8;text-decoration:none}code{font-size:1.1em}@page{size:30em 17.14em}}body,code{background-color:#001000}body{text-align:center;padding:1em;width:30em;height:16em}main{display:flex;flex-direction:row;align-items:center;height:100%}hr{border-color:#a8ffd8;color:#a8ffd8;background-color:#a8ffd8}h1{margin:.2em;font-variant:small-caps}h2{margin:.2em}code{font-size:1.1em}h2 code{font-size:1em}.contact{display:flex;flex-direction:column}.contact .row{display:flex;justify-content:space-between}
+@media print {
+  body {
+    background-color: #001000;
+    color: white;
+  }
+  a {
+    color: #a8ffd8;
+    text-decoration: none;
+  }
+  code {
+    font-size: 1.1em;
+  }
+  @page {
+    /* business cards are 3.5 by 2 inches */
+    size: 30em 17.14em;
+  }
+}
+
+body, code {
+  background-color: #001000;
+}
+
+body {
+  text-align: center;
+  padding: 1em;
+  width: 30em;
+  height: 16em;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+hr {
+  border-color: #a8ffd8;
+  color: #a8ffd8;
+  background-color: #a8ffd8;
+}
+
+h1 {
+  margin: 0.2em;
+  font-variant: small-caps;
+}
+
+h2 {
+  margin: 0.2em;
+}
+
+code {
+  font-size: 1.1em;
+}
+
+h2 code {
+  font-size: 1.0em;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact .row {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,878 @@
+% TODO if statement with multiple lines
+% TODO more on variables vs values
+% TODO string literal vs variable
+\documentclass[11pt]{cselabheader}
+
+% Define title and author
+\newcommand{\thelabnumber}{2}
+\newcommand{\thetitle}{Code Style and Conditional Execution}
+\newcommand{\theauthor}{CSE/IT 107L}
+
+% Write title and author
+\title{\thetitle}
+\author{\theauthor}
+\date{NMT Department of Computer Science and Engineering}
+
+\fancyhead[R]{Lab \thelabnumber: \thetitle}
+\fancyhead[L]{\theauthor}
+
+\makehyperref
+\makeindex[title=Index of New Functions and Methods, intoc]
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\hrule
+
+% Quotes and comics
+\begin{quotation}
+    ``Programs must be written for people to read, and only incidentally for
+    machines to execute.''
+\end{quotation}
+\begin{flushright}
+--- H. Abelson and G. Sussman (\textit{Structure and Interpretation of Computer
+Programs})
+\end{flushright}
+
+\hrule
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{img/xkcd_1513.png}
+  \caption{\url{http://xkcd.com/1513}}
+\end{figure}
+
+\newpage
+\section*{Introduction}
+
+So far, you have learned several programming techniques, but you are
+still missing practice with a fundamental element of computation:
+conditionals.
+
+This document teaches you how to use Python code to make
+decisions on which parts of the code to run. We can do this using
+conditional statements, which look like this: \pythoninline{if this:
+...do_that...}.  You have learned about numeric values and string
+values, but to use conditional statements, you should know about
+boolean values: \pythoninline{True} and \pythoninline{False}. You also
+need to learn boolean statements such as \pythoninline{4 < 5}, or the statement
+\pythoninline{user_input != 2 or user_input != 3}.
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\section{\texorpdfstring%
+ {Booleans: \pythoninline{True} or \pythoninline{False}}
+ {Booleans: True or False}}
+
+A common activity when programming is determining whether something is
+true or false. For example, checking if a variable is less than five
+or if the user entered the correct password. Any statement that
+results in a true or a false value is called a boolean
+statement\index{boolean statement}, the result (true or false) is
+called a boolean value\index{boolean value}.
+
+Booleans are a new type of Python value. Like ints and floats, there are
+many calculations that result in a boolean. These are called boolean
+statements. However, there are only two boolean values:
+\pythonindex{True} and \pythonindex{False}.
+
+\subsection{\texorpdfstring%
+  {Numbers to Booleans with Comparison Operators \pythoninline{==, !=, <=, <, >, >=}}
+  {Numbers to Booleans with Comparison Operators}}
+
+The boolean operators \pythoninline{==, !=, <=, <, >, >=} are used for
+comparing numbers. An example:
+
+\begin{pyconcode}
+>>> 12 < 5
+False
+>>> 12 >= 5
+True
+>>> x = 5
+>>> x < 3
+False
+>>> print(x < 6)
+True
+
+\end{pyconcode}
+
+The boolean \textsl{values} are \pythoninline{True} and
+\pythoninline{False}. The boolean \textsl{statements} are \pythoninline{x < 3},
+\pythoninline{x < 6}, \pythoninline{12 >= 5}, and \pythoninline{12 < 5}.
+You can compare variables or literal values.
+
+Here are more examples:
+
+\begin{pyconcode}
+>>> x = 3
+>>> y = 6
+>>> print(x < y)
+True
+>>> x > y
+False
+>>> x <= y
+True
+
+\end{pyconcode}
+
+The operator
+\pythonindex{<} means ``less than,''
+\pythonindex{>} means ``greater than,''
+\pythonindex{<=} means ``less than or equal to,'' and
+\pythonindex{>=} means ``greater than or equal to''.
+
+Finally, we can test if two values are equal
+(\pythonindex{==}) or not equal (\pythoninline{!=}).
+
+\begin{pyconcode}
+>>> x = 3; y = 3; z = 4
+>>> print(x == y)
+True
+>>> print(x == z)
+False
+>>> print(y != 5)
+True
+>>> print(y != x)
+False
+
+\end{pyconcode}
+
+It is important to remember that \pythoninline{=} is for assigning to a
+variable and \pythoninline{==} to test if two values are equal.
+
+
+\subsection{Values to Booleans with Equality Operators}
+The equality operators \pythoninline{==} and \pythoninline{!=}
+can be used to compare any two values. For example, they can compare
+booleans, strings, numbers, and functions (by name, not behavior).
+
+\begin{pyconcode}
+>>> True == False
+False
+>>> True == True
+True
+>>> False != False
+False
+>>> "Hello world!" == "Hello machine!"
+False
+>>> "Hello world!" != "Hello machine!"
+True
+>>> 4.5 == 4.50000
+True
+
+\end{pyconcode}
+
+\subsection{\texorpdfstring%
+  {Booleans to Booleans with \pythoninline{and, or}, and \pythoninline{not}}
+  {Booleans to Booleans with and, or, and not}}
+
+We can combine boolean statements using \pythonindex{and} and \pythonindex{or}:
+
+\begin{pyconcode}
+>>> x = 3; y = 5; z = 8
+>>> print(x < y and y < z)
+True
+>>> print(x > y and y < z)
+False
+>>> print(True and False)
+False
+>>> print(True or False)
+True
+
+\end{pyconcode}
+
+If you combine two boolean statements that are true using \pythoninline!and!, the
+result will be true. In all other cases the result is false. Since
+\pythoninline!x < y! is true and \pythoninline!y < z! is true, we have that
+\pythoninline!x < y and y < z! is true.
+In addition to this, there is the \pythonindex{not} operator to negate a boolean
+statement. You can also put a boolean statement in parentheses to do more
+complicated combinations:
+
+\begin{pyconcode}
+>>> x = 3; y = 5; z = 8
+>>> print(not True)
+False
+>>> print(not (x > y and y < z))
+True
+
+\end{pyconcode}
+
+\begin{table}[!ht]
+\begin{center}
+  \begin{tabular}{ll lll}
+    \toprule
+    \pythoninline!A! & \pythoninline!B! & \pythoninline!A and B! & \pythoninline!A or B! & \pythoninline!not A! \\
+    \midrule
+    True & True & True & True & False\\
+    True & False & False & True & False\\
+    False & True & False & True & True\\
+    False & False & False & False & True \\
+    \bottomrule
+    \multicolumn{2}{l}{Summary:} & true if both $a$ and $b$ & true if both or either $a$ or $b$ & true if $a$ is false \\
+    \bottomrule
+  \end{tabular}
+  \caption{A truth table for the boolean operators \pythoninline{and, or, not}.
+    Because there are only two boolean values, it is possible to list every result
+    of a boolean operators.}
+  \label{tab:truth}
+\end{center}
+\end{table}
+
+Boolean statements can be combined to form more complicated statements,
+such as:
+
+\begin{pyconcode}
+>>> x = 3
+>>> x >= 0 and x <= 10
+True
+>>> x <= 10 and x >= 20
+False
+>>> y = 10
+>>> (x >= 10 and x <= 15) or (x < y and y >= 0)
+True
+>>> x >= 10 and (x <= 15 or x < y) and y >= 0
+False
+
+\end{pyconcode}
+
+\subsection{Possible Mistakes, Python is not English}
+
+\begin{multicols}{2}
+This code is incorrect or ambiguous:
+\begin{pyconcode}
+>>> x = 1
+>>> x == 4 or 6 or 8
+6
+>>> 7 == 4 and 8
+False
+>>> x not == 4
+Traceback (most recent call last):
+  File ``<stdin>'', line 1
+    x not == 4
+           ^
+SyntaxError: invalid syntax
+>>> not 7 == 4 or x == 1
+True
+
+\end{pyconcode}
+
+\columnbreak
+
+Maybe this is what was meant:
+\begin{pyconcode}
+>>> x = 1
+>>> x == 4 or x == 6 or x == 8
+False
+>>> 7 == 4 and 7 == 8
+False
+>>> not (4 == x)
+True
+>>> 4 != x # this is more concise
+True
+>>> not (7 == 4 or x == 1)
+False
+>>> (not 7 == 4) or x == 1 # or this?
+True
+
+\end{pyconcode}
+\end{multicols}
+
+\section{Using Conditional Execution to Make Decisions}
+
+In Python, \textsl{conditional statements}\index{conditional statements}
+are the keywords \pythonindex{if} and \pythonindex{elif} followed by
+a boolean (value or statement), or the lone keyword
+\pythonindex{else}. This section is about using these keywords.
+
+The primary use for boolean values is to determine which part of
+your code to follow. This is accomplished using \pythoninline{if} and
+\pythoninline{elif}, \pythoninline{else}, and code indentation.
+
+\subsection{To Run Or Not To Run: \pythoninline{if} Statements}
+
+An \pythonindex{if} statement is the keyword \pythoninline{if}
+followed by a boolean statement, a colon, and any number of lines of
+Python code indented by 4 spaces.
+The lines of indented code only run if the boolean statement is \pythoninline{True}.
+It looks like this:
+
+\begin{python3code}
+if boolean:
+    # if boolean1 is True, run this code
+    pass
+# in any case, this code runs
+\end{python3code}
+
+(The \pythoninline{pass} statement does nothing, it is only in the
+code sample because 
+statements require indented code and inline comments don't count).
+Here is an example of using an \pythoninline{if} statement.
+
+\begin{python3code}
+user_input = input("Guess what language this program was written in: ")
+
+if user_input == "Python":
+    print("You answered correctly.")
+\end{python3code}
+
+The program reads user input and then uses the boolean operator
+\pythoninline{==} to check if the input is equal to
+``Python''. If it is, the code that is indented by 4 spaces below the if-statement runs.
+
+Conditionals can have as many lines of code as needed:
+
+\begin{python3code}
+user_input = input("Type a negative number: ")
+user_input = float(user_input)
+if user_input < 0:
+    print("The input is less than 0")
+    print("Square of the input:")
+    print(user_input ** 2)
+    print("Computation finished.")
+\end{python3code}
+
+In this example, the 4 print statements run only when the user's input
+is less than 0.
+
+\subsection{4 Space Indentation}
+
+Here is what happens if you try to indent code when you don't have an
+\pythoninline{if} or a \pythoninline{for}:
+
+\begin{python3code}
+# This code is in badindent.py
+print("Hello.") # this line is OK
+    print("Goodbye.")
+\end{python3code}
+
+\begin{bashcode}
+$ python3 badindent.py
+  File "badindent.py", line 3
+    print("Goodbye.")
+    ^
+IndentationError: unexpected indent
+\end{bashcode}%$
+
+Python raises an \pythonindex{IndentationError} with the message
+``unexpected indent''.
+
+So far, we have seen two features that rely on the code's indentation:
+conditional statements and for-loops.
+
+For example, in the following code sample the line that prints the
+square root of the user input runs whether the if conditional runs or
+not. This means conditional statements are unaffected by all unindented code
+that comes after.
+
+\begin{python3code}
+user_input = input("Type a non-negative integer: ")
+user_input = int(user_input)
+if user_input < 0:
+    print("This number is negative. Will use 0 instead.")
+    user_input = 0
+# All code after is ignored by the conditional.
+# This line runs unconditionally:
+print(user_input ** 0.5)
+\end{python3code}
+
+
+\subsection{Run This Or That: \pythoninline{if-else} Statements}
+
+After the indented code, a conditional can also have the keyword
+\pythonindex{else} followed by a colon and any number of lines of
+code indented by 4 spaces.  This code runs whenever the
+\pythoninline{if} statement's boolean condition is
+\pythoninline{False}.
+This is what this kind of conditional looks like:
+
+\begin{python3code}
+if boolean1:
+    # if boolean1 is True, run this code
+    pass
+else:
+    # run this code if boolean1 is False
+    pass
+# in any case, this code runs
+\end{python3code}
+
+The goal of the following example is to check if the user's input is
+equal to a secret number. The program should print a message that
+either congratulates the user for guessing correctly or a message
+saying they did not guess the secret. No matter what the input is, the
+program finishes by printing ``Thanks for playing!''.
+
+\begin{python3code}
+secret = 6
+print("I have loaded a number between 0 and 10."
+user_input = input("Can you guess what it is? ")
+user_input = int(user_input)
+
+if user_input == secret:
+    print("You guessed correctly!")
+else:
+    print("You guessed incorrectly :(")
+print("Thanks for playing!")  # this line always runs
+\end{python3code}
+
+This is how the code works: either the first
+\pythoninline!print()!
+statement runs or the second \pythoninline!print()! statement runs, but never
+both. Which one runs is determined by Python: if the boolean statement (called
+\emph{condition}) following the \pythoninline!if! evaluates to
+\pythoninline!True!, then Python will run the indented code following the
+\pythoninline!if! and then skip until after the indented code of the
+\pythoninline!else!.
+
+This code checks and prints whether a number is even or odd:
+
+\begin{python3code}
+x = 5
+
+if x % 2 == 0:
+    print("x is even.")
+else:
+    print("x is odd.")
+\end{python3code}
+
+Remember that \pythoninline!%!
+is the modulus operator: it gives you the remainder of the division.
+
+\begin{python3code}
+password = "hunter2"
+
+user_pass = input("Please input the password: ")
+
+if password == user_pass:
+    print("Password is correct. Welcome!")
+else:
+    print("Invalid password.")
+\end{python3code}
+
+\subsection{Arbitrarily Many Decisions: \pythoninline{if-elif-else} Statements}
+
+Any number of \pythonindex{elif} statements can be placed after an if
+statement.  They each resemble another \pythoninline{if}, the
+components are: the keyword \pythoninline{elif}, a boolean statement,
+a colon, and indented code.  It could be followed by another
+\pythoninline{elif}, or by an \pythoninline{else}.
+
+\begin{python3code}
+if boolean1:
+    # if boolean1 is True, run this code
+    pass
+elif boolean2:
+    # if boolean1 is False but boolean2 is True, run this code
+    pass
+elif boolean3:
+    # similarly, if boolean2 is False; check boolean3
+    pass
+else:
+    # run this code if boolean1, boolean2, and boolean3 are False
+    pass
+# in any case, this code runs
+\end{python3code}
+
+In some cases, it could be that there are multiple passwords. Try running the
+following code:
+
+\begin{python3code}
+password = "hunter2"
+also_password = "hunter3"
+another_password = "hunter4"
+user_pass = input("Please input the password: ")
+
+if password == user_pass:
+    print("Welcome, administrator.")
+elif user_pass == also_password:
+    print("Welcome, administrator.")
+elif user_pass == another_password:
+    print("Welcome, manager.")
+else:
+    print("Wrong password.")
+\end{python3code}
+
+In this code, we used the \pythoninline!elif! statement: when the condition
+following \pythoninline!if! turns out to be false, Python checks the first
+\pythoninline!elif! statement. If that condition turns out to be true, it runs
+the code following that \pythoninline!elif! statement or move on to the next
+\pythoninline!elif!. Only when none of the conditions are true,
+does the code following \pythoninline!else! run.
+
+We reduce the repetition by using an \pythoninline{or}
+statement to check for two different passwords:
+
+\begin{python3code}
+user_pass = input("Please input the password: ")
+
+if user_pass == "hunter2" or user_pass == "hunter3":
+    print("Welcome, administrator.")
+elif user_pass == "hunter4":
+    print("Welcome, manager.")
+else:
+    print("Wrong password.")
+\end{python3code}
+
+Here is an example that compares a number and prints out a message
+indicating that it's positive, negative, or zero:
+
+\begin{python3code}
+user_input = input("Please type a number: ")
+user_input = int(user_input)
+if user_input < 0:
+    print("Input is negative.")
+elif user_input > 0:
+    print("Input is positive.")
+else:
+    print("Input is zero.")
+\end{python3code}
+
+You can insert as many \pythoninline{elif} statements as you want
+after an \pythoninline{if} statement. The \pythoninline{else} statement
+is always optional.
+
+Remember the code that follows \pythoninline!if! or
+\pythoninline!elif! or \pythoninline!else! \textbf{must} be indented
+if is part of the conditional.
+
+
+\section{More Ranges}
+
+For-loops have many more features, we will show you one more in this lab.
+There are various other ways to use the \pythoninline{range}
+function. You could, for example, write a for loop that starts at 48 and
+iterates through every other number up to 100.
+
+\begin{tabular}{ll}
+  \toprule
+  \pythoninline!range(E)! & numbers from 0 to \pythoninline!E!, not including
+  \pythoninline!E! \\
+  \pythoninline!range(B, E)! & numbers from \pythoninline!B! to \pythoninline!E!, not
+  including \pythoninline!E! \\
+  \pythoninline!range(B, E, S)! & numbers from \pythoninline!B! to \pythoninline!E!, not
+  including \pythoninline!E!, skipping every \pythoninline!S! number \\
+  \bottomrule
+\end{tabular}
+
+Do some experiments with range to see what numbers it gives. For reasons that we
+cannot yet explain to you, you have to write \pythoninline!list(range(...))! to
+print the contents of the range.
+
+\begin{pyconcode}
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+>>> list(range(1, 5))
+[1, 2, 3, 4]
+>>> list(range(1, 7, 2))
+[1, 3, 5]
+
+\end{pyconcode}
+
+
+\section{More Math}
+
+The math module\index{math module} provides many new mathematical
+features that you can access by writing the line \pythoninline{import math}.
+This module contains variables that contain values of the
+mathematical constants $\pi$ and $e$:
+
+\begin{pyconcode}
+>>> import math
+>>> math.pi
+3.141592653589793
+>>> math.e
+2.718281828459045
+
+\end{pyconcode}
+
+It also contains functions such as the square root
+(\pythonindex{math.sqrt()}, the logarithm (\pythonindex{math.log()},
+\pythonindex{math.log10()}), a power function
+(\pythonindex{math.pow()}), functions for converting to degrees
+(\pythonindex{math.degrees()}) and radians
+(\pythonindex{math.radians()}), the factorial function
+(\pythonindex{math.factorial()}), a function for finding the greatest
+common divisor between two numbers (\pythonindex{math.gcd()}), and
+several others.
+
+\begin{pyconcode}
+>>> import math
+>>> math.sqrt(16)
+4.0
+>>> math.log(8, 2) # $\log_2(8)$
+3.0
+>>> math.pow(2, 3) # $2^3$
+8.0
+>>> math.degrees(math.pi / 2)
+90.0
+>>> math.radians(90.0)
+1.5707963267948966
+>>> math.factorial(20)
+2432902008176640000
+>>> math.gcd(49, 21)
+7
+
+\end{pyconcode}
+
+There are more functions in the math library, you can find them documented here:
+
+\begin{center}
+\url{https://docs.python.org/3.0/library/math.html}
+\end{center}
+
+\section{\texorpdfstring%
+  {Reading Function Documentation Using the \pythoninline{help()} Function}
+  {Reading Function Documentation Using the help() Function}}
+
+Use the \pythonindex{help()} function to read the documentation of
+any of the Python functions we have used. You can also read the
+documentation of modules and their functions after you import them.
+For example:
+
+\begin{pyconcode}
+>>> help(print)
+Help on built-in function print in module builtins:
+<BLANKLINE>
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+<BLANKLINE>
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+<BLANKLINE>
+
+\end{pyconcode}
+
+You may need to press 'q' to exit some help screens.
+
+\begin{pyconcode}
+>>> help(input)
+Help on built-in function input in module builtins:
+<BLANKLINE>
+input(prompt=None, /)
+    Read a string from standard input.  The trailing newline is stripped.
+<BLANKLINE>
+    The prompt string, if given, is printed to standard output without a
+    trailing newline before reading input.
+<BLANKLINE>
+    If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+    On *nix systems, readline is used if available.
+<BLANKLINE>
+
+\end{pyconcode}
+
+\begin{pyconcode}
+>>> import math
+>>> help(math.sqrt)
+Help on built-in function sqrt in module math:
+<BLANKLINE>
+sqrt(...)
+    sqrt(x)
+<BLANKLINE>
+    Return the square root of x.
+<BLANKLINE>
+
+\end{pyconcode}
+
+
+\section{Code Style}
+
+As you may have noticed, there are many ways to write the
+same Python code. Four code samples are listed below that
+perform the same task: ask for an integer and print 2 to the
+power of that integer ($2^\text{input}$.)
+
+\begin{multicols}{2}
+\begin{python3code}
+user_input = input('Enter an integer: ')
+user_input = int(user_input)
+result = 2 ** user_input
+print(result)
+\end{python3code}
+
+\begin{python3code}
+power = int(input('Enter an integer: '))
+print(2 ** power)
+\end{python3code}
+
+\columnbreak
+
+\begin{python3code}
+user_input=input('Enter an integer: ')
+user_input=int(user_input)
+result=2**user_input
+print(result)
+\end{python3code}
+
+\begin{python3code}
+USER_INPUT = input('Enter an integer: ')
+USER_INPUT = int(USER_INPUT)
+RESULT = 2 ** USER_INPUT
+print(RESULT)
+\end{python3code}
+\end{multicols}
+
+
+If left to their own devices, most people start conform- ing to their
+own code style just by preferring a certain way to write something
+over another. For example, a common parameter of style guides is the use
+of a certain number of spaces for indentation. Also, some people put
+spaces before each colon, and some people do not.
+
+This is fine for personal projects, but not so if you know your Python
+file will be part of a group of code.
+What if the turtle module used all uppercase names with no underscores and
+the math module used lowercase names with underscores? This would make
+both of the module's function names harder to memorize and use.  For large
+projects, group projects, and some individual assignments in CS
+classes, programmers are required to follow a code style guide.
+Code style guides dictate the minutiae of your program's appearance.
+
+
+\subsection{Style Guide --- Short Version of PEP 8}\label{pep8}
+
+The Python Enhancement Proposal 8, known as PEP 8, is a style guide
+that dictates how Python code should look. In this class, we will use
+a shorter version.
+
+\input{pep8.tex}
+
+You may also read the entire PEP 8 document at
+\begin{center}
+ \url{https://www.python.org/dev/peps/pep-0008/}
+\end{center}
+
+% \section{Sample Program}
+% (should be a small, readable Python program that uses all
+% concepts introduced in the previous labs)
+
+
+\newpage
+
+\begin{warningbox}{PEP8 Is Required}
+  For this assignment and all future assignments, you are required to
+  follow a subset of the PEP 8 style guide.  Read it on page
+  \pageref{pep8}.
+\end{warningbox}
+
+\section{Exercises}\label{exercises}
+
+\begin{ex}[shapes.py]
+
+  Write a program that prompts the user for either ``circle'' or ``rectangle''
+  or ``square'' then reads in either the radius or width and height or the side
+  length of the shape as floating point numbers. If a radius is given, the
+  program should print the shape's circumference and area. For a rectangle,
+  print the perimeter and area.  Here are some usage examples:
+
+  \begin{bashcode}
+$ python3 shapes.py
+Please enter a shape: circle
+Please input the radius of the circle:3
+The circumference of the circle is
+18.84955592153876
+The area of the circle is
+28.274333882308138
+$ python3 shapes.py
+Please enter a shape: rectangle
+Please enter the width of the rectangle: 10
+Please enter the height of the rectangle: 3
+The perimeter of the rectangle is
+26
+The area of the rectangle is
+30
+$ python3 shapes.py
+Please enter a shape: square
+Please enter the side length of the square: 10
+The perimeter of the square is
+40
+The area of the square is
+100
+
+  \end{bashcode}
+\end{ex}
+
+
+\begin{ex}[calculator.py]
+  Write a small calculator that can compute arcsin, arccos,
+  arctan and square root of a number. Use \pythoninline!math.sqrt()!,
+  \pythoninline!math.asin()!, \pythoninline!math.acos()!, and
+  \pythoninline!math.atan()!. Remember to import \pythoninline!math!.
+
+  \emph{Make sure to check for each function that the input is valid.}
+
+\begin{tabular}{lll}
+Function & Valid Input Should be \\
+\pythoninline{math.sqrt()} & non-negative \\
+\pythoninline{math.asin()} & between -1 and 1 \\
+\pythoninline{math.acos()} & between -1 and 1\\
+\pythoninline{math.atan()} & any number\\
+\end{tabular}
+
+  \begin{bashcode}
+$ python3 calculator.py
+Enter a number to use: 16
+Which operation? sqrt (s), arcsin (a), arccos (c), arctan (t): s
+The square root of the input is
+4.0
+$ python3 calculator.py
+Enter a number to use: 1.1
+Which operation? sqrt (s), arcsin (a), arccos (c), arctan (t): a
+Input should be between -1 and 1
+$ python3 calculator.py
+Enter a number to use: 0.5
+Which operation? sqrt (s), arcsin (a), arccos (c), arctan (t): a
+The arcsine of the input is
+0.5235987755982989
+$ python3 calculator.py
+Enter a number to use: 1000
+Which operation? sqrt (s), arcsin (a), arccos (c), arctan (t): t
+The arctangent of the input is
+1.5697963271282298
+  \end{bashcode}
+\end{ex}
+
+
+\begin{ex}[polygons2.py]
+  Write a program that takes in an integer.
+  If the integer is less than 3, print a message and exit.
+  Otherwise, draw a shape with as many sides as the user's input.
+  For example, an input of ``3 <ENTER> 100'' would draw a triangle with
+  sides of length 100. The angle between sides in a shape with $n$-sides
+  is
+  $$\frac{360}{\text{number of sides}}$$
+
+  Here is a sample:
+
+  \begin{bashcode}
+$ python3 polygons2.py
+How many sides? 0
+Invalid input.
+$ python3 polygons2.py
+Please enter the number of sides: 6
+Please enter the side-length: 150
+$ python3 polygons2.py
+Please enter the number of sides: 4
+Please enter the side-length: 100
+  \end{bashcode}%$
+
+  The last two commands with inputs 6<ENTER>150 and 4<ENTER>100 should
+  draw these two images:
+  \begin{center}
+  \includegraphics[width=0.4\linewidth]{img/exercise_polygons2_6}
+  \includegraphics[width=0.2\linewidth]{img/exercise_polygons2_4}
+  \end{center}
+\end{ex}
+
+\printindex
+\vfill
+\input{submitting}
+
+\end{document}

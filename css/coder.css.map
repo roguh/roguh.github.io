@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "coder.css",
-	"sourceRoot": "/home/roguh/src/roguh.com",
+	"sourceRoot": "/home/user/src/roguh.com",
 	"sources": [
 		"themes/hugo-hugo-coder/assets/scss/coder.scss",
 		"themes/hugo-hugo-coder/assets/scss/_variables.scss",
