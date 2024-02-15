@@ -1,7 +1,7 @@
 ---
 title: "*Introducción a la programación informática* | Introduction to programming"
 date: 2021.11.24
-author: Hugo O. Rivera Calzadillas
+author: ROGUH
 ---
 
 # Intro
@@ -787,10 +787,6 @@ As a professional, I have to learn new technologies every few years.
 - bootcamps
 - internships
 - work experience
-
-[hugo@roguh.com](mailto:hugo@roguh.com)
-
-[roguh.com/contact](https://roguh.com/contact)
 
 # Other programming languages
 

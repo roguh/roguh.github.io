@@ -1,5 +1,5 @@
 #!/bin/sh
-INPUT=hugo_square.svg
+INPUT="${INPUT:-$1}"
 convert -resize x16 -gravity center -crop 16x16+0+0 -flatten -colors 256 $INPUT favicon-16x16.ico
 convert -resize x32 -gravity center -crop 32x32+0+0 -flatten -colors 256 $INPUT favicon-32x32.ico
 convert favicon-16x16.ico favicon-32x32.ico favicon.ico

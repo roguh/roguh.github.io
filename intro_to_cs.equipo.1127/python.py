@@ -1,6 +1,6 @@
 """python.py - A small Python interpreter.
 
-Hugo O. Rivera 2019
+ROGUH 2019
 """
 
 import ast

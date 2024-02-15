@@ -2,7 +2,7 @@
 title: Intro to programming using Python
 subtitle: Equipo Academy's College Simulation Day
 date: 2019.11.27
-author: Hugo O. Rivera
+author: ROGUH
 ---
 
 <!--
@@ -404,8 +404,6 @@ All you need is a computer and some time.
 - university degree
 
 Reach out to me with any questions you have!
-
-[hugo@roguh.com](mailto:hugo@roguh.com)
 
 # Language doesn't matter
 
