@@ -1,1 +1,171 @@
-html,head,body{padding:0;margin:0}body{font-family:calibri,helvetica,arial,sans-serif;background-color:#000}.elm{color:#000}main h2.elm,main h3.elm{margin:0}.fps{font-size:.5em}@keyframes bigbounce{0%{transform:scaleY(0)}50%{transform:scaleY(2.5)}100%{transform:scaleY(1)}}@keyframes bounce{0%{transform:scaleY(0)}50%{transform:scaleY(1.5)}100%{transform:scaleY(1)}}.bonuses{background-color:#ff0;color:#000;animation:.2s ease-in-out 0s bigbounce}.elm.title{font-size:2em;font-family:monospace;font-weight:700;text-align:center;width:100%;color:#90ee90}.messages{text-align:center;font-size:2em;font-weight:700;background-color:#fff;animation:.2s ease-in-out 0s bounce}.paused .board{background-color:grey!important}.info>div{display:inline-block}#team1.info{color:#000}#team2.info{color:#fff}#team1 h2{color:#000}#team2 h2{color:#fff}.held .cell{width:.5em;height:.5em}.board{transition:background-color .5s ease;text-align:center;font-family:monospace;font-weight:700;float:left;width:50%;padding:1vw 0;font-size:1.4em;border-top:1px solid #000;border-bottom:1px solid #000}#team1{background-color:#fff}#team2{color:#fff;background:#111}.grid div{margin:0;padding:0;font-size:1em;line-height:0}.cell{display:inline-block;width:1em;height:1em}.clearedRow{background-color:#ff0;transition:background-color .2s}#team1 .cell{border:.15em solid #bbb}#team2 .cell{border:.15em solid #222}.edge,.topMargin{background-color:#888}.ghost{-webkit-transition:background-color .2s;transition:background-color .2s}#team1 .ghost{background-color:#000;border-color:orange}#team2 .ghost{background-color:#fff;border-color:#ddd}#team1 .tetromino{border-color:#000}#team2 .tetromino{border-color:#000}.tetrominoI{background-color:#d73027}.tetrominoS{background-color:#fc8d59}.tetrominoZ{background-color:#fee090}.tetrominoL{background-color:#ffffbf}.tetrominoJ{background-color:#e0f3f8}.tetrominoT{background-color:#91bfdb}.tetrominoO{background-color:#4575b4}
+html,head,body { padding:0; margin:0; }
+
+body { 
+    font-family: calibri, helvetica, arial, sans-serif; 
+    background-color: black;
+}
+
+.elm {
+    color: black;
+}
+
+main h2.elm, main h3.elm {
+    margin: 0;
+}
+
+.fps { 
+    font-size: 0.5em;
+}
+
+@keyframes bigbounce {
+  0%   { transform: scaleY(0); }
+  50%   { transform: scaleY(2.5); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes bounce {
+  0%   { transform: scaleY(0); }
+  50%   { transform: scaleY(1.5); }
+  100% { transform: scaleY(1); }
+}
+
+.bonuses {
+    background-color: yellow;
+    color: black;
+    animation: 0.2s ease-in-out 0s bigbounce;
+}
+
+.elm.title {
+    font-size: 2em;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: lightgreen;
+}
+
+.messages {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: white;
+    animation: 0.2s ease-in-out 0s bounce;
+}
+
+.paused .board {
+    background-color: grey !important;
+}
+
+.info > div { 
+    display: inline-block;
+}
+
+#team1.info {
+  color: black;
+}
+
+#team2.info {
+  color: white;
+}
+
+#team1 h2 {
+  color: black;
+}
+
+#team2 h2 {
+  color: white;
+}
+
+.held .cell {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.board {
+    transition: background-color 0.5s ease;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    padding: 1vw 0; 
+    font-size: 1.4em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* TODO use nth-child or take team into account */
+
+#team1 {
+    background-color: white;
+}
+
+#team2 {
+    color: white;
+    background: #111;
+}
+
+.grid div {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 0;
+}
+
+.cell { 
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+} 
+
+.clearedRow { 
+    background-color: yellow;
+    transition: background-color 0.2s; 
+}
+
+#team1 .cell {
+    border: 0.15em solid #bbb;
+}
+
+#team2 .cell {
+    border: 0.15em solid #222;
+}
+
+
+.edge, .topMargin { background-color: #888; }
+
+.ghost { 
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+#team1 .ghost { 
+    background-color: black;
+    border-color: orange; 
+}
+#team2 .ghost { 
+    background-color: white;
+    border-color: #ddd;
+}
+
+#team1 .tetromino { border-color: black; }
+#team2 .tetromino { border-color: black; }
+
+
+/* 
+ns =  [ "I", "S", "Z", "L", "J", "T", "O" ]
+
+cs = [eval(c.replace('rgb','')) for c in ['rgb(215,48,39)','rgb(252,141,89)','rgb(254,224,144)','rgb(255,255,191)','rgb(224,243,248)','rgb(145,191,219)','rgb(69,117,180)']]
+
+[print("#team1 .shape{} {{ color: rgb{} }}".format(n, tuple((255 - i for i in c)))) for (n, c) in zip(ns, cs)]
+
+[print("#team2 .shape{} {{ color: rgb{} }}".format(n, c)) for (n, c) in zip(ns, cs)]
+*/
+
+.tetrominoI { background-color: rgb(215, 48, 39) }
+.tetrominoS { background-color: rgb(252, 141, 89) }
+.tetrominoZ { background-color: rgb(254, 224, 144) }
+.tetrominoL { background-color: rgb(255, 255, 191) }
+.tetrominoJ { background-color: rgb(224, 243, 248) }
+.tetrominoT { background-color: rgb(145, 191, 219) }
+.tetrominoO { background-color: rgb(69, 117, 180) }
