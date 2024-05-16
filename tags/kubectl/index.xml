@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubectl on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/kubectl/</link>
+    <description>Recent content in Kubectl on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interacting with a Kubernetes Cluster</title>
+      <link>//localhost:1313/tutorials/interacting_k8s/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/interacting_k8s/</guid>
+      <description>Containers containers&#xA;Docker Compose Kubernetes Experimenting Minikube TODO example project Kubectl Listing objects: get pods|deployments|daemonsets|svc|nodes|TODOGETALLTYPES More information, alternate formats: get -o=wide, get -o=json Show more information: describe pod|nodes|svc|deployments|TODO Namespaces: -n NAMESPACE, --SETNAMESPACETODO Debugging Showing logs: logs Port forwarding: port-forward svc|pod NAME TODOHOSTPORT:PORT Executing a command within a container: exec, exec -it POD -- COMMAND Resource consumption: top Copying files to host: cp POD:PATH LOCALPATH Tab completion Aliases Abbreviations in Fish shell Managing Multiple configuration files Showing current cluster In Starship.</description>
+    </item>
+    <item>
+      <title>What is Kubernetes?</title>
+      <link>//localhost:1313/tutorials/k8s/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/k8s/</guid>
+      <description>See my overview of how to interact with a Kubernetes cluster&#xA;Containers containers&#xA;Kubernetes Container Pod Groups of Pods: Deployment, Daemonset, TODO Services Node Cluster HTTP API </description>
+    </item>
+  </channel>
+</rss>

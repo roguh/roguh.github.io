@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Public Education on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/public-education/</link>
+    <description>Recent content in Public Education on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 13 Sep 2019 12:27:51 -0700</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/public-education/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problems With Diversity in Tech</title>
+      <link>//localhost:1313/posts/problems-with-diversity-in-tech/</link>
+      <pubDate>Fri, 13 Sep 2019 12:27:51 -0700</pubDate>
+      <guid>//localhost:1313/posts/problems-with-diversity-in-tech/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>The San Francisco Bay Area Housing Crisis</title>
+      <link>//localhost:1313/posts/bay-area-housing-crisis/</link>
+      <pubDate>Fri, 13 Sep 2019 12:27:51 -0700</pubDate>
+      <guid>//localhost:1313/posts/bay-area-housing-crisis/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>The World&#39;s Best Unbuilt Bike Trail</title>
+      <link>//localhost:1313/posts/bay-area-trail/</link>
+      <pubDate>Fri, 13 Sep 2019 12:27:51 -0700</pubDate>
+      <guid>//localhost:1313/posts/bay-area-trail/</guid>
+      <description> </description>
+    </item>
+  </channel>
+</rss>
