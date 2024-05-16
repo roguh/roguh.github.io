@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="ROGUH" />
+  <title>Intro to programming using Python</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Intro to programming using Python</h1>
+  <p class="subtitle">Equipo Academy’s College Simulation Day</p>
+  <p class="author">
+ROGUH
+  </p>
+  <p class="date">2019.11.27</p>
+</div>
+<div class="slide section level1">
+
+<!--
+start with my background
+
+students should
+name themselves
+why they want to program
+why they'd like to learn computer science
+-->
+</div>
+<div id="intros" class="slide section level1">
+<h1>Intros</h1>
+</div>
+<div id="intros-1" class="slide section level1">
+<h1>Intros</h1>
+<ul>
+<li>Mexican-American dreamer (DACA) raised in Santa Fe, NM</li>
+<li>graduated with computer science and math degrees from New Mexico Tech</li>
+<li>aced Triplebyte recruitment agency’s assessment</li>
+<li>started working in a healthcare startup, now do consulting in that space</li>
+<li>currently at a large company making the world a greener place</li>
+<li><a href="https://roguh.com">roguh.com</a></li>
+</ul>
+</div>
+<div id="useful-websites" class="slide section level1">
+<h1>Useful Websites</h1>
+<ul>
+<li>feel free to follow along at <a href="https://roguh.com/intro_to_cs.equipo.1127/">roguh.com/intro_to_cs.equipo.1127</a></li>
+<li>run Python code at repl.it <a href="https://repl.it/languages/python3">https://repl.it/languages/python3</a></li>
+</ul>
+<p>(you can use a smartphone if you don’t have a laptop)</p>
+</div>
+<div id="what-to-expect" class="slide section level1">
+<h1>What to Expect</h1>
+<ul>
+<li>You’ll think about 9 programs</li>
+<li>You’ll do a few Python exercises on your laptop</li>
+</ul>
+</div>
+<div id="what-is-programming" class="slide section level1">
+<h1>What is programming?</h1>
+<blockquote>
+<p><a href="https://en.wikiversity.org/wiki/What_is_%22programming%22">Programming is the art and science of translating a set of ideas into a program - <strong>a list of [exact] instructions a computer can follow</strong>. The person writing a program is known as a programmer (also a coder).</a></p>
+</blockquote>
+</div>
+<div id="what-is-programming-really" class="slide section level1">
+<h1>What is programming, really?</h1>
+<iframe style="margin:0 auto" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/Ct-lOOUqmyY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>youtu.be/Ct-lOOUqmyY</p>
+<!-- at the end of the day, you get a sandwich after nuthin' but a bit of scribblin -->
+</div>
+<div id="computer-science" class="slide section level1">
+<h1>Computer science</h1>
+<blockquote>
+<p><a href="https://www.britannica.com/science/computer-science">Computer science, the study of computers and computing, including their theoretical and algorithmic foundations, hardware and software, and their uses for processing information.</a></p>
+</blockquote>
+<p>(Follow the rabbit hole)</p>
+<ul>
+<li>information - how does a computer store it?</li>
+<li>processing information - how do you do this quickly and accurately?</li>
+<li>algorithms - instructions, recipes</li>
+</ul>
+</div>
+<div id="whats-computer-science-used-for" class="slide section level1">
+<h1>What’s computer science used for?</h1>
+<ul>
+<li><strong>controlling technology</strong> (which technology?)</li>
+<li>automating tasks</li>
+<li>analyzing data and discovering new insights</li>
+<li>out-competing existing businesses</li>
+<li>improving existing industries (healthcare, electric vehicle charging, …)</li>
+<li>all forms of science</li>
+<li><strong>organizing information.</strong> uses many fascinating branches of mathematics</li>
+</ul>
+<!-- programmers! -->
+</div>
+<div id="whats-python-used-for" class="slide section level1">
+<h1>What’s Python used for?</h1>
+<ul>
+<li>Tensorflow is one of the most popular deep learning libraries on earth. It’s used to create neural networks, a type of AI.</li>
+<li>The SciPy ecosystem is used by scientists, mathematicians, and analysts every day to process all kinds of data.</li>
+<li>Flask and Django are used to power some of your favorite websites.</li>
+<li>Teaching, learning. It’s a friendly programming language :)</li>
+</ul>
+</div>
+<div id="program-1" class="slide section level1">
+<h1>Program 1</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># 1.0.py</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<h2 id="from-the-computers-point-of-view-whats-happening">from the computer’s point of view, what’s happening???</h2>
+<ul>
+<li>line 1: does nothing! comments are meant for people to read</li>
+<li>line 2: stores data</li>
+<li>line 3:
+<ul>
+<li>reads data AND</li>
+<li>processes data AND</li>
+<li>stores data</li>
+</ul></li>
+<li>line 4:
+<ul>
+<li>reads data AND</li>
+<li>processes data</li>
+</ul></li>
+</ul>
+</div>
+<div id="program-1-1" class="slide section level1">
+<h1>Program 1</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># 1.0.py</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>message <span class="op">=</span> <span class="st">&quot;Hello,&quot;</span> <span class="op">+</span> name</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(message)</span></code></pre></div>
+<h3 id="output">Output</h3>
+<pre><code>$ python 1.0.py
+Hello,Alice</code></pre>
+</div>
+<div id="program-1.1" class="slide section level1">
+<h1>Program 1.1</h1>
+<pre><code># 1.1.py
+name = &quot;Alice&quot;
+message = &quot;Hello, &quot; + name
+print(message)
+print(&quot;Hello, &quot; + name + &quot;!&quot;)</code></pre>
+<h2 id="output-1">Output</h2>
+<pre><code>$ python 1.1.py
+Hello, Alice
+Hello, Alice!</code></pre>
+</div>
+<div id="program-2-lists.py" class="slide section level1">
+<h1>Program 2: lists.py</h1>
+<pre><code>favorite_foods = [&quot;TAMALES&quot;, &quot;nigiri sushi&quot;, &quot;nutella&quot;]
+
+number_of_favorite_foods = len(favorite_foods)
+index_of_favorite_food = 0
+
+print(&quot;of my &quot;,
+      number_of_favorite_foods,
+      &quot; favorites, &quot;,
+      favorite_foods[index_of_favorite_food],
+      &quot; are my most favorite food&quot;)</code></pre>
+<h2 id="output-2">Output</h2>
+<pre><code>of my 3 favorites, TAMALES are my most favorite food</code></pre>
+</div>
+<div id="questions-about-lists" class="slide section level1">
+<h1>Questions about lists:</h1>
+<ul>
+<li>how to read each element in a list?</li>
+<li>how to add or remove elements to a list?</li>
+<li>2D lists?</li>
+<li>quick searches for an element?</li>
+</ul>
+</div>
+<div id="strings-are-lists" class="slide section level1">
+<h1>Strings are lists</h1>
+<pre><code>&gt;&gt;&gt; len(&quot;Hello!&quot;)
+&gt;&gt;&gt; [1, 2] + [3, 4]</code></pre>
+<p>The three arrows <code>&gt;&gt;&gt;</code> mean try it in the REPL.</p>
+</div>
+<div id="program-3-slices-vs.-indices" class="slide section level1">
+<h1>Program 3: Slices vs. indices</h1>
+<p>Python supports slices.</p>
+<p>definitions:</p>
+<ul>
+<li>index: <code>favorite_foods[0]</code></li>
+<li>slice: <code>favorite_foods[0:3]</code></li>
+</ul>
+<pre><code>most_states = [&quot;Alabama&quot;, &quot;Alaska&quot;, &quot;Arizona&quot;, &quot;Arkansas&quot;, &quot;California&quot;, &quot;Colorado&quot;]
+top_states = most_states[0:3]
+print(top_states)</code></pre>
+</div>
+<div id="program-4-more-slices" class="slide section level1">
+<h1>Program 4: more slices</h1>
+<pre><code>print(&quot;Hello, world!&quot;[0:5])</code></pre>
+</div>
+<div id="program-4-output" class="slide section level1">
+<h1>Program 4 output</h1>
+<pre><code>print(&quot;Hello, world!&quot;[0:5])</code></pre>
+<pre><code>Hello</code></pre>
+</div>
+<div id="program-5-negative-indices" class="slide section level1">
+<h1>Program 5: negative indices</h1>
+<pre><code>print(&quot;Hello, world!&quot;[-1])
+print(&quot;Hello, world!&quot;[-4:-1])
+print(&quot;Hello, world!&quot;[-4:-1])</code></pre>
+</div>
+<div id="exercises" class="slide section level1">
+<h1>Exercises</h1>
+<p>Let’s use CodingBat!</p>
+<ul>
+<li><a href="https://codingbat.com/prob/p115413"><code>hello_name</code> in Codingbat module String-1</a></li>
+<li><code>make_abba</code></li>
+<li><code>make_tags</code></li>
+</ul>
+<h2 id="recommended-resources">Recommended resources:</h2>
+<ul>
+<li>Python Tutor to get a deep understanding of the code <a href="https://pythontutor.com">http://www.pythontutor.com/</a></li>
+<li>repl.it to quickly run some code <a href="https://repl.it/languages/python3">https://repl.it/languages/python3</a></li>
+<li>GOOGLE, official Python documentation, a sturdy textbook, peers, etc.</li>
+</ul>
+</div>
+<div id="program-6-for-loops-append-pop" class="slide section level1">
+<h1>Program 6: For-loops! Append! Pop!</h1>
+<p>Look at each element using <code>for x in elements</code>.</p>
+<pre><code>numbers = [2, 4, 8]
+total = 0
+for number in numbers:
+    total = total + number
+# MUST BE 4 SPACES!!!!
+
+highest_known_power_of_two = numbers.pop()
+
+numbers.append(6)
+numbers.append(8)
+numbers.append(10)
+
+print(total)
+print(numbers)</code></pre>
+<p>Output:</p>
+<pre><code>14
+[2, 4, 6, 8, 10]</code></pre>
+</div>
+<div id="program-7-dictionaries_for_polyglots.py" class="slide section level1">
+<h1>Program 7: dictionaries_for_polyglots.py</h1>
+<pre><code>greetings = {
+  &quot;english&quot;: &quot;Hello, &quot;,
+  &quot;español&quot;: &quot;hola, &quot;
+}
+
+greetings[&quot;sinhala&quot;] = &quot;හෙලෝ &quot;
+greetings[&quot;es&quot;] = greetings[&quot;español&quot;]
+greetings[&quot;en&quot;] = greetings[&quot;english&quot;]
+
+print(greetings[&quot;en&quot;] + name)</code></pre>
+<p>Dictionaries assign <strong>keys</strong> to <strong>values</strong>.</p>
+</div>
+<div id="program-7-dictionaries_for_polyglots.py-output" class="slide section level1">
+<h1>Program 7: dictionaries_for_polyglots.py output</h1>
+<pre><code>Traceback (most recent call last):
+  File, line 8, in &lt;module&gt;
+NameError: name &#39;name&#39; is not defined</code></pre>
+<p>too bad :(</p>
+</div>
+<div id="thought-experiment" class="slide section level1">
+<h1>Thought-experiment</h1>
+<p><em>lists can be thought of as “weaker” dictionaries</em>: think of a list as a dictionary with its keys set to numbers 0, 1, 2, …, <code>len(list)-1</code></p>
+<pre><code>list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+list[0]
+silly_dictionary = {-1: &quot;negative&quot;, 0: &quot;zero&quot;, 1: &quot;one&quot;, &quot;1&quot;: 1, &quot;one&quot;: 1}
+print(dictionary[0])
+print(dictionary[-1])
+print(dictionary[1])
+print(dictionary[&quot;1&quot;])</code></pre>
+</div>
+<div id="questions-about-dictionaries" class="slide section level1">
+<h1>Questions about dictionaries:</h1>
+<ul>
+<li>see questions about lists</li>
+<li>what can be a key?</li>
+<li>what can be a value?</li>
+<li>how are they implemented?</li>
+</ul>
+</div>
+<div id="program-8-functions.py" class="slide section level1">
+<h1>Program 8: functions.py</h1>
+<pre><code>def greet(person)
+  message = &quot;Hello &quot; + person
+  print(message)</code></pre>
+</div>
+<div id="program-8-functions.py-output" class="slide section level1">
+<h1>Program 8: functions.py output</h1>
+<pre><code></code></pre>
+<p>you defined the function “<code>greet</code>” but didn’t do anything with it! (that’s ok)</p>
+</div>
+<div id="questions-about-functions" class="slide section level1">
+<h1>Questions about functions:</h1>
+<ul>
+<li>can a function take more arguments?</li>
+<li>can a function call another function?</li>
+<li>can a function call itself?</li>
+</ul>
+</div>
+<div id="program-9-python.py" class="slide section level1">
+<h1>Program 9: python.py</h1>
+<pre><code>def run_code(instructions):
+    names = dict()
+    stack = list()
+
+    for each_step in instructions:
+        instruction, associated_data = each_step
+
+        if instruction == &quot;PRINT&quot;:
+            value = stack.pop()
+            print(value)
+        elif instruction == &quot;STORE_TO_VAR&quot;:
+            value = stack.pop()
+            names[associated_data] = value
+        elif instruction == &quot;LOAD_VAR&quot;:
+            stack.append(names[associated_data])
+        elif instruction == &quot;LOAD_LITERAL&quot;:
+            stack.append(associated_data)
+        elif instruction == &quot;ADD_LAST_TWO&quot;:
+            result = stack.pop() + stack.pop()
+            stack.append(result)
+        else:
+            print(&quot;ERROR: unknown instruction&quot;, instruction)
+
+run_code([ [&quot;LOAD_LITERAL&quot;, &quot;Alice&quot;],
+           [&quot;STORE_TO_VAR&quot;, &quot;name&quot;],
+           [&quot;LOAD_VAR&quot;, &quot;name&quot;],
+           [&quot;LOAD_LITERAL&quot;, &quot;Hello,&quot;],
+           [&quot;ADD_LAST_TWO&quot;, []],
+           [&quot;PRINT&quot;, []]               ])
+# CHALLENGE: MAKE THIS INTERPRETER INTERPRET ITSELF!!!!</code></pre>
+<p>hints:</p>
+<ul>
+<li><code>names</code> is an empty dictionary, <code>stack</code> is an empty list</li>
+<li>read the last lines first</li>
+</ul>
+</div>
+<div id="program-9-output" class="slide section level1">
+<h1>Program 9 Output</h1>
+<pre><code>Hello,Alice</code></pre>
+</div>
+<div id="more-about-python.py" class="slide section level1">
+<h1>More about python.py</h1>
+<p>See full source code at <a href="https://roguh.com/intro_to_cs.equipo.1127/python.py">roguh.com/intro_to_cs.equipo.1127/python.py</a>.</p>
+<p>See <a href="https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html">aosabook.org/en/500L/a-python-interpreter-written-in-python.html</a> for my inspiration.</p>
+<p>It supports relatively advanced code for 117 lines of Python. The fun is when you go and make it more powerful.</p>
+<p><code>run_code(parse_string("a = 1\na = a + a\nb='birds'\nprint(a, ' ' + b)"))</code></p>
+</div>
+<div id="learning-resources" class="slide section level1">
+<h1>Learning resources</h1>
+<p>All you need is a computer and some time.</p>
+<ul>
+<li>self-teaching is common and feasible thanks to open-source
+<ul>
+<li>the “real world” tools are freely available!</li>
+<li>so are often-official tutorials and documentation</li>
+</ul></li>
+<li>examples:
+<ul>
+<li><a href="http://learnpythonthehardway.org/"><strong>http://learnpythonthehardway.org/</strong></a></li>
+<li><a href="https://www.practicepython.org/">practicepython.org/</a></li>
+<li>Corey Schafer <a href="https://www.youtube.com/user/schafer5/playlists">youtube.com/user/schafer5/playlists</a></li>
+<li><a href="https://automatetheboringstuff.com/">automatetheboringstuff.com</a></li>
+<li>MIT course on edX: <a href="https://edx.org/course/introduction-to-computer-science-and-programming-7">edx.org/course/introduction-to-computer-science-and-programming-7</a></li>
+<li><a href="https://en.wikiversity.org/wiki/Category:Introduction_to_Computer_Science">wikiversity</a></li>
+<li><a href="https://www.pyladies.com/resources/">pyladies.com/resources/</a></li>
+</ul></li>
+<li>find a project you’re passionate about. make programming your hobby.
+<ul>
+<li>make a website</li>
+<li>make a video game</li>
+<li>make an AI</li>
+<li>make an app</li>
+<li>make a Python interpreter</li>
+<li>make <em>it</em> run fast, handle lots of users, or lots of different scenarios</li>
+</ul></li>
+<li>find a group to learn with</li>
+<li>university degree</li>
+</ul>
+<p>Reach out to me with any questions you have!</p>
+</div>
+<div id="language-doesnt-matter" class="slide section level1">
+<h1>Language doesn’t matter</h1>
+<p>Python is friendly and has many real-world uses.</p>
+<p>Try JavaScript! Or C if you want more control over the machine, or Haskell if you want to peek into the future of programming.</p>
+<p>Learning resources are bountiful. Ask me if you want advice.</p>
+</div>
+<div id="i-can-help-you-make-a-github-repo-so-we-can-work-on-stuff-together" class="slide section level1">
+<h1>I can help you make a GitHub repo so we can work on stuff together</h1>
+<p>Route 0: install Arch Linux and use the vim and git command line tools</p>
+<p>Route 1: use visual studio code and nice collaboration plugins (GitHub)</p>
+<p>Route 2: use websites like CodingBat and other online coding platforms</p>
+</div>
+<div id="javascript" class="slide section level1">
+<h1>JavaScript</h1>
+<p>magically somehow friendlier than Python, but <a href="https://www.destroyallsoftware.com/talks/wat">I don’t like the language</a></p>
+<p>Learn from Mike Bostock, https://observablehq.com/</p>
+</div>
+</body>
+</html>

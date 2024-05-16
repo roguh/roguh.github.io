@@ -1,0 +1,498 @@
+% TODO move section on types from lab 7?
+% TODO more examples on encoding a Markov chain using dictionaries and lists
+% Review and Markov Chains
+%
+% CSE/IT 107: Introduction to Programming
+% New Mexico Tech
+%
+% Prepared by Russell White, Christopher Koch, and Roguh
+% Fall 2016
+\documentclass[11pt]{cselabheader}
+
+\newcommand{\thelabnumber}{10}
+\newcommand{\thetitle}{Review and Markov Chains}
+\newcommand{\theauthor}{CSE/IT 107L}
+
+% Write title and author
+\title{\thetitle}
+\author{\theauthor}
+\date{NMT Department of Computer Science and Engineering}
+
+\fancyhead[R]{Lab \thelabnumber: \thetitle}
+\fancyhead[L]{\theauthor}
+
+\makehyperref
+\makeindex[title=Index of New Functions and Methods, intoc]
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\hrule
+
+\begin{quotation}
+``The fact that the program works has no relevance.''
+\end{quotation}
+\begin{flushright}
+  --- Bartosz Milewski 
+\end{flushright}
+
+
+\begin{quotation}
+``Simplicity is prerequisite for reliability.''
+\end{quotation}
+\begin{flushright}
+--- Edsger W. Dijkstra
+\end{flushright}
+
+
+\begin{quotation}
+``The truth is a trap: you can not get it without it getting you; you cannot get
+the truth by capturing it, only by its capturing you.''
+\end{quotation}
+\begin{flushright}
+--- S{\o}ren Kierkegaard
+\end{flushright}
+
+\begin{quotation}
+  ``A police radar’s effective range is 1.0 km, and your roommate plot to drop water balloons on students entering your dorm. Your window is 20 m above the ground. (a) If an ammeter with 0.10-V resistance is 1000 V. When measured with a 100-Hz frequency shift, what’s the speed with which cesium atoms must be ``tossed'' in the positive x-direction with speed v0 but undergoing acceleration of a proton is a hydrogen atom?''
+\end{quotation}
+\begin{flushright}
+  --- \href{http://infohost.nmt.edu/~rkelly/physbot.html}{Professor Markov's Physics Revue}
+\end{flushright}
+
+\hrule
+
+\newpage
+\section{Introduction}
+
+%%% not just; also random numbers and maybe file input
+Today's lab will be a small project. We will only be covering random number
+generation, but this is primarily an application of what you already know.
+
+You will be writing a program that generates
+\href{http://en.wikipedia.org/wiki/Markov_chain}{Markov chains} from an input
+file. Markov chains are the simplest way for to generate sentences that
+imitate the style of the chain's input text. They are based on figuring out the
+%%% clarify
+likelihood of a word following another word by looking at existing bodies of
+text (for example, Wikipedia). They then generate statements by choosing a
+starting word and then repeatedly choosing words from the words that follow
+the previous word chosen, based on the input text.
+
+As an example, this was a markov chain generated based on conversations between
+Russell and Chris about Python lab (given the starting word ``CS''):
+\begin{quotation}
+``CS grad student claiming to stare again for you? Cool! Where?''
+\end{quotation}
+
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\linewidth]{img/garkov}
+  \caption*{\href{http://joshmillard.com/garkov/}{Garkov}:
+    A Garfield comic generated using Markov chains.}
+  \label{garkov}
+\end{figure}
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Markov Chains}
+\label{sec:markov}
+
+%%% input file?
+A Markov chain is a method of randomly generating a sequence based on a set of
+input data. In this lab, we will be using Markov chains to generate sentences
+based on an input text file. In order to do this, we must understand how Markov
+chains work.
+
+%%% more detail
+The basic steps of creating Markov chains are:
+\begin{enumerate}
+  \item Select a random starting word to start our new sentence.
+  \item From all the words that ever follow that word in the input sequence,
+    choose one. Add that word to the end of our new sentence.
+  \item Continue selecting randomly from the words that can possibly follow the
+    current last word of our sentence until either there are no possible
+    choices or we have made a sentence as long as desired.
+\end{enumerate}
+
+For a simple example, let's generate Markov phrases using inputs of ``Hello,
+how are you?'' and ``Where are my keys?''. If we convert these sentences into a
+graph showing the possible results, we would get Figure \ref{mark_ex}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.2\linewidth]{img/markov_example.png}
+  \caption{A graphical representation of the Markov possibilities for ``Hello,
+    how are you?'' and ``Where are my keys?''}
+  \label{mark_ex}
+\end{figure}
+
+In this graph, each arrow represents a choice we can take based on the last
+word we added to our sentence, continuing until there are no valid paths to
+%%% any word can be a starting word
+take. Looking at the graph, it's pretty easy to see there are four possible
+outputs if we start our chain with either ``Hello,'' or ``Where'':
+
+\begin{itemize}
+  \item Hello, how are you?
+  \item Hello, how are my keys?
+  \item Where are you?
+  \item Where are my keys?
+\end{itemize}
+
+For a more complex example, let's use the input phrase ``There is a fifth
+dimension, beyond that which is known to man. It is a dimension as vast as space
+and as timeless as infinity.''. If we were to convert this sentence into a graph
+representing the possible choices to make at each step, it would look something
+like Figure \ref{twilight}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\linewidth]{img/twilight_zone.png}
+  \caption{A graphical representation of the Markov possibilities for \emph{The
+    Twilight Zone}'s introduction.}
+  \label{twilight}
+\end{figure}
+
+Here's how that graph can be constructed with starting word ``There''.
+\begin{itemize}
+  \item The initial word is ``There'', so our only option for a next word is
+  ``is''.
+  \item ``is'' is followed by ``a'' twice and ``known'' once because it has two
+  arrows to ``a'' and one to ``known''. This means that, when we randomly
+  choose the next word, we have a $\frac{2}{3}$ chance to choose ``a'' and a
+  $\frac{1}{3}$ chance to choose ``known''.
+  \item If we choose to continue to ``a'', there are two next words: ``fifth''
+  and ``dimension''. Either can be chosen with a probablity of $\frac{1}{2}$.
+\end{itemize}
+
+So, a few possible new sentences we could generate by starting with ``There'' are:
+\begin{itemize}
+  \item There is a dimension as infinity.
+  \item There is a fifth dimension, beyond that which is a fifth dimension,
+    beyond that which is a dimension as vast as vast as space and as infinity.
+  \item There is known to man. It is known to man. It is a dimension as space
+    and as infinity.
+\end{itemize}
+
+As you can see, Markov chains have a tendency to make sentences which almost
+make sense. This is because every individual pairing of two words will make
+sense, but the combinations of the pairings might not. For example, ``as vast''
+and ``vast as'' can both make sense given the right context, but ``vast as vast
+as vast as vast'' is nonsense. We can help alleviate this problem by taking into
+account the last 2 (or 3, or 4...) words when choosing the next word instead of
+just the last one, but this requires a far larger input or it will result in the
+output being the same as the input.
+
+\section{Random Numbers}
+\label{sec:random}
+You may find the module \pythoninline{random} to be especially useful when
+creating Markov chains. Below is a brief example of some common functions
+inside \pythoninline{random}.
+
+\begin{pyconcode}
+>>> import random
+>>> print(random.random())
+0.7682548548225483
+>>> print(random.random())
+0.4165356512641182
+>>> print(random.uniform(1, 100))
+36.30623079969581
+>>> print(random.uniform(1, 100))
+97.48359345305
+\end{pyconcode}
+\begin{pyconcode}
+>>> print(random.choice(['joe', 'moe', 'larry', 'shemp', 'curly']))
+larry
+>>> print(random.choice(['joe', 'moe', 'larry', 'shemp', 'curly']))
+shemp
+>>> print(random.randint(1, 100))
+79
+>>> print(random.randint(1, 100))
+12
+\end{pyconcode}
+
+Here's a summary of these functions.
+\begin{table}[!ht]
+  \centering
+  \begin{tabular}{p{3.0cm} p{2cm} p{10cm}}
+    \toprule
+    \bfseries Function & \bfseries Arguments & \bfseries Purpose \\
+    \midrule
+    \pythoninline{random.random()} & & Returns a random number between 0.0 and 1.0,
+    including 0.0 but not 1.0.\\
+    \pythoninline{random.uniform()} & \pythoninline{a}, \pythoninline{b} & Returns a
+    random number between \pythoninline{a} and \pythoninline{b} inclusive. Each real number between
+    \pythoninline!a! and \pythoninline!b! has an equal probability of occurring.\\
+    \pythoninline{random.randint()} & \pythoninline{a}, \pythoninline{b} & Returns a
+    random integer between \pythoninline{a} and \pythoninline{b} inclusive. Each integer between
+    \pythoninline!a! and \pythoninline!b! has an equal probability of occuring.\\
+    \pythoninline{random.choice()} & \pythoninline{list} & Returns a random value from \pythoninline{list}.\\
+    \bottomrule
+  \end{tabular}
+  \caption{Summary of \pythoninline{random} functions.}
+  \label{tab:rand}
+\end{table}
+
+Take a look at the documentation for \pythoninline!random! if you would like a
+random number not based on a uniform distribution:
+\begin{center}
+  \url{https://docs.python.org/3.4/library/random.html}
+\end{center}
+
+\section{Using Objects: Creating Turtles}
+We have been implicit using two important definitions. These are part of object
+oriented programming, which will be covered in more detail in later labs.
+\begin{description}
+  \item[Object] is a Python data type that can contain arbitrary amounts and
+  kinds of data. They can be instantiated or created in several ways. Some
+  examples:
+
+  \begin{description}
+    \item[\pythoninline{int}, \pythoninline{str}, \pythoninline{list}] Built-in
+    types are objects and are created by writing literals such as
+    \pythoninline{1}, \pythoninline{"Hello"}, \pythoninline{[1,2,3]} or by
+    conversion \pythoninline{list("123")}.
+    \item[\pythoninline{file}] Files are also objects. They are created using
+    the \pythoninline{open()} function.
+    \item[\pythoninline{Exception}] Exceptions are objects created when they
+    are \pythoninline{raise}d.
+    \item[\pythoninline{Turtle}] These are created by calling
+    \pythoninline{turtle.Turtle()}.
+  \end{description}
+  \item[Method] is a function that is specific a certain object. Some examples
+  include \pythoninline{str.find()}, \pythoninline{list.reverse()},
+  \pythoninline{file.write()}, \pythoninline{Turtle.forward()},
+  \pythoninline{Exception.err()}.
+\end{description}
+
+Knowing this, we can create multiple turtles and draw more complex designs.
+This is done by instantiating new turtles with the
+\pythoninline!turtle.Turtle()! function. This function returns a turtle
+object, which we can call every other normal turtle method on.
+
+\begin{python3code}
+import turtle
+
+first = turtle.Turtle()
+second = turtle.Turtle()
+
+first.forward(50)
+second.forward(50)
+first.left(90)
+second.right(90)
+first.forward(50)
+second.forward(50)
+first.right(90)
+second.left(90)
+first.forward(50)
+second.forward(50)
+\end{python3code}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0in]{img/turtle_prong}
+\end{figure}
+
+If we add a group of turtles to a list, we can easily apply the same commands to all of them, as in this example:
+
+\begin{python3code}
+import turtle
+
+turtles = []
+first = turtle.Turtle()
+first.speed(0)
+turtles.append(first)
+
+second = turtle.Turtle()
+second.speed(0)
+second.right(90)
+turtles.append(second)
+
+third = turtle.Turtle()
+third.speed(0)
+third.right(180)
+turtles.append(third)
+
+fourth = turtle.Turtle()
+fourth.speed(0)
+fourth.right(270)
+turtles.append(fourth)
+
+for i in range(200):
+    for turt in turtles:
+        turt.forward(i/5)
+        turt.left(10)
+\end{python3code}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/fancy_spiral}
+\end{figure}
+
+
+
+
+\section{Exercises}\label{exercises}
+
+\begin{ex}[markov.py]
+  Write a program that takes in a filename, reads each line of the file,
+  converts the lines into a format convenient for making Markov chains, and
+  then prints out a new sentence randomly generated from the data, based on
+  the Markov algorithm. 
+
+  You may use any file you wish for test input, though \pythoninline{alice.txt}
+  and \pythoninline{cthulhu.txt} are provided on Canvas.
+  \pythoninline{alice.txt} is a slightly edited version of the complete text of
+  Lewis Carroll's \emph{Alice's Adventures in Wonderland}, taken from
+  \url{https://www.gutenberg.org/files/11/11-h/11-h.htm}.
+  \pythoninline{cthulhu.txt} is a slightly edited version of the complete text of
+  H.P. Lovecrafts's \emph{The Call of Cthulhu}, taken from
+  \url{http://www.hplovecraft.com/writings/texts/fiction/cc.aspx}.
+
+  When parsing the input file, you should ignore any blank lines.
+ 
+  Treat the lines in the file as separate
+  sentences. That is, if ``Hello, how are you?'' and ``Where are my keys?''
+  are lines in a file, then ``you?'' should not be followed by ``Where'' when
+  generating a chain. However, ``are'' should be allowed to be followed by
+  either ``you?'' or ``my'', as seen in Figure \ref{mark_ex}.
+
+  When creating a new chain, the first element should always be a randomly
+  selected first word of a line in the file. The chain should end when either:
+  \begin{itemize}
+  \item There are no valid choices to continue the sentence with.
+  \item The sentence has reached a length of 100 words.
+  \end{itemize}
+
+  Remember that you need to account for different frequencies of possible
+  follow words. That is, a situation like in Figure \ref{twilight} where
+  the word ``a'' is followed by two ``is'' and one ``known''. You need to
+  account for whatever word frequencies might come up within your input file.
+\end{ex}
+
+\begin{infobox}{Hint}
+  You may find dictionaries to be useful in implementing
+  Markov chains. For example, the Markov chain in Figure~\ref{mark_ex}
+  could be represented using this dictionary:
+\begin{python3code}
+{'Hello,': ['how'], 'how': ['are'],
+ 'Where': ['are'], 'are': ['you', 'my'],
+ 'you?': [], 'my': ['keys'], 'keys?': []}
+\end{python3code}
+  To generate a Markov chain, pick a random word from a list of first
+  words. Then pick a random word that comes after the first word.
+  Keep picking random next words until no more words are left or until the
+  length limit is reached.
+\end{infobox}
+
+\begin{ex}[piglatin.py] Write a program that translates a file from English to
+  pig latin.
+
+  The rules for pig latin are as follows:
+
+  For a word that begins with consonants, the initial consonant or
+  consonant cluster is moved to the end of the word and ``ay'' is added as a
+  suffix:
+  \begin{multicols}{2}
+  \begin{itemize}
+    \item ``happy'' $\to$ ``appyhay''
+    \item ``glove'' $\to$ ``oveglay''
+  \end{itemize}
+  \end{multicols}
+
+  For words that begin with vowels, you add ``way'' to the end of the word:
+  \begin{multicols}{2}
+  \begin{itemize}
+    \item ``egg'' $\to$ ``eggway''
+    \item ``inbox'' $\to$ ``inboxway''
+  \end{itemize}
+  \end{multicols}
+
+  For your program, you \emph{must} write a function that takes in one
+  individual word and returns the translation to pig latin. Write another
+  function that takes a string, which may be sentences (may contain the
+  characters ``a-zA-Z,.-;!?()'' and space), and returns the translation of the
+  sentence to pig latin. Strip out any punctuation. For example, ``Hello, how
+  are you?'' would translate into ``elloHay owhay areway ouyay''.
+
+  The user must be able to specify the filename for the file to be translated
+  and the filename that the program should write to. For example:
+
+  \begin{bashcode}
+$ cat test.txt
+Hello, how are you?
+$ python3 piglatin.py
+Enter English filename >>> test.txt
+Enter filename to write to >>> test_piglatin.txt
+Done.
+$ cat test_piglatin.txt
+elloHay owhay areway ouyay
+  \end{bashcode}
+  %$
+\end{ex}
+
+\begin{ex}[navigate3.py]
+    Modify navigate.py so that, rather than take
+    instructions from the command line, it reads from a file (specified by user
+    input) to determine what the turtle will do. Additionally, you will be adding
+    the ``split'' command. This command will use instantiation of new turtles in
+    order to draw multiple lines at once. Every new command will apply to every
+    turtle that currently exists. The file will have on instruction per line. The
+    possible instructions are:
+
+    \begin{description}
+        \item[forward X] Move all turtles forward X.
+        \item[left X] Turn all turtles X degrees to the left.
+        \item[right X] Turn all turtles X degrees to the right.
+        \item[split X] Create a new copy of every turtle
+            Each new turtle will be turned X degrees to the right.
+    \end{description}
+
+    Sample input file:
+
+    \begin{verbatimcode}
+        forward 50
+        left 20
+        split 40
+        forward 50
+        left 20
+        split 40
+        forward 50
+        left 20
+        split 40
+        forward 50
+        left 20
+        split 40
+        forward 50
+        left 20
+    \end{verbatimcode}
+
+    Sample output:
+
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{img/nav3_example}
+    \end{center}
+
+    \emph{Suggestions:} 
+\begin{itemize}
+\item Write a function for each command.
+\item Keep a list of turtles. To store a new turtle in a variable named
+    \pythoninline{t}, write \pythoninline{t = Turtle()}.
+\item Use \pythoninline{t.clone} to clone the turtle \pythoninline{t} when
+    processing the split command. Add this new turtle to your list of turtles.
+\end{itemize}
+
+
+\end{ex}
+
+\printindex
+
+\input{submitting}
+
+\end{document}

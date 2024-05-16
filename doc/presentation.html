@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="ROGUH" />
+  <title>Feedback Processing Pipeline @ AgileMD</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="pandoc.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Feedback Processing Pipeline @ AgileMD</h1>
+  <p class="subtitle">Candidate intro for the Software Engineer (Web) Position</p>
+  <p class="author">
+ROGUH
+  </p>
+</div>
+<div id="background" class="title-slide slide section level1"><h1>Background</h1><ul>
+<li>BS in CS and BS in Mathematics from New Mexico Tech
+<ul>
+<li>TA, grader, tutor for Python and Java course. wrote assignments and rubrics</li>
+<li>RA, wrote cross-platform attendance-taking app in Qt</li>
+<li>many technical electives (math, physics, cybersecurity, visualization, user design)</li>
+<li>many personal projects (Haskell, Elm, Rust, MobX, Python’s asyncio library, Qubes OS)</li>
+</ul></li>
+<li>Marketing specialist at Bleas’ Tree Service</li>
+<li>Worked as a Junior Fullstack Software Engineer at AgileMD</li>
+<li>Aiming to develop multiple technical skills as a fullstack engineer at Skydio</li>
+</ul></div>
+<div id="agilemd" class="title-slide slide section level1"><h1>AgileMD</h1><ul>
+<li>creates innovative webapps within Epic, Cerner, other EHR systems</li>
+<li>live read-write access to patient information</li>
+<li>excellent customer service, all growth has been word-of-mouth</li>
+<li>HIPAA compliant, SOC2 compliant</li>
+<li>known for a now unsupported but still popular medical reference app</li>
+</ul></div><div id="products-within-ehr-system" class="slide section level2">
+<h1>products within EHR system</h1>
+<ul>
+<li>evidence-based clinical pathways</li>
+<li>predictive analytics, especially eCart algorithm developed by Dana Edelson</li>
+<li>several other products unique to customers</li>
+</ul>
+<div class="figure">
+<img src="pathway.jpeg" alt="Example clinical pathway within EHR management system" />
+<p class="caption">Example clinical pathway within EHR management system</p>
+</div>
+</div><div id="user-story-receiving-feedback-from-ehr-apps" class="slide section level2">
+<h1>user story: receiving feedback from EHR apps</h1>
+<p>users are healthcare practitioners (nurse, doctor, manager)</p>
+<ol style="list-style-type: decimal">
+<li>click button (label and position depends on product)</li>
+<li>select feedback type and other metadata</li>
+<li>feedback is sent, possibly anonymously</li>
+</ol>
+</div><div id="user-story-reviewing-feedback-from-ehr-apps" class="slide section level2">
+<h1>user story: reviewing feedback from EHR apps</h1>
+<p>users are AgileMD employees</p>
+<ol style="list-style-type: decimal">
+<li>manually parse JSON sent from EHR app to HIPAA compliant server
+<ul>
+<li>remove newlines, escaped characters, etc..</li>
+<li>replace ALLCAPS usernames</li>
+</ul></li>
+<li>write SQL queries to fetch patient, session, and practitioner information</li>
+<li>copy information to Google spreadsheet shared with customers</li>
+</ol>
+<p><strong>in need of automation!</strong></p>
+<pre><code>{
+  &quot;user&quot;: &quot;TAHANI, G&quot;,
+  &quot;app&quot;: &quot;flowchart&quot;,
+  &quot;context&quot;: { ... },
+  &quot;comment&quot;: &quot;more\nflowcharts&quot;,
+  &quot;type&quot;: &quot;suggestion&quot;
+}</code></pre>
+</div><div id="improved-user-story" class="slide section level2">
+<h1>improved user story</h1>
+<p>users are AgileMD employees</p>
+<ol style="list-style-type: decimal">
+<li>go to <code>customer-name.agilemd.com/feedback</code></li>
+<li>view and export feedback. can filter or sort by various fields.
+<ul>
+<li>practitioner name</li>
+<li>flowchart name</li>
+<li>app name</li>
+<li>time sent (can also change which timezone timestamps are displayed in)</li>
+<li>most information that would go in a spreadsheet shared with customer</li>
+</ul></li>
+<li>view more information about an individual feedback item, e.g. session information</li>
+<li>easily copy row to Google spreadsheet shared with customers
+<ul>
+<li>or download CSV file</li>
+</ul></li>
+</ol>
+</div><div id="new-feedback-processing-backend" class="slide section level2">
+<h1>new feedback processing backend</h1>
+<h3 id="ehr-apps">EHR apps</h3>
+<ul>
+<li>send JSON to HIPAA compliant server, as before</li>
+<li>send JSON to <code>ehr-core</code></li>
+</ul>
+<h3 id="ehr-core"><code>ehr-core</code></h3>
+<ul>
+<li>a new package that should contain all NodeJS middleware common to all AgileMD products</li>
+<li>reduces code duplication</li>
+<li>transforms JSON to FHIR Communication object</li>
+<li>FHIR Communication object is sent to postgres database</li>
+</ul>
+</div><div id="fhir" class="slide section level2">
+<h1>FHIR</h1>
+<ul>
+<li>FHIR objects are just JSON with a certain structure as described in HL7’s FHIR specification</li>
+<li>example objects: Appointment, Observation, Patient, Practitioner, Medication, Communication</li>
+<li>example Communication:</li>
+</ul>
+<pre><code>{
+  status: &quot;in-progress&quot;,
+  meta: {
+    tag: [
+      { system: &quot;practitioner-id&quot;, code: &quot;1487513914&quot; }
+      { system: &quot;app&quot;, code: &quot;flowchart&quot; }
+      { system: &quot;flowchart-id&quot;, code: &quot;6714189571&quot; }
+    ]
+  },
+  payload: {
+    content: {
+      contentString: &quot;sample comment&quot;,
+    }
+  }
+}</code></pre>
+</div><div id="new-feedback-viewer" class="slide section level2">
+<h1>new feedback viewer</h1>
+<ul>
+<li>table based browser</li>
+<li>pagination</li>
+<li>filter by app, type</li>
+<li>view all associated information for an individual feedback, e.g. practitioner name, session information, patient information
+<ul>
+<li>this information used to be queried manually</li>
+</ul></li>
+<li>other features</li>
+</ul>
+</div><div id="requirements-gathering" class="slide section level2">
+<h1>requirements gathering</h1>
+<ul>
+<li>collaborated on design of new architecture</li>
+<li>discussed features and visual design with product manager</li>
+<li>insured tools compatible with existing developer knowledge
+<ul>
+<li>a greenfield project!</li>
+</ul></li>
+</ul>
+</div><div id="feedback-sources" class="slide section level2">
+<h1>feedback sources</h1>
+<ul>
+<li>IE8</li>
+<li>EHR apps implemented using
+<ul>
+<li>ES3 (difficult to debug)</li>
+<li>React 14, compatible with IE8</li>
+<li>Babel</li>
+</ul></li>
+</ul>
+</div><div id="feedback-viewer-client-server" class="slide section level2">
+<h1>feedback viewer client-server</h1>
+<ul>
+<li>followed strict visual design and user experience requirements</li>
+<li>provides lots of useful features to save the non-technical team at AgileMD lots of time</li>
+<li>frontend
+<ul>
+<li>ES6</li>
+<li>SCSS, fontawesome</li>
+<li>React 16</li>
+<li>latest version of Redux</li>
+<li>lots of NPM libraries</li>
+<li>internal libraries</li>
+</ul></li>
+<li>backend
+<ul>
+<li>NodeJS</li>
+<li>internal libraries for accessing vault (postgres database)</li>
+</ul></li>
+<li>similar architecture as AgileMD’s other apps</li>
+<li>webpack compilation with hot module reloading compatible with client-server
+<ul>
+<li>appropriate optimizations, lots of bells and whistles</li>
+</ul></li>
+</ul>
+</div><div id="feedback-storage-in-vault" class="slide section level2">
+<h1>feedback storage in vault</h1>
+<ul>
+<li>NodeJS server</li>
+<li>sequelize connected to a postgres databse</li>
+<li>FHIR objects are stored as JSONB objects in postgres</li>
+<li>augmented our FHIR server to support more complex searching
+<ul>
+<li>disjunctive-queries and conjunctive-queries for certain keys</li>
+<li>e.g. get me all <code>suggestions</code> sent from app <code>X</code></li>
+</ul></li>
+</ul>
+</div><div id="results" class="slide section level2">
+<h1>results</h1>
+<h3 id="useful">useful</h3>
+<ul>
+<li>in-use at all customer sites</li>
+<li>feedback viewer saves AgileMD’s non-technical employees a lot time</li>
+<li>easier to copy-and-paste to spreadsheets shared with customers</li>
+<li>will eventually be used by external customers so spreadsheets will be unneeded
+<ul>
+<li>also more possible to convert to CSV or whatever format a customer might desire</li>
+</ul></li>
+</ul>
+<h3 id="extensible-maintainable">extensible, maintainable</h3>
+<ul>
+<li>well-structured code similar to other AgileMD apps</li>
+<li>good README and comments for tricky/obscure-looking parts of code</li>
+<li>documentation for publicly available functions and middleware</li>
+</ul>
+</div><div id="section" class="slide section level2">
+<h1></h1>
+<p>thank you!</p>
+</div><div id="why-this-project" class="slide section level2">
+<h1>why this project?</h1>
+<ul>
+<li>fullstack project</li>
+<li>real work to figure out what I needed to do</li>
+<li>real work to do it and test it</li>
+<li>real impact</li>
+<li>relevant technology
+<ul>
+<li>best possible tools for modern web-development</li>
+<li>used domain specific tools for healthcare and AgileMD</li>
+<li>HIPAA COMPLIANT, also strict code reviews because my code had read-write access to patient data at numerous hospitals</li>
+</ul></li>
+<li>high stakes! AgileMD’s customer contracts don’t protect them from lawsuits caused by faulty software</li>
+</ul>
+<p>non-challenging technical problems</p>
+</div>
+</body>
+</html>
