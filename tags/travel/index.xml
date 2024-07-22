@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Travel on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/travel/</link>
+    <description>Recent content in Travel on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 13 Sep 2019 12:27:51 -0700</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/travel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The World&#39;s Best Unbuilt Bike Trail</title>
+      <link>//localhost:1313/posts/bay-area-trail/</link>
+      <pubDate>Fri, 13 Sep 2019 12:27:51 -0700</pubDate>
+      <guid>//localhost:1313/posts/bay-area-trail/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>Photography</title>
+      <link>//localhost:1313/photography/</link>
+      <pubDate>Fri, 13 Sep 2019 11:49:22 -0700</pubDate>
+      <guid>//localhost:1313/photography/</guid>
+      <description>I enjoy being outdoors. See some of the pictures I take on Instagram @hugooriverapix.</description>
+    </item>
+    <item>
+      <title>Geography: A Travel Wishlist</title>
+      <link>//localhost:1313/travel/geography/</link>
+      <pubDate>Fri, 13 Sep 2019 11:43:21 -0700</pubDate>
+      <guid>//localhost:1313/travel/geography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cities: A Travel Wishlist</title>
+      <link>//localhost:1313/travel/cities/</link>
+      <pubDate>Fri, 13 Sep 2019 11:39:27 -0700</pubDate>
+      <guid>//localhost:1313/travel/cities/</guid>
+      <description>A travel wishlist&#xA;Portland, OR Los Angelos, CA Austin, TX Denver, CO New York, NY Seoul Hong Kong Cd. México Reykjavík Paris Lived, Worked, Studied in San Francisco, CA San Mateo, CA Mountain View, CA Santa Fe, NM Socorro, NM </description>
+    </item>
+  </channel>
+</rss>

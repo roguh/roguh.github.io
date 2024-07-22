@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python Type Hints on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/python-type-hints/</link>
+    <description>Recent content in Python Type Hints on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/python-type-hints/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Type Hints</title>
+      <link>//localhost:1313/tutorials/python_type_hints/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/python_type_hints/</guid>
+      <description>TODO</description>
+    </item>
+  </channel>
+</rss>

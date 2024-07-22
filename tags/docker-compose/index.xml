@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Compose on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/docker-compose/</link>
+    <description>Recent content in Docker Compose on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Containers</title>
+      <link>//localhost:1313/tutorials/containers/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/containers/</guid>
+      <description>Containers Python Rust Benefits Consideration Image vs Container Consequences Managing Multiple containers Kubernetes My kub tutorial and how to interact with Kubernetes clusters.&#xA;Docker compose link</description>
+    </item>
+    <item>
+      <title>Docker Compose</title>
+      <link>//localhost:1313/tutorials/docker_compose/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/docker_compose/</guid>
+      <description>Containers LINK&#xA;Docker Compose Short example docker-compose.yml file up container ls exec More complex setups Multiple YAML files Dynamically generating a Docker compose file Cleaning rm TODO More example docker-compose.yml files Kubernetes My kub tutorial and how to interact with Kubernetes clusters.</description>
+    </item>
+  </channel>
+</rss>

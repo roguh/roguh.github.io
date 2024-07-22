@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on roguh&#39;s website</title>
+    <link>//localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on roguh&#39;s website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Containers</title>
+      <link>//localhost:1313/tutorials/containers/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/containers/</guid>
+      <description>Containers Python Rust Benefits Consideration Image vs Container Consequences Managing Multiple containers Kubernetes My kub tutorial and how to interact with Kubernetes clusters.&#xA;Docker compose link</description>
+    </item>
+    <item>
+      <title>Docker Compose</title>
+      <link>//localhost:1313/tutorials/docker_compose/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/docker_compose/</guid>
+      <description>Containers LINK&#xA;Docker Compose Short example docker-compose.yml file up container ls exec More complex setups Multiple YAML files Dynamically generating a Docker compose file Cleaning rm TODO More example docker-compose.yml files Kubernetes My kub tutorial and how to interact with Kubernetes clusters.</description>
+    </item>
+    <item>
+      <title>Interacting with a Kubernetes Cluster</title>
+      <link>//localhost:1313/tutorials/interacting_k8s/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/interacting_k8s/</guid>
+      <description>Containers containers&#xA;Docker Compose Kubernetes Experimenting Minikube TODO example project Kubectl Listing objects: get pods|deployments|daemonsets|svc|nodes|TODOGETALLTYPES More information, alternate formats: get -o=wide, get -o=json Show more information: describe pod|nodes|svc|deployments|TODO Namespaces: -n NAMESPACE, --SETNAMESPACETODO Debugging Showing logs: logs Port forwarding: port-forward svc|pod NAME TODOHOSTPORT:PORT Executing a command within a container: exec, exec -it POD -- COMMAND Resource consumption: top Copying files to host: cp POD:PATH LOCALPATH Tab completion Aliases Abbreviations in Fish shell Managing Multiple configuration files Showing current cluster In Starship.</description>
+    </item>
+    <item>
+      <title>What is Kubernetes?</title>
+      <link>//localhost:1313/tutorials/k8s/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tutorials/k8s/</guid>
+      <description>See my overview of how to interact with a Kubernetes cluster&#xA;Containers containers&#xA;Kubernetes Container Pod Groups of Pods: Deployment, Daemonset, TODO Services Node Cluster HTTP API </description>
+    </item>
+  </channel>
+</rss>
